@@ -53,7 +53,9 @@
   </ItemGroup>
   <ItemGroup>
     <Report Include="ReporteTest.rdl" />
+    <Report Include="RepPermisosDetalle.rdl" />
     <Report Include="RepPlanificacionVacaciones.rdl" />
+    <Report Include="RepSolicitudPermiso.rdl" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />
 </Project>
