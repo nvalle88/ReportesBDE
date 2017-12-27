@@ -52,6 +52,7 @@
     <DataSource Include="ZeusBDE.rds" />
   </ItemGroup>
   <ItemGroup>
+    <Report Include="RepAreaServidorCausaCesacionFunciones.rdl" />
     <Report Include="RepEstadisticoGrupoFuncional.rdl" />
     <Report Include="RepIndividualSolicitudVacaciones.rdl" />
     <Report Include="ReporteTest.rdl" />
