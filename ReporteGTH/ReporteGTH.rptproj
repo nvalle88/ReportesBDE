@@ -57,8 +57,10 @@
     <Report Include="RepDatosPersonalesCandidato.rdl" />
     <Report Include="RepEstadisticasIngresoPersonalPeriodoCorte.rdl" />
     <Report Include="RepEstadisticoGrupoFuncional.rdl" />
-    <Report Include="RepFormularioRegistroDatosPersonalesEmpleado.rdl" />
+    <Report Include="RepFormularioDatosPersonalesEmpleado.rdl" />
     <Report Include="RepIndividualSolicitudVacaciones.rdl" />
+    <Report Include="RepManualPuestoSegunPerfil.rdl" />
+    <Report Include="Report1.rdl" />
     <Report Include="ReporteTest.rdl" />
     <Report Include="RepParticipacionEventoInduccion.rdl" />
     <Report Include="RepPermisosDetalle.rdl" />

@@ -33,8 +33,12 @@
           <DataField>Identificacion</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="NombresApellidosEmpleado">
-          <DataField>NombresApellidosEmpleado</DataField>
+        <Field Name="ApellidosEmpleado">
+          <DataField>ApellidosEmpleado</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NombresEmpleado">
+          <DataField>NombresEmpleado</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="RolEmpleado">
@@ -419,7 +423,7 @@
             </ChartNoDataMessage>
             <DataSetName>EstadísticasIngresosPersonalNuevoPorPeriodosCorte</DataSetName>
             <Top>2.6351cm</Top>
-            <Left>7.80995cm</Left>
+            <Left>7.62474cm</Left>
             <Height>5cm</Height>
             <Width>10.54271cm</Width>
             <Style>
@@ -436,7 +440,7 @@
             <Value>logobde</Value>
             <Sizing>FitProportional</Sizing>
             <Top>0.64136cm</Top>
-            <Left>1.82249cm</Left>
+            <Left>1.76891cm</Left>
             <Height>0.73556in</Height>
             <Width>0.98425in</Width>
             <ZIndex>1</ZIndex>
@@ -466,7 +470,7 @@
             </Paragraphs>
             <rd:DefaultName>textbox1</rd:DefaultName>
             <Top>0.75223cm</Top>
-            <Left>6.98344cm</Left>
+            <Left>5.45516cm</Left>
             <Height>0.28417in</Height>
             <Width>4.8368in</Width>
             <ZIndex>2</ZIndex>
@@ -504,10 +508,13 @@
                 <TablixColumn>
                   <Width>2.5cm</Width>
                 </TablixColumn>
+                <TablixColumn>
+                  <Width>2.5cm</Width>
+                </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.6cm</Height>
+                  <Height>0.57354cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -518,7 +525,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Identificacion</Value>
+                                  <Value>Identificación</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -554,7 +561,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Nombres Apellidos Empleado</Value>
+                                  <Value>Apellidos </Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -583,6 +590,42 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <Textbox Name="Textbox2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Nombres </Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
                         <Textbox Name="Textbox12">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -590,7 +633,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Rol Empleado</Value>
+                                  <Value>Rol</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -626,7 +669,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Telefono Privado</Value>
+                                  <Value>Nº Celular</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -662,7 +705,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Telefono Trabajo</Value>
+                                  <Value>Telef. Trabajo</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -698,7 +741,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Extension</Value>
+                                  <Value>Extensión</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -770,7 +813,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Fecha Ingreso Empleado</Value>
+                                  <Value>Fecha Ingreso </Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -839,14 +882,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="NombresApellidosEmpleado">
+                        <Textbox Name="ApellidosEmpleado">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!NombresApellidosEmpleado.Value</Value>
+                                  <Value>=Fields!ApellidosEmpleado.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -858,7 +901,42 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>NombresApellidosEmpleado</rd:DefaultName>
+                          <rd:DefaultName>ApellidosEmpleado</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="NombresEmpleado">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!NombresEmpleado.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>NombresEmpleado</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -1096,6 +1174,7 @@
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -1109,10 +1188,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>EstadísticasIngresosPersonalNuevoPorPeriodosCorte</DataSetName>
-            <Top>8.76602cm</Top>
-            <Left>4.16594cm</Left>
-            <Height>1.2cm</Height>
-            <Width>20cm</Width>
+            <Top>8.3956cm</Top>
+            <Left>1.76891cm</Left>
+            <Height>1.17354cm</Height>
+            <Width>22.5cm</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -1124,7 +1203,7 @@
         <Height>3.92363in</Height>
         <Style />
       </Body>
-      <Width>9.56375in</Width>
+      <Width>9.71715in</Width>
       <Page>
         <PageHeight>21cm</PageHeight>
         <PageWidth>29.7cm</PageWidth>
