@@ -10,6 +10,23 @@
     </DataSource>
   </DataSources>
   <DataSets>
+    <DataSet Name="Proceso">
+      <Query>
+        <DataSourceName>ZeusBDE</DataSourceName>
+        <CommandText>SELECT        IdProceso, Nombre
+FROM            Proceso</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="IdProceso">
+          <DataField>IdProceso</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Nombre">
+          <DataField>Nombre</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
     <DataSet Name="InformacionIndiceOcupacionalDependenciaSuperior">
       <Query>
         <DataSourceName>ZeusBDE</DataSourceName>
@@ -184,6 +201,7 @@
                 <TablixMember />
               </TablixMembers>
             </TablixRowHierarchy>
+            <DataSetName>InformacionIndiceOcupacionalDependenciaSuperior</DataSetName>
             <Top>3.00426cm</Top>
             <Left>0.00001cm</Left>
             <Height>1.2cm</Height>
@@ -202,13 +220,13 @@
                   <Width>6.15575cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.14492cm</Width>
+                  <Width>5.54719cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>3.135cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.96785cm</Width>
+                  <Width>1.56556cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -395,6 +413,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>=switch(Fields!IdOrden.Value=1,"Silver", Fields!IdOrden.Value=2, "WhiteSmoke")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -430,6 +449,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>=switch(Fields!IdOrden.Value=1,"Silver", Fields!IdOrden.Value=2, "WhiteSmoke")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -465,6 +485,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>=switch(Fields!IdOrden.Value=1,"Silver", Fields!IdOrden.Value=2, "WhiteSmoke")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -500,6 +521,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>=switch(Fields!IdOrden.Value=1,"Silver", Fields!IdOrden.Value=2, "WhiteSmoke")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -531,10 +553,19 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>InformacionIndiceOcupacionalDependenciaSuperior</DataSetName>
+            <Filters>
+              <Filter>
+                <FilterExpression>=Fields!IdProceso.Value</FilterExpression>
+                <Operator>In</Operator>
+                <FilterValues>
+                  <FilterValue>=Parameters!IdProceso.Value</FilterValue>
+                </FilterValues>
+              </Filter>
+            </Filters>
             <Top>4.57412cm</Top>
             <Left>0.00001cm</Left>
-            <Height>1.86146cm</Height>
-            <Width>16.40352cm</Width>
+            <Height>1.86145cm</Height>
+            <Width>16.4035cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -559,10 +590,31 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="IdProceso">
+      <DataType>Integer</DataType>
+      <Prompt>Proceso</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Proceso</DataSetName>
+          <ValueField>IdProceso</ValueField>
+          <LabelField>Nombre</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+  </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>4</NumberOfColumns>
       <NumberOfRows>2</NumberOfRows>
+      <CellDefinitions>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>IdProceso</ParameterName>
+        </CellDefinition>
+      </CellDefinitions>
     </GridLayoutDefinition>
   </ReportParametersLayout>
   <EmbeddedImages>
