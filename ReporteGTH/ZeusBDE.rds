@@ -2,7 +2,7 @@
 <RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="ZeusBDE">
   <ConnectionProperties>
     <Extension>SQL</Extension>
-    <ConnectString>workstation id=zeusbde.mssql.somee.com;packet size=4096;user id=zeusbde_SQLLogin_1;pwd=g4x4zfepq6;data source=zeusbde.mssql.somee.com;persist security info=False;initial catalog=zeusbde </ConnectString>
+    <ConnectString>Data Source=52.179.5.23;Initial Catalog=zeusbde;Packet Size=4096;Workstation ID=zeusbde.mssql.somee.com</ConnectString>
   </ConnectionProperties>
   <DataSourceID>8be4fbee-a055-4c2d-a58a-78ebeaee80fb</DataSourceID>
 </RptDataSource>

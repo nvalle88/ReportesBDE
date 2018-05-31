@@ -95,7 +95,7 @@
     <DataSet Name="GrupoFuncional">
       <Query>
         <DataSourceName>ZeusBDE</DataSourceName>
-        <CommandText>select g.IdGrupoOcupacional id_ , g.Nombre nom_ 
+        <CommandText>select g.IdGrupoOcupacional id_ , g.TipoEscala nom_ 
 from GrupoOcupacional as g
 union
 select null, 'Todos' </CommandText>
