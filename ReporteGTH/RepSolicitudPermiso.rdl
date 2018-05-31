@@ -86,7 +86,6 @@
             <Value>logobde</Value>
             <Sizing>FitProportional</Sizing>
             <Top>0.05291cm</Top>
-            <Left>0cm</Left>
             <Height>0.73556in</Height>
             <Width>1.34027in</Width>
             <Style>
@@ -147,7 +146,6 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>1.95651cm</Top>
-            <Left>0cm</Left>
             <Height>0.6cm</Height>
             <Width>4.37445cm</Width>
             <ZIndex>2</ZIndex>
@@ -211,7 +209,6 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>2.55651cm</Top>
-            <Left>0cm</Left>
             <Height>0.6cm</Height>
             <Width>6.86153cm</Width>
             <ZIndex>4</ZIndex>
@@ -275,7 +272,6 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>3.19178cm</Top>
-            <Left>0cm</Left>
             <Height>0.6cm</Height>
             <Width>2.04611cm</Width>
             <ZIndex>6</ZIndex>
@@ -407,7 +403,6 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>4.14499cm</Top>
-            <Left>0cm</Left>
             <Height>0.6cm</Height>
             <Width>3.87172cm</Width>
             <ZIndex>10</ZIndex>
@@ -428,7 +423,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=CStr(FormatDateTime(First(Fields!FechaDesde.Value, "Permiso"), DateFormat.ShortDate)) &amp; " " &amp; CStr(First(Fields!HoraDesde.Value, "Permiso"))</Value>
+                    <Value>=CStr(FormatDateTime(First(Fields!FechaHasta.Value, "Permiso"), DateFormat.ShortDate)) + " " + First(Fields!HoraDesde.Value, "Permiso")</Value>
                     <Style>
                       <Format>m</Format>
                     </Style>
