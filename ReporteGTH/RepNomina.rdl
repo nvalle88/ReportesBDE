@@ -991,13 +991,7 @@
   <ReportParameters>
     <ReportParameter Name="IdPeriodo">
       <DataType>Integer</DataType>
-      <DefaultValue>
-        <DataSetReference>
-          <DataSetName>Todos_Periodos</DataSetName>
-          <ValueField>IdPeriodo</ValueField>
-        </DataSetReference>
-      </DefaultValue>
-      <Prompt>Id Periodo</Prompt>
+      <Prompt>Periodo:</Prompt>
       <ValidValues>
         <DataSetReference>
           <DataSetName>Todos_Periodos</DataSetName>
