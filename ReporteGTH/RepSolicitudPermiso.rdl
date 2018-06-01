@@ -81,51 +81,6 @@
     <ReportSection>
       <Body>
         <ReportItems>
-          <Image Name="logobde">
-            <Source>Embedded</Source>
-            <Value>logobde</Value>
-            <Sizing>FitProportional</Sizing>
-            <Top>0.05291cm</Top>
-            <Height>0.73556in</Height>
-            <Width>1.34027in</Width>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-            </Style>
-          </Image>
-          <Textbox Name="textbox1">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Control de salida de personal en horas de oficina</Value>
-                    <Style>
-                      <FontFamily>Segoe UI Light</FontFamily>
-                      <FontSize>16pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>textbox1</rd:DefaultName>
-            <Left>3.907cm</Left>
-            <Height>0.7425in</Height>
-            <Width>4.45833in</Width>
-            <ZIndex>1</ZIndex>
-            <Style>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
           <Textbox Name="Textbox2">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -145,10 +100,9 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>1.95651cm</Top>
+            <Top>0.97756cm</Top>
             <Height>0.6cm</Height>
             <Width>4.37445cm</Width>
-            <ZIndex>2</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -174,11 +128,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>1.95651cm</Top>
+            <Top>0.97756cm</Top>
             <Left>4.40972cm</Left>
             <Height>0.57354cm</Height>
             <Width>9.71021cm</Width>
-            <ZIndex>3</ZIndex>
+            <ZIndex>1</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -208,10 +162,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>2.55651cm</Top>
+            <Top>1.71867cm</Top>
             <Height>0.6cm</Height>
-            <Width>6.86153cm</Width>
-            <ZIndex>4</ZIndex>
+            <Width>7.33776cm</Width>
+            <ZIndex>2</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -233,15 +187,17 @@
                     <Style />
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>2.58297cm</Top>
-            <Left>6.86153cm</Left>
+            <Top>1.71867cm</Top>
+            <Left>7.33776cm</Left>
             <Height>0.57354cm</Height>
-            <Width>9.71021cm</Width>
-            <ZIndex>5</ZIndex>
+            <Width>8.66954cm</Width>
+            <ZIndex>3</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -271,42 +227,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>3.19178cm</Top>
+            <Top>2.43332cm</Top>
             <Height>0.6cm</Height>
-            <Width>2.04611cm</Width>
-            <ZIndex>6</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox7">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=First(Fields!NombreDependencia.Value, "Permiso")</Value>
-                    <Style>
-                      <Format>m</Format>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>3.19178cm</Top>
-            <Left>2.04611cm</Left>
-            <Height>0.57354cm</Height>
-            <Width>3.59833cm</Width>
-            <ZIndex>7</ZIndex>
+            <Width>1.35818cm</Width>
+            <ZIndex>4</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -336,43 +260,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>3.15651cm</Top>
-            <Left>5.94431cm</Left>
+            <Top>2.45978cm</Top>
+            <Left>8.45783cm</Left>
             <Height>0.6cm</Height>
-            <Width>3.75708cm</Width>
-            <ZIndex>8</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox9">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=First(Fields!NombreTipoPermiso.Value, "Permiso")</Value>
-                    <Style>
-                      <Format>m</Format>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>3.15651cm</Top>
-            <Left>9.70139cm</Left>
-            <Height>0.57354cm</Height>
-            <Width>5.91785cm</Width>
-            <ZIndex>9</ZIndex>
+            <Width>2.80696cm</Width>
+            <ZIndex>5</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -402,10 +294,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>4.14499cm</Top>
+            <Top>3.20971cm</Top>
             <Height>0.6cm</Height>
             <Width>3.87172cm</Width>
-            <ZIndex>10</ZIndex>
+            <ZIndex>6</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -423,7 +315,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=CStr(FormatDateTime(First(Fields!FechaHasta.Value, "Permiso"), DateFormat.ShortDate)) + " " + First(Fields!HoraDesde.Value, "Permiso")</Value>
+                    <Value>=FormatDateTime(First(Fields!FechaDesde.Value, "Permiso"), DateFormat.ShortDate)</Value>
                     <Style>
                       <Format>m</Format>
                     </Style>
@@ -433,11 +325,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>4.15822cm</Top>
+            <Top>3.22294cm</Top>
             <Left>3.907cm</Left>
             <Height>0.57354cm</Height>
-            <Width>3.9952cm</Width>
-            <ZIndex>11</ZIndex>
+            <Width>2.05587cm</Width>
+            <ZIndex>7</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -467,43 +359,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>4.14499cm</Top>
-            <Left>7.9022cm</Left>
+            <Top>3.22294cm</Top>
+            <Left>8.28144cm</Left>
             <Height>0.6cm</Height>
-            <Width>4.35683cm</Width>
-            <ZIndex>12</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox13">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=CStr(FormatDateTime(First(Fields!FechaHasta.Value, "Permiso"), DateFormat.ShortDate)) &amp; " " &amp; CStr(First(Fields!HoraHasta.Value, "Permiso"))</Value>
-                    <Style>
-                      <Format>m</Format>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>4.17145cm</Top>
-            <Left>12.25903cm</Left>
-            <Height>0.57354cm</Height>
-            <Width>3.49249cm</Width>
-            <ZIndex>13</ZIndex>
+            <Width>4.64787cm</Width>
+            <ZIndex>8</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -529,11 +389,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox19</rd:DefaultName>
-            <Top>6.16162cm</Top>
-            <Left>2.74849cm</Left>
+            <Top>6.69079cm</Top>
+            <Left>1.29646cm</Left>
             <Height>0.6cm</Height>
             <Width>3.21438cm</Width>
-            <ZIndex>14</ZIndex>
+            <ZIndex>9</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -559,11 +419,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox19</rd:DefaultName>
-            <Top>6.16162cm</Top>
-            <Left>11.12368cm</Left>
+            <Top>6.69079cm</Top>
+            <Left>12.14674cm</Left>
             <Height>0.6cm</Height>
             <Width>3.21438cm</Width>
-            <ZIndex>15</ZIndex>
+            <ZIndex>10</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -575,11 +435,10 @@
             </Style>
           </Textbox>
           <Line Name="Line1">
-            <Top>8.93974cm</Top>
-            <Left>1.45203cm</Left>
+            <Top>9.46891cm</Top>
             <Height>0cm</Height>
             <Width>5.76792cm</Width>
-            <ZIndex>16</ZIndex>
+            <ZIndex>11</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -587,11 +446,11 @@
             </Style>
           </Line>
           <Line Name="Line2">
-            <Top>8.93974cm</Top>
-            <Left>9.78076cm</Left>
+            <Top>9.46891cm</Top>
+            <Left>10.80382cm</Left>
             <Height>0cm</Height>
             <Width>5.76792cm</Width>
-            <ZIndex>17</ZIndex>
+            <ZIndex>12</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -613,11 +472,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>NombresJefe</rd:DefaultName>
-            <Top>9.11613cm</Top>
-            <Left>9.78076cm</Left>
+            <Top>9.6453cm</Top>
+            <Left>10.80382cm</Left>
             <Height>1.20854cm</Height>
             <Width>5.76792cm</Width>
-            <ZIndex>18</ZIndex>
+            <ZIndex>13</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -643,11 +502,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>NombresJefe</rd:DefaultName>
-            <Top>9.11613cm</Top>
-            <Left>1.45203cm</Left>
+            <Top>9.6453cm</Top>
             <Height>1.20854cm</Height>
             <Width>5.76792cm</Width>
-            <ZIndex>19</ZIndex>
+            <ZIndex>14</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -677,10 +535,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>4.75381cm</Top>
+            <Top>3.95082cm</Top>
             <Height>0.6cm</Height>
             <Width>1.67568cm</Width>
-            <ZIndex>20</ZIndex>
+            <ZIndex>15</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -708,10 +566,166 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>4.76704cm</Top>
-            <Left>1.78151cm</Left>
+            <Top>3.9861cm</Top>
+            <Left>1.74624cm</Left>
             <Height>1.21819cm</Height>
             <Width>13.97001cm</Width>
+            <ZIndex>16</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox21">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!HoraDesde.Value, "Permiso")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox21</rd:DefaultName>
+            <Top>3.23617cm</Top>
+            <Left>5.96287cm</Left>
+            <Height>0.56031cm</Height>
+            <Width>1.516cm</Width>
+            <ZIndex>17</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="NombreTipoPermiso">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!NombreTipoPermiso.Value, "Permiso")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>NombreTipoPermiso</rd:DefaultName>
+            <Top>2.43332cm</Top>
+            <Left>11.26479cm</Left>
+            <Height>0.6cm</Height>
+            <Width>5.30695cm</Width>
+            <ZIndex>18</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="FechaSolicitud">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!FechaSolicitud.Value, "Permiso")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>FechaSolicitud</rd:DefaultName>
+            <Top>2.45978cm</Top>
+            <Left>1.35818cm</Left>
+            <Height>0.6cm</Height>
+            <Width>5.97958cm</Width>
+            <ZIndex>19</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox22">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!HoraHasta.Value, "Permiso")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox21</rd:DefaultName>
+            <Top>3.22294cm</Top>
+            <Left>15.05574cm</Left>
+            <Height>0.6cm</Height>
+            <Width>1.516cm</Width>
+            <ZIndex>20</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox13">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=FormatDateTime(First(Fields!FechaHasta.Value, "Permiso"), Microsoft.VisualBasic.DateFormat.ShortDate)</Value>
+                    <Style>
+                      <Format>m</Format>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox5</rd:DefaultName>
+            <Top>3.2494cm</Top>
+            <Left>12.99987cm</Left>
+            <Height>0.57354cm</Height>
+            <Width>2.05587cm</Width>
             <ZIndex>21</ZIndex>
             <Style>
               <Border>
@@ -724,11 +738,87 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>4.20833in</Height>
+        <Height>4.41667in</Height>
         <Style />
       </Body>
-      <Width>6.52431in</Width>
+      <Width>6.57639in</Width>
       <Page>
+        <PageHeader>
+          <Height>3.61457cm</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="textbox1">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Control de salida de personal en horas de </Value>
+                      <Style>
+                        <FontFamily>Segoe UI Light</FontFamily>
+                        <FontSize>16pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>oficina</Value>
+                      <Style>
+                        <FontFamily>Segoe UI Light</FontFamily>
+                        <FontSize>16pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>textbox1</rd:DefaultName>
+              <Top>0.30867cm</Top>
+              <Left>3.907cm</Left>
+              <Height>0.7425in</Height>
+              <Width>4.98612in</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Image Name="logobde">
+              <Source>Embedded</Source>
+              <Value>logobde</Value>
+              <Sizing>FitProportional</Sizing>
+              <Top>0.30867cm</Top>
+              <Height>0.73556in</Height>
+              <Width>1.46528in</Width>
+              <ZIndex>1</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+            </Image>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageHeader>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>
         <LeftMargin>2cm</LeftMargin>
