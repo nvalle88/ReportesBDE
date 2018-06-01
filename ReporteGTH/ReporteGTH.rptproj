@@ -63,6 +63,7 @@
     <Report Include="RepIndiceOcupacionalDependenciaSuperior.rdl" />
     <Report Include="RepIndividualSolicitudVacaciones.rdl" />
     <Report Include="RepMatr05PlanificacionTH.rdl" />
+    <Report Include="RepNomina.rdl" />
     <Report Include="Report1.rdl" />
     <Report Include="ReporteTest.rdl" />
     <Report Include="RepParticipacionEventoInduccion.rdl" />
