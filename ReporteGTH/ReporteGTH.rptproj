@@ -58,7 +58,6 @@
     <Report Include="RepDirectorioTelefonico.rdl" />
     <Report Include="RepEstadisticasIngresoPersonalPeriodoCorte.rdl" />
     <Report Include="RepEstadisticoGrupoFuncional.rdl" />
-    <Report Include="RepEvaluacionEvento.rdl" />
     <Report Include="RepFormularioDatosPersonalesEmpleado.rdl" />
     <Report Include="RepIndiceOcupacionalDependenciaSuperior.rdl" />
     <Report Include="RepIndividualSolicitudVacaciones.rdl" />
