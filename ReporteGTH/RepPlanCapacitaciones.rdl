@@ -32,6 +32,12 @@
           <QueryParameter Name="@Cedula">
             <Value>=Parameters!Cedula.Value</Value>
           </QueryParameter>
+          <QueryParameter Name="@TipoCapacitacion">
+            <Value>=Parameters!TipoCapacitacion.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Ubicacion">
+            <Value>=Parameters!Ubicacion.Value</Value>
+          </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
         <CommandText>spReportePlanCapacitaciones</CommandText>
@@ -77,6 +83,10 @@
           <DataField>FechaFin</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
+        <Field Name="ValorPresupuestoSucursal">
+          <DataField>ValorPresupuestoSucursal</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
         <Field Name="NombreEvento">
           <DataField>NombreEvento</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -93,9 +103,9 @@
           <DataField>TipoCapacitacion</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="ValorPresupuestoSucursal">
-          <DataField>ValorPresupuestoSucursal</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+        <Field Name="Ubicacion">
+          <DataField>Ubicacion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
     </DataSet>
@@ -188,6 +198,53 @@ order by ApellidoNombre</CommandText>
         </Field>
         <Field Name="NombresApellidos">
           <DataField>NombresApellidos</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="TipoCapacitacion">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandText>Select TipoCapacitacion,TipoCapacitacion As TipoCapacitaciones
+from PlanCapacitacion
+group by TipoCapacitacion
+union all
+
+select null, '&lt;Todos&gt;'
+
+order by TipoCapacitaciones</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="TipoCapacitacion">
+          <DataField>TipoCapacitacion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TipoCapacitaciones">
+          <DataField>TipoCapacitaciones</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Ubicacion">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandText>Select Ubicacion,Ubicacion As Ubicaciones
+from PlanCapacitacion
+group by Ubicacion
+
+union all
+
+select null, '&lt;Todos&gt;'
+
+order by Ubicaciones</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Ubicacion">
+          <DataField>Ubicacion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Ubicaciones">
+          <DataField>Ubicaciones</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
@@ -1195,7 +1252,7 @@ order by ApellidoNombre</CommandText>
             <Top>2.04545cm</Top>
             <Left>0.3175cm</Left>
             <Height>1.2cm</Height>
-            <Width>36.73333cm</Width>
+            <Width>36.73334cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1476,21 +1533,45 @@ order by ApellidoNombre</CommandText>
         </DataSetReference>
       </ValidValues>
     </ReportParameter>
+    <ReportParameter Name="TipoCapacitacion">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <Prompt>Tipo Capacitacion</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>TipoCapacitacion</DataSetName>
+          <ValueField>TipoCapacitacion</ValueField>
+          <LabelField>TipoCapacitaciones</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="Ubicacion">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <Prompt>Ubicacion</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Ubicacion</DataSetName>
+          <ValueField>Ubicacion</ValueField>
+          <LabelField>Ubicaciones</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>2</NumberOfColumns>
-      <NumberOfRows>3</NumberOfRows>
+      <NumberOfRows>4</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>2</RowIndex>
-          <ParameterName>NombreEvento</ParameterName>
+          <ParameterName>UnidadAdministrativa</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>2</RowIndex>
-          <ParameterName>NombreCiudad</ParameterName>
+          <ParameterName>Cedula</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
@@ -1505,12 +1586,22 @@ order by ApellidoNombre</CommandText>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>UnidadAdministrativa</ParameterName>
+          <ParameterName>NombreEvento</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>Cedula</ParameterName>
+          <ParameterName>NombreCiudad</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>3</RowIndex>
+          <ParameterName>TipoCapacitacion</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>3</RowIndex>
+          <ParameterName>Ubicacion</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>
