@@ -243,22 +243,50 @@ WHERE        (EvaluacionEvento.IdPlanCapacitacion = @IdPlanCapacitacion) AND
     <DataSet Name="Empleado">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
-        <CommandText>SELECT Identificacion,CONCAT(Nombres, ' ',Apellidos) as NombreApellido
-from Persona 
+        <QueryParameters>
+          <QueryParameter Name="@IdPlanCapacitacion">
+            <Value>=Parameters!IdPlanCapacitacion.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT Cedula,ApellidoNombre
+from PlanCapacitacion where IdPlanCapacitacion = @IdPlanCapacitacion 
 
 union all
 
 select null, '&lt;Todos&gt;'
 
-order by NombreApellido</CommandText>
+order by ApellidoNombre</CommandText>
       </Query>
       <Fields>
-        <Field Name="Identificacion">
-          <DataField>Identificacion</DataField>
+        <Field Name="Cedula">
+          <DataField>Cedula</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="NombreApellido">
-          <DataField>NombreApellido</DataField>
+        <Field Name="ApellidoNombre">
+          <DataField>ApellidoNombre</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="NombreVento">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandText>SELECT  IdPlanCapacitacion,NombreEvento
+from PlanCapacitacion
+
+union all
+
+select null, '&lt;Todos&gt;'
+
+order by NombreEvento</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="IdPlanCapacitacion">
+          <DataField>IdPlanCapacitacion</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="NombreEvento">
+          <DataField>NombreEvento</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
@@ -1081,16 +1109,23 @@ order by NombreApellido</CommandText>
   <ReportParameters>
     <ReportParameter Name="IdPlanCapacitacion">
       <DataType>Integer</DataType>
-      <Prompt>Id Plan Capacitacion</Prompt>
+      <Prompt>Nombre Evento</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>NombreVento</DataSetName>
+          <ValueField>IdPlanCapacitacion</ValueField>
+          <LabelField>NombreEvento</LabelField>
+        </DataSetReference>
+      </ValidValues>
     </ReportParameter>
     <ReportParameter Name="Identificacion">
       <DataType>String</DataType>
-      <Prompt>Identificacion</Prompt>
+      <Prompt>Nombre y Apellido</Prompt>
       <ValidValues>
         <DataSetReference>
           <DataSetName>Empleado</DataSetName>
-          <ValueField>Identificacion</ValueField>
-          <LabelField>NombreApellido</LabelField>
+          <ValueField>Cedula</ValueField>
+          <LabelField>ApellidoNombre</LabelField>
         </DataSetReference>
       </ValidValues>
     </ReportParameter>
