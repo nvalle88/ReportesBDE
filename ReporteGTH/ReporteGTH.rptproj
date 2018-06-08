@@ -55,14 +55,14 @@
     <Report Include="RepAreaServidorCausaCesacionFunciones.rdl" />
     <Report Include="RepCertificadoInduccion.rdl" />
     <Report Include="RepDatosPersonalesCandidato.rdl" />
-    <Report Include="RepEstadisticasIngresoPersonalPeriodoCorte.rdl" />
     <Report Include="RepDirectorioTelefonico.rdl" />
+    <Report Include="RepEstadisticasIngresoPersonalPeriodoCorte.rdl" />
     <Report Include="RepEstadisticoGrupoFuncional.rdl" />
     <Report Include="RepFormularioDatosPersonalesEmpleado.rdl" />
     <Report Include="RepIndiceOcupacionalDependenciaSuperior.rdl" />
     <Report Include="RepIndividualSolicitudVacaciones.rdl" />
-    <Report Include="Report1.rdl" />
     <Report Include="RepMatr05PlanificacionTH.rdl" />
+    <Report Include="Report1.rdl" />
     <Report Include="ReporteTest.rdl" />
     <Report Include="RepParticipacionEventoInduccion.rdl" />
     <Report Include="RepPermisosDetalle.rdl" />
@@ -70,6 +70,7 @@
     <Report Include="RepSolicitudPermiso.rdl" />
     <Report Include="RepSolicitudPermisoEmpleado.rdl" />
     <Report Include="RepSolicitudPermisoTotalHoras.rdl" />
+    <Report Include="repSolicitudVacacion.rdl" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />
 </Project>
