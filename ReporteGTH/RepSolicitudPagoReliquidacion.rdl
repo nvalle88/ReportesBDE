@@ -620,7 +620,6 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Arial</FontFamily>
-                      <FontWeight>Bold</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#000000</Color>
                     </Style>
@@ -659,9 +658,7 @@
                     <Style />
                   </TextRun>
                 </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
+                <Style />
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>NumeroPartidaPresupuestaria</rd:DefaultName>
@@ -1372,6 +1369,7 @@
     <ReportParameter Name="IdReliquidacionViatico">
       <DataType>Integer</DataType>
       <Prompt>Id Reliquidacion Viatico</Prompt>
+      <Hidden>true</Hidden>
     </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
