@@ -1186,7 +1186,7 @@ order by Nombre</CommandText>
               <Value>logobde</Value>
               <Sizing>FitProportional</Sizing>
               <Top>0.33583cm</Top>
-              <Left>3.175cm</Left>
+              <Left>1.905cm</Left>
               <Height>0.73556in</Height>
               <Width>2.0625in</Width>
               <Style>
@@ -1217,7 +1217,7 @@ order by Nombre</CommandText>
               </Paragraphs>
               <rd:DefaultName>textbox1</rd:DefaultName>
               <Top>0.33584cm</Top>
-              <Left>8.73252cm</Left>
+              <Left>14.76502cm</Left>
               <Height>0.73556in</Height>
               <Width>5.18826in</Width>
               <ZIndex>1</ZIndex>
