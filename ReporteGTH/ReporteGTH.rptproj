@@ -55,6 +55,7 @@
     <Report Include="RepAreaServidorCausaCesacionFunciones.rdl" />
     <Report Include="RepCertificadoInduccion.rdl" />
     <Report Include="RepDatosPersonalesCandidato.rdl" />
+    <Report Include="RepDesv14.rdl" />
     <Report Include="RepDirectorioTelefonico.rdl" />
     <Report Include="RepEstadisticasIngresoPersonalPeriodoCorte.rdl" />
     <Report Include="RepEstadisticoGrupoFuncional.rdl" />
@@ -64,7 +65,7 @@
     <Report Include="RepIndividualSolicitudVacaciones.rdl" />
     <Report Include="RepMatr05PlanificacionTH.rdl" />
     <Report Include="RepNomina.rdl" />
-    <Report Include="Report1.rdl" />
+    <Report Include="Report2.rdl" />
     <Report Include="ReporteTest.rdl" />
     <Report Include="RepParticipacionEventoInduccion.rdl" />
     <Report Include="RepPermisosDetalle.rdl" />
