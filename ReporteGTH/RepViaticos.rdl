@@ -6,129 +6,135 @@
     <DataSource Name="DataSource1">
       <DataSourceReference>ZeusBDE</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
-      <rd:DataSourceID>34b583b5-04cf-4a6e-b35e-676267c72c51</rd:DataSourceID>
+      <rd:DataSourceID>b7766c08-b4f2-4d14-a40b-2259c530c3ca</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="PlanCapacitacion">
+    <DataSet Name="ViaticosSolicitud">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
         <QueryParameters>
-          <QueryParameter Name="@NombreEvento">
-            <Value>=Parameters!NombreEvento.Value</Value>
+          <QueryParameter Name="@Identificacion">
+            <Value>=Parameters!Identificacion.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@NombreCiudad">
-            <Value>=Parameters!NombreCiudad.Value</Value>
+          <QueryParameter Name="@IdPais">
+            <Value>=Parameters!IdPais.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@FechaInicio">
-            <Value>=Parameters!FechaInicio.Value</Value>
+          <QueryParameter Name="@IdCiudad">
+            <Value>=Parameters!IdCiudad.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@FechaFin">
-            <Value>=Parameters!FechaFin.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@UnidadAdministrativa">
-            <Value>=Parameters!UnidadAdministrativa.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@Cedula">
-            <Value>=Parameters!Cedula.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@TipoCapacitacion">
-            <Value>=Parameters!TipoCapacitacion.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@Ubicacion">
-            <Value>=Parameters!Ubicacion.Value</Value>
+          <QueryParameter Name="@Dependencia">
+            <Value>=Parameters!Dependencia.Value</Value>
           </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
-        <CommandText>spReportePlanCapacitaciones</CommandText>
+        <CommandText>spReporteViaticos</CommandText>
       </Query>
       <Fields>
-        <Field Name="Institucion">
-          <DataField>Institucion</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="NombreCiudad">
-          <DataField>NombreCiudad</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="UnidadAdministrativa">
-          <DataField>UnidadAdministrativa</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="ApellidoNombre">
-          <DataField>ApellidoNombre</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="GrupoOcupacional">
-          <DataField>GrupoOcupacional</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="DenominacionPuesto">
-          <DataField>DenominacionPuesto</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Modalidad">
-          <DataField>Modalidad</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="FechaCapacitacionPlanificada">
-          <DataField>FechaCapacitacionPlanificada</DataField>
+        <Field Name="FechaSolicitud">
+          <DataField>FechaSolicitud</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="FechaInicio">
-          <DataField>FechaInicio</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="FechaFin">
-          <DataField>FechaFin</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="ValorPresupuestoSucursal">
-          <DataField>ValorPresupuestoSucursal</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
-        </Field>
-        <Field Name="NombreEvento">
-          <DataField>NombreEvento</DataField>
+        <Field Name="datos">
+          <DataField>datos</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="PresupuestoIndividual">
-          <DataField>PresupuestoIndividual</DataField>
+        <Field Name="IdSolicitudViatico">
+          <DataField>IdSolicitudViatico</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Estado">
+          <DataField>Estado</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Dependencia">
+          <DataField>Dependencia</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Transporte">
+          <DataField>Transporte</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Nombre">
+          <DataField>Nombre</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Descripcion">
+          <DataField>Descripcion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="fechaEntregaInforme">
+          <DataField>fechaEntregaInforme</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="FechaLlegada">
+          <DataField>FechaLlegada</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="IdInformeViatico">
+          <DataField>IdInformeViatico</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="IdReliquidacionViatico">
+          <DataField>IdReliquidacionViatico</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ValorSolicitud">
+          <DataField>ValorSolicitud</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-        <Field Name="ValorReal">
-          <DataField>ValorReal</DataField>
+        <Field Name="ValoInforme">
+          <DataField>ValoInforme</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-        <Field Name="TipoCapacitacion">
-          <DataField>TipoCapacitacion</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Ubicacion">
-          <DataField>Ubicacion</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+        <Field Name="ValorReliquidacion">
+          <DataField>ValorReliquidacion</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
       </Fields>
     </DataSet>
-    <DataSet Name="Evento">
+    <DataSet Name="Empleado">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
-        <CommandText>Select NombreEvento, NombreEvento As Evento
-from PlanCapacitacion
-GROUP BY NombreEvento
+        <CommandText>SELECT Identificacion,Nombres +' ' +Apellidos as datos
+from Persona 
 
 union all
 
 select null, '&lt;Todos&gt;'
 
-order by NombreEvento</CommandText>
+order by datos</CommandText>
       </Query>
       <Fields>
-        <Field Name="NombreEvento">
-          <DataField>NombreEvento</DataField>
+        <Field Name="Identificacion">
+          <DataField>Identificacion</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Evento">
-          <DataField>Evento</DataField>
+        <Field Name="datos">
+          <DataField>datos</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Pais">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandText>SELECT IdPais,Nombre
+from Pais
+
+union all
+
+select null, '&lt;Todos&gt;'
+
+order by Nombre</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="IdPais">
+          <DataField>IdPais</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Nombre">
+          <DataField>Nombre</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
@@ -136,115 +142,45 @@ order by NombreEvento</CommandText>
     <DataSet Name="Ciudad">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
-        <CommandText>Select NombreCiudad,NombreCiudad As Ciudad
-from PlanCapacitacion
-GROUP BY NombreCiudad
+        <CommandText>SELECT IdCiudad ,Nombre
+from Ciudad
+
 union all
 
 select null, '&lt;Todos&gt;'
 
-order by NombreCiudad</CommandText>
+order by Nombre</CommandText>
       </Query>
       <Fields>
-        <Field Name="NombreCiudad">
-          <DataField>NombreCiudad</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+        <Field Name="IdCiudad">
+          <DataField>IdCiudad</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="Ciudad">
-          <DataField>Ciudad</DataField>
+        <Field Name="Nombre">
+          <DataField>Nombre</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
     </DataSet>
-    <DataSet Name="UnidadAdministrativa">
+    <DataSet Name="AreaAdministrativa">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
-        <CommandText>Select UnidadAdministrativa,UnidadAdministrativa As Unidad
-from PlanCapacitacion
-GROUP BY UnidadAdministrativa
-union all
-
-select null, '&lt;Todos&gt;'
-
-order by UnidadAdministrativa</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="UnidadAdministrativa">
-          <DataField>UnidadAdministrativa</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Unidad">
-          <DataField>Unidad</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-    </DataSet>
-    <DataSet Name="Empleado">
-      <Query>
-        <DataSourceName>DataSource1</DataSourceName>
-        <CommandText>Select Cedula, ApellidoNombre As NombresApellidos
-from PlanCapacitacion
+        <CommandText>select Nombre ,Nombre As AreaAdministrativa
+from Dependencia 
 
 union all
 
 select null, '&lt;Todos&gt;'
 
-order by ApellidoNombre</CommandText>
+order by Nombre</CommandText>
       </Query>
       <Fields>
-        <Field Name="Cedula">
-          <DataField>Cedula</DataField>
+        <Field Name="Nombre">
+          <DataField>Nombre</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="NombresApellidos">
-          <DataField>NombresApellidos</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-    </DataSet>
-    <DataSet Name="TipoCapacitacion">
-      <Query>
-        <DataSourceName>DataSource1</DataSourceName>
-        <CommandText>Select TipoCapacitacion,TipoCapacitacion As TipoCapacitaciones
-from PlanCapacitacion
-group by TipoCapacitacion
-union all
-
-select null, '&lt;Todos&gt;'
-
-order by TipoCapacitaciones</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="TipoCapacitacion">
-          <DataField>TipoCapacitacion</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="TipoCapacitaciones">
-          <DataField>TipoCapacitaciones</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-    </DataSet>
-    <DataSet Name="Ubicacion">
-      <Query>
-        <DataSourceName>DataSource1</DataSourceName>
-        <CommandText>Select Ubicacion,Ubicacion As Ubicaciones
-from PlanCapacitacion
-group by Ubicacion
-
-union all
-
-select null, '&lt;Todos&gt;'
-
-order by Ubicaciones</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="Ubicacion">
-          <DataField>Ubicacion</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Ubicaciones">
-          <DataField>Ubicaciones</DataField>
+        <Field Name="AreaAdministrativa">
+          <DataField>AreaAdministrativa</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
@@ -254,20 +190,14 @@ order by Ubicaciones</CommandText>
     <ReportSection>
       <Body>
         <ReportItems>
-          <Tablix Name="Tablix2">
+          <Tablix Name="Tablix1">
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>3.74354cm</Width>
-                </TablixColumn>
-                <TablixColumn>
                   <Width>2.5cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.14042cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>2.5cm</Width>
+                  <Width>3.00271cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.5cm</Width>
@@ -279,10 +209,7 @@ order by Ubicaciones</CommandText>
                   <Width>2.5cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.5cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>2.5cm</Width>
+                  <Width>3.69062cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -291,14 +218,14 @@ order by Ubicaciones</CommandText>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox79">
+                        <Textbox Name="Textbox12">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Unidad Administrativa</Value>
+                                  <Value>Solicitud</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontWeight>Bold</FontWeight>
@@ -308,7 +235,7 @@ order by Ubicaciones</CommandText>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox79</rd:DefaultName>
+                          <rd:DefaultName>Textbox12</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -324,14 +251,14 @@ order by Ubicaciones</CommandText>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox87">
+                        <Textbox Name="Textbox20">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Funcionario</Value>
+                                  <Value>Valor solicitud</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontWeight>Bold</FontWeight>
@@ -341,7 +268,7 @@ order by Ubicaciones</CommandText>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox87</rd:DefaultName>
+                          <rd:DefaultName>Textbox20</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -357,14 +284,14 @@ order by Ubicaciones</CommandText>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox89">
+                        <Textbox Name="Textbox14">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Puesto</Value>
+                                  <Value>Informe</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontWeight>Bold</FontWeight>
@@ -374,7 +301,7 @@ order by Ubicaciones</CommandText>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox89</rd:DefaultName>
+                          <rd:DefaultName>Textbox14</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -390,14 +317,14 @@ order by Ubicaciones</CommandText>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox91">
+                        <Textbox Name="Textbox22">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Modalidad</Value>
+                                  <Value>Valor informe</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontWeight>Bold</FontWeight>
@@ -407,7 +334,7 @@ order by Ubicaciones</CommandText>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox91</rd:DefaultName>
+                          <rd:DefaultName>Textbox22</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -423,14 +350,14 @@ order by Ubicaciones</CommandText>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox93">
+                        <Textbox Name="Textbox16">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Fecha Capacitación Planificada</Value>
+                                  <Value>Reliquidación</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontWeight>Bold</FontWeight>
@@ -440,7 +367,7 @@ order by Ubicaciones</CommandText>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox93</rd:DefaultName>
+                          <rd:DefaultName>Textbox16</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -456,14 +383,14 @@ order by Ubicaciones</CommandText>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox95">
+                        <Textbox Name="Textbox24">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Fecha Inicio</Value>
+                                  <Value>Valor reliquidación</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontWeight>Bold</FontWeight>
@@ -473,106 +400,7 @@ order by Ubicaciones</CommandText>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox95</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox97">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Fecha Fin</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox97</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox99">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Valor Inicial</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox99</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox101">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Valor Real</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox101</rd:DefaultName>
+                          <rd:DefaultName>Textbox24</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -593,14 +421,49 @@ order by Ubicaciones</CommandText>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="UnidadAdministrativa">
+                        <Textbox Name="IdSolicitudViatico1">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!UnidadAdministrativa.Value</Value>
+                                  <Value>=IIF( Fields!IdSolicitudViatico.Value &lt;&gt; 0 ,"X"," ")</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>IdSolicitudViatico1</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="ValorSolicitud2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!ValorSolicitud.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                   </Style>
@@ -609,7 +472,7 @@ order by Ubicaciones</CommandText>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>UnidadAdministrativa</rd:DefaultName>
+                          <rd:DefaultName>ValorSolicitud2</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -625,14 +488,49 @@ order by Ubicaciones</CommandText>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="ApellidoNombre">
+                        <Textbox Name="IdInformeViatico">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!ApellidoNombre.Value</Value>
+                                  <Value>=IIF( Fields!IdInformeViatico.Value &lt;&gt; 0 ,"X"," ")</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>IdInformeViatico</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="ValoInforme1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!ValoInforme.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                   </Style>
@@ -641,7 +539,7 @@ order by Ubicaciones</CommandText>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>ApellidoNombre</rd:DefaultName>
+                          <rd:DefaultName>ValoInforme1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -657,28 +555,31 @@ order by Ubicaciones</CommandText>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="DenominacionPuesto">
+                        <Textbox Name="IdReliquidacionViatico">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!DenominacionPuesto.Value</Value>
+                                  <Value>=IIF( Fields!IdReliquidacionViatico.Value &lt;&gt; 0 ,"X"," ")</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>DenominacionPuesto</rd:DefaultName>
+                          <rd:DefaultName>IdReliquidacionViatico</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -689,14 +590,14 @@ order by Ubicaciones</CommandText>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Modalidad">
+                        <Textbox Name="ValorReliquidacion1">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Modalidad.Value</Value>
+                                  <Value>=Fields!ValorReliquidacion.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                   </Style>
@@ -705,170 +606,7 @@ order by Ubicaciones</CommandText>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Modalidad</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="FechaCapacitacionPlanificada">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!FechaCapacitacionPlanificada.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Format>d</Format>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>FechaCapacitacionPlanificada</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="FechaInicio">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!FechaInicio.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Format>d</Format>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>FechaInicio</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="FechaFin">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!FechaFin.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <Format>d</Format>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>FechaFin</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="PresupuestoIndividual">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!PresupuestoIndividual.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>PresupuestoIndividual</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="ValorReal">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!ValorReal.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>ValorReal</rd:DefaultName>
+                          <rd:DefaultName>ValorReliquidacion1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -894,27 +632,23 @@ order by Ubicaciones</CommandText>
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>2.5cm</Size>
+                    <Size>4.00875cm</Size>
                     <CellContents>
-                      <Textbox Name="Textbox109">
+                      <Textbox Name="Textbox37">
                         <CanGrow>true</CanGrow>
                         <KeepTogether>true</KeepTogether>
                         <Paragraphs>
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>Evento</Value>
+                                <Value>Area Administrativa</Value>
                                 <Style>
-                                  <FontFamily>Arial</FontFamily>
                                   <FontWeight>Bold</FontWeight>
                                 </Style>
                               </TextRun>
@@ -922,7 +656,7 @@ order by Ubicaciones</CommandText>
                             <Style />
                           </Paragraph>
                         </Paragraphs>
-                        <rd:DefaultName>Textbox109</rd:DefaultName>
+                        <rd:DefaultName>Textbox37</rd:DefaultName>
                         <Style>
                           <Border>
                             <Color>LightGrey</Color>
@@ -939,18 +673,17 @@ order by Ubicaciones</CommandText>
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>2.5cm</Size>
+                        <Size>7.60646cm</Size>
                         <CellContents>
-                          <Textbox Name="Textbox81">
+                          <Textbox Name="Textbox41">
                             <CanGrow>true</CanGrow>
                             <KeepTogether>true</KeepTogether>
                             <Paragraphs>
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>Institución</Value>
+                                    <Value>Empleado</Value>
                                     <Style>
-                                      <FontFamily>Arial</FontFamily>
                                       <FontWeight>Bold</FontWeight>
                                     </Style>
                                   </TextRun>
@@ -958,7 +691,7 @@ order by Ubicaciones</CommandText>
                                 <Style />
                               </Paragraph>
                             </Paragraphs>
-                            <rd:DefaultName>Textbox81</rd:DefaultName>
+                            <rd:DefaultName>Textbox41</rd:DefaultName>
                             <Style>
                               <Border>
                                 <Color>LightGrey</Color>
@@ -975,18 +708,17 @@ order by Ubicaciones</CommandText>
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>2.5cm</Size>
+                            <Size>3.50542cm</Size>
                             <CellContents>
-                              <Textbox Name="Textbox83">
+                              <Textbox Name="Textbox47">
                                 <CanGrow>true</CanGrow>
                                 <KeepTogether>true</KeepTogether>
                                 <Paragraphs>
                                   <Paragraph>
                                     <TextRuns>
                                       <TextRun>
-                                        <Value>Ciudad</Value>
+                                        <Value>Fecha Solicitud</Value>
                                         <Style>
-                                          <FontFamily>Arial</FontFamily>
                                           <FontWeight>Bold</FontWeight>
                                         </Style>
                                       </TextRun>
@@ -994,7 +726,7 @@ order by Ubicaciones</CommandText>
                                     <Style />
                                   </Paragraph>
                                 </Paragraphs>
-                                <rd:DefaultName>Textbox83</rd:DefaultName>
+                                <rd:DefaultName>Textbox47</rd:DefaultName>
                                 <Style>
                                   <Border>
                                     <Color>LightGrey</Color>
@@ -1011,18 +743,17 @@ order by Ubicaciones</CommandText>
                           <TablixMembers>
                             <TablixMember>
                               <TablixHeader>
-                                <Size>3.84938cm</Size>
+                                <Size>3.4525cm</Size>
                                 <CellContents>
-                                  <Textbox Name="Textbox85">
+                                  <Textbox Name="Textbox43">
                                     <CanGrow>true</CanGrow>
                                     <KeepTogether>true</KeepTogether>
                                     <Paragraphs>
                                       <Paragraph>
                                         <TextRuns>
                                           <TextRun>
-                                            <Value>Grupo Ocupacional</Value>
+                                            <Value>Numero solicitud</Value>
                                             <Style>
-                                              <FontFamily>Arial</FontFamily>
                                               <FontWeight>Bold</FontWeight>
                                             </Style>
                                           </TextRun>
@@ -1030,197 +761,7 @@ order by Ubicaciones</CommandText>
                                         <Style />
                                       </Paragraph>
                                     </Paragraphs>
-                                    <rd:DefaultName>Textbox85</rd:DefaultName>
-                                    <Style>
-                                      <Border>
-                                        <Color>LightGrey</Color>
-                                        <Style>Solid</Style>
-                                      </Border>
-                                      <PaddingLeft>2pt</PaddingLeft>
-                                      <PaddingRight>2pt</PaddingRight>
-                                      <PaddingTop>2pt</PaddingTop>
-                                      <PaddingBottom>2pt</PaddingBottom>
-                                    </Style>
-                                  </Textbox>
-                                </CellContents>
-                              </TablixHeader>
-                              <TablixMembers>
-                                <TablixMember />
-                              </TablixMembers>
-                            </TablixMember>
-                          </TablixMembers>
-                        </TablixMember>
-                      </TablixMembers>
-                    </TablixMember>
-                  </TablixMembers>
-                  <KeepWithGroup>After</KeepWithGroup>
-                </TablixMember>
-                <TablixMember>
-                  <Group Name="NombreEvento1">
-                    <GroupExpressions>
-                      <GroupExpression>=Fields!NombreEvento.Value</GroupExpression>
-                    </GroupExpressions>
-                  </Group>
-                  <SortExpressions>
-                    <SortExpression>
-                      <Value>=Fields!NombreEvento.Value</Value>
-                    </SortExpression>
-                  </SortExpressions>
-                  <TablixHeader>
-                    <Size>2.5cm</Size>
-                    <CellContents>
-                      <Textbox Name="NombreEvento11">
-                        <CanGrow>true</CanGrow>
-                        <KeepTogether>true</KeepTogether>
-                        <Paragraphs>
-                          <Paragraph>
-                            <TextRuns>
-                              <TextRun>
-                                <Value>=Fields!NombreEvento.Value</Value>
-                                <Style>
-                                  <FontFamily>Arial</FontFamily>
-                                </Style>
-                              </TextRun>
-                            </TextRuns>
-                            <Style />
-                          </Paragraph>
-                        </Paragraphs>
-                        <rd:DefaultName>NombreEvento11</rd:DefaultName>
-                        <Style>
-                          <Border>
-                            <Color>LightGrey</Color>
-                            <Style>Solid</Style>
-                          </Border>
-                          <PaddingLeft>2pt</PaddingLeft>
-                          <PaddingRight>2pt</PaddingRight>
-                          <PaddingTop>2pt</PaddingTop>
-                          <PaddingBottom>2pt</PaddingBottom>
-                        </Style>
-                      </Textbox>
-                    </CellContents>
-                  </TablixHeader>
-                  <TablixMembers>
-                    <TablixMember>
-                      <Group Name="Institucion">
-                        <GroupExpressions>
-                          <GroupExpression>=Fields!Institucion.Value</GroupExpression>
-                        </GroupExpressions>
-                      </Group>
-                      <SortExpressions>
-                        <SortExpression>
-                          <Value>=Fields!Institucion.Value</Value>
-                        </SortExpression>
-                      </SortExpressions>
-                      <TablixHeader>
-                        <Size>2.5cm</Size>
-                        <CellContents>
-                          <Textbox Name="Institucion1">
-                            <CanGrow>true</CanGrow>
-                            <KeepTogether>true</KeepTogether>
-                            <Paragraphs>
-                              <Paragraph>
-                                <TextRuns>
-                                  <TextRun>
-                                    <Value>=Fields!Institucion.Value</Value>
-                                    <Style>
-                                      <FontFamily>Arial</FontFamily>
-                                    </Style>
-                                  </TextRun>
-                                </TextRuns>
-                                <Style />
-                              </Paragraph>
-                            </Paragraphs>
-                            <rd:DefaultName>Institucion1</rd:DefaultName>
-                            <Style>
-                              <Border>
-                                <Color>LightGrey</Color>
-                                <Style>Solid</Style>
-                              </Border>
-                              <PaddingLeft>2pt</PaddingLeft>
-                              <PaddingRight>2pt</PaddingRight>
-                              <PaddingTop>2pt</PaddingTop>
-                              <PaddingBottom>2pt</PaddingBottom>
-                            </Style>
-                          </Textbox>
-                        </CellContents>
-                      </TablixHeader>
-                      <TablixMembers>
-                        <TablixMember>
-                          <Group Name="NombreCiudad">
-                            <GroupExpressions>
-                              <GroupExpression>=Fields!NombreCiudad.Value</GroupExpression>
-                            </GroupExpressions>
-                          </Group>
-                          <SortExpressions>
-                            <SortExpression>
-                              <Value>=Fields!NombreCiudad.Value</Value>
-                            </SortExpression>
-                          </SortExpressions>
-                          <TablixHeader>
-                            <Size>2.5cm</Size>
-                            <CellContents>
-                              <Textbox Name="NombreCiudad1">
-                                <CanGrow>true</CanGrow>
-                                <KeepTogether>true</KeepTogether>
-                                <Paragraphs>
-                                  <Paragraph>
-                                    <TextRuns>
-                                      <TextRun>
-                                        <Value>=Fields!NombreCiudad.Value</Value>
-                                        <Style>
-                                          <FontFamily>Arial</FontFamily>
-                                        </Style>
-                                      </TextRun>
-                                    </TextRuns>
-                                    <Style />
-                                  </Paragraph>
-                                </Paragraphs>
-                                <rd:DefaultName>NombreCiudad1</rd:DefaultName>
-                                <Style>
-                                  <Border>
-                                    <Color>LightGrey</Color>
-                                    <Style>Solid</Style>
-                                  </Border>
-                                  <PaddingLeft>2pt</PaddingLeft>
-                                  <PaddingRight>2pt</PaddingRight>
-                                  <PaddingTop>2pt</PaddingTop>
-                                  <PaddingBottom>2pt</PaddingBottom>
-                                </Style>
-                              </Textbox>
-                            </CellContents>
-                          </TablixHeader>
-                          <TablixMembers>
-                            <TablixMember>
-                              <Group Name="GrupoOcupacional">
-                                <GroupExpressions>
-                                  <GroupExpression>=Fields!GrupoOcupacional.Value</GroupExpression>
-                                </GroupExpressions>
-                              </Group>
-                              <SortExpressions>
-                                <SortExpression>
-                                  <Value>=Fields!GrupoOcupacional.Value</Value>
-                                </SortExpression>
-                              </SortExpressions>
-                              <TablixHeader>
-                                <Size>3.84938cm</Size>
-                                <CellContents>
-                                  <Textbox Name="GrupoOcupacional1">
-                                    <CanGrow>true</CanGrow>
-                                    <KeepTogether>true</KeepTogether>
-                                    <Paragraphs>
-                                      <Paragraph>
-                                        <TextRuns>
-                                          <TextRun>
-                                            <Value>=Fields!GrupoOcupacional.Value</Value>
-                                            <Style>
-                                              <FontFamily>Arial</FontFamily>
-                                            </Style>
-                                          </TextRun>
-                                        </TextRuns>
-                                        <Style />
-                                      </Paragraph>
-                                    </Paragraphs>
-                                    <rd:DefaultName>GrupoOcupacional1</rd:DefaultName>
+                                    <rd:DefaultName>Textbox43</rd:DefaultName>
                                     <Style>
                                       <Border>
                                         <Color>LightGrey</Color>
@@ -1236,7 +777,377 @@ order by Ubicaciones</CommandText>
                               </TablixHeader>
                               <TablixMembers>
                                 <TablixMember>
-                                  <Group Name="Detalles" />
+                                  <TablixHeader>
+                                    <Size>2.5cm</Size>
+                                    <CellContents>
+                                      <Textbox Name="Textbox51">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>Transporte</Value>
+                                                <Style>
+                                                  <FontFamily>Arial</FontFamily>
+                                                  <FontWeight>Bold</FontWeight>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style />
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>Textbox51</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Color>LightGrey</Color>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixHeader>
+                                  <TablixMembers>
+                                    <TablixMember>
+                                      <TablixHeader>
+                                        <Size>4.64313cm</Size>
+                                        <CellContents>
+                                          <Textbox Name="Textbox49">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>Fecha entrega informe</Value>
+                                                    <Style>
+                                                      <FontFamily>Arial</FontFamily>
+                                                      <FontWeight>Bold</FontWeight>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>Textbox49</rd:DefaultName>
+                                            <Style>
+                                              <Border>
+                                                <Color>LightGrey</Color>
+                                                <Style>Solid</Style>
+                                              </Border>
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixHeader>
+                                      <TablixMembers>
+                                        <TablixMember />
+                                      </TablixMembers>
+                                    </TablixMember>
+                                  </TablixMembers>
+                                </TablixMember>
+                              </TablixMembers>
+                            </TablixMember>
+                          </TablixMembers>
+                        </TablixMember>
+                      </TablixMembers>
+                    </TablixMember>
+                  </TablixMembers>
+                </TablixMember>
+                <TablixMember>
+                  <Group Name="Dependencia">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!Dependencia.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!Dependencia.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
+                  <TablixHeader>
+                    <Size>4.00875cm</Size>
+                    <CellContents>
+                      <Textbox Name="Dependencia1">
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>=Fields!Dependencia.Value</Value>
+                                <Style />
+                              </TextRun>
+                            </TextRuns>
+                            <Style>
+                              <TextAlign>Center</TextAlign>
+                            </Style>
+                          </Paragraph>
+                        </Paragraphs>
+                        <rd:DefaultName>Dependencia1</rd:DefaultName>
+                        <Style>
+                          <Border>
+                            <Color>LightGrey</Color>
+                            <Style>Solid</Style>
+                          </Border>
+                          <VerticalAlign>Middle</VerticalAlign>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
+                  <TablixMembers>
+                    <TablixMember>
+                      <Group Name="datos">
+                        <GroupExpressions>
+                          <GroupExpression>=Fields!datos.Value</GroupExpression>
+                        </GroupExpressions>
+                      </Group>
+                      <SortExpressions>
+                        <SortExpression>
+                          <Value>=Fields!datos.Value</Value>
+                        </SortExpression>
+                      </SortExpressions>
+                      <TablixHeader>
+                        <Size>7.60646cm</Size>
+                        <CellContents>
+                          <Textbox Name="datos1">
+                            <CanGrow>true</CanGrow>
+                            <KeepTogether>true</KeepTogether>
+                            <Paragraphs>
+                              <Paragraph>
+                                <TextRuns>
+                                  <TextRun>
+                                    <Value>=Fields!datos.Value</Value>
+                                    <Style />
+                                  </TextRun>
+                                </TextRuns>
+                                <Style>
+                                  <TextAlign>Center</TextAlign>
+                                </Style>
+                              </Paragraph>
+                            </Paragraphs>
+                            <rd:DefaultName>datos1</rd:DefaultName>
+                            <Style>
+                              <Border>
+                                <Color>LightGrey</Color>
+                                <Style>Solid</Style>
+                              </Border>
+                              <VerticalAlign>Middle</VerticalAlign>
+                              <PaddingLeft>2pt</PaddingLeft>
+                              <PaddingRight>2pt</PaddingRight>
+                              <PaddingTop>2pt</PaddingTop>
+                              <PaddingBottom>2pt</PaddingBottom>
+                            </Style>
+                          </Textbox>
+                        </CellContents>
+                      </TablixHeader>
+                      <TablixMembers>
+                        <TablixMember>
+                          <Group Name="FechaSolicitud">
+                            <GroupExpressions>
+                              <GroupExpression>=Fields!FechaSolicitud.Value</GroupExpression>
+                            </GroupExpressions>
+                          </Group>
+                          <SortExpressions>
+                            <SortExpression>
+                              <Value>=Fields!FechaSolicitud.Value</Value>
+                            </SortExpression>
+                          </SortExpressions>
+                          <TablixHeader>
+                            <Size>3.50542cm</Size>
+                            <CellContents>
+                              <Textbox Name="FechaSolicitud1">
+                                <CanGrow>true</CanGrow>
+                                <KeepTogether>true</KeepTogether>
+                                <Paragraphs>
+                                  <Paragraph>
+                                    <TextRuns>
+                                      <TextRun>
+                                        <Value>=Fields!FechaSolicitud.Value</Value>
+                                        <Style>
+                                          <Format>d</Format>
+                                        </Style>
+                                      </TextRun>
+                                    </TextRuns>
+                                    <Style>
+                                      <TextAlign>Center</TextAlign>
+                                    </Style>
+                                  </Paragraph>
+                                </Paragraphs>
+                                <rd:DefaultName>FechaSolicitud1</rd:DefaultName>
+                                <Style>
+                                  <Border>
+                                    <Color>LightGrey</Color>
+                                    <Style>Solid</Style>
+                                  </Border>
+                                  <VerticalAlign>Middle</VerticalAlign>
+                                  <PaddingLeft>2pt</PaddingLeft>
+                                  <PaddingRight>2pt</PaddingRight>
+                                  <PaddingTop>2pt</PaddingTop>
+                                  <PaddingBottom>2pt</PaddingBottom>
+                                </Style>
+                              </Textbox>
+                            </CellContents>
+                          </TablixHeader>
+                          <TablixMembers>
+                            <TablixMember>
+                              <Group Name="IdSolicitudViatico">
+                                <GroupExpressions>
+                                  <GroupExpression>=Fields!IdSolicitudViatico.Value</GroupExpression>
+                                </GroupExpressions>
+                              </Group>
+                              <SortExpressions>
+                                <SortExpression>
+                                  <Value>=Fields!IdSolicitudViatico.Value</Value>
+                                </SortExpression>
+                              </SortExpressions>
+                              <TablixHeader>
+                                <Size>3.4525cm</Size>
+                                <CellContents>
+                                  <Textbox Name="IdSolicitudViatico2">
+                                    <CanGrow>true</CanGrow>
+                                    <KeepTogether>true</KeepTogether>
+                                    <Paragraphs>
+                                      <Paragraph>
+                                        <TextRuns>
+                                          <TextRun>
+                                            <Value>=Fields!IdSolicitudViatico.Value</Value>
+                                            <Style />
+                                          </TextRun>
+                                        </TextRuns>
+                                        <Style>
+                                          <TextAlign>Center</TextAlign>
+                                        </Style>
+                                      </Paragraph>
+                                    </Paragraphs>
+                                    <rd:DefaultName>IdSolicitudViatico2</rd:DefaultName>
+                                    <Style>
+                                      <Border>
+                                        <Color>LightGrey</Color>
+                                        <Style>Solid</Style>
+                                      </Border>
+                                      <VerticalAlign>Middle</VerticalAlign>
+                                      <PaddingLeft>2pt</PaddingLeft>
+                                      <PaddingRight>2pt</PaddingRight>
+                                      <PaddingTop>2pt</PaddingTop>
+                                      <PaddingBottom>2pt</PaddingBottom>
+                                    </Style>
+                                  </Textbox>
+                                </CellContents>
+                              </TablixHeader>
+                              <TablixMembers>
+                                <TablixMember>
+                                  <Group Name="Transporte">
+                                    <GroupExpressions>
+                                      <GroupExpression>=Fields!Transporte.Value</GroupExpression>
+                                    </GroupExpressions>
+                                  </Group>
+                                  <SortExpressions>
+                                    <SortExpression>
+                                      <Value>=Fields!Transporte.Value</Value>
+                                    </SortExpression>
+                                  </SortExpressions>
+                                  <TablixHeader>
+                                    <Size>2.5cm</Size>
+                                    <CellContents>
+                                      <Textbox Name="Transporte">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=Fields!Transporte.Value</Value>
+                                                <Style />
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>Transporte</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Color>LightGrey</Color>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <VerticalAlign>Middle</VerticalAlign>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixHeader>
+                                  <TablixMembers>
+                                    <TablixMember>
+                                      <Group Name="fechaEntregaInforme">
+                                        <GroupExpressions>
+                                          <GroupExpression>=Fields!fechaEntregaInforme.Value</GroupExpression>
+                                        </GroupExpressions>
+                                      </Group>
+                                      <SortExpressions>
+                                        <SortExpression>
+                                          <Value>=Fields!fechaEntregaInforme.Value</Value>
+                                        </SortExpression>
+                                      </SortExpressions>
+                                      <TablixHeader>
+                                        <Size>4.64313cm</Size>
+                                        <CellContents>
+                                          <Textbox Name="fechaEntregaInforme">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>=Fields!fechaEntregaInforme.Value</Value>
+                                                    <Style>
+                                                      <FontFamily>Arial</FontFamily>
+                                                      <Format>d</Format>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style>
+                                                  <TextAlign>Center</TextAlign>
+                                                </Style>
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>fechaEntregaInforme</rd:DefaultName>
+                                            <Style>
+                                              <Border>
+                                                <Color>LightGrey</Color>
+                                                <Style>Solid</Style>
+                                              </Border>
+                                              <VerticalAlign>Middle</VerticalAlign>
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixHeader>
+                                      <TablixMembers>
+                                        <TablixMember>
+                                          <Group Name="Detalles" />
+                                        </TablixMember>
+                                      </TablixMembers>
+                                    </TablixMember>
+                                  </TablixMembers>
                                 </TablixMember>
                               </TablixMembers>
                             </TablixMember>
@@ -1248,160 +1159,25 @@ order by Ubicaciones</CommandText>
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <DataSetName>PlanCapacitacion</DataSetName>
-            <Top>2.04545cm</Top>
-            <Left>0.3175cm</Left>
+            <DataSetName>ViaticosSolicitud</DataSetName>
+            <Top>0.65828cm</Top>
+            <Left>1.905cm</Left>
             <Height>1.2cm</Height>
-            <Width>36.73334cm</Width>
+            <Width>42.40959cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
             </Style>
           </Tablix>
-          <Textbox Name="PresupuestoIndividual1">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Presupuesto Inicial</Value>
-                    <Style>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value xml:space="preserve">       </Value>
-                    <Style />
-                  </TextRun>
-                  <TextRun>
-                    <Value>=Sum(Fields!PresupuestoIndividual.Value, "PlanCapacitacion")</Value>
-                    <Style>
-                      <Format>'$' #,0.00;('$' #,0.00)</Format>
-                      <rd:FormatSymbolCulture>es-EC</rd:FormatSymbolCulture>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>PresupuestoIndividual1</rd:DefaultName>
-            <Top>3.87108cm</Top>
-            <Left>30.05292cm</Left>
-            <Height>0.6cm</Height>
-            <Width>6.99791cm</Width>
-            <ZIndex>1</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="PresupuestoIndividual2">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Presupuesto Ejecutado</Value>
-                    <Style>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value xml:space="preserve">   </Value>
-                    <Style />
-                  </TextRun>
-                  <TextRun>
-                    <Value>=Sum(Fields!ValorReal.Value, "PlanCapacitacion")</Value>
-                    <Style>
-                      <Format>'$' #,0.00;('$' #,0.00)</Format>
-                      <rd:FormatSymbolCulture>es-EC</rd:FormatSymbolCulture>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>PresupuestoIndividual1</rd:DefaultName>
-            <Top>4.92552cm</Top>
-            <Left>30.05292cm</Left>
-            <Height>0.6cm</Height>
-            <Width>6.99791cm</Width>
-            <ZIndex>2</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="PresupuestoIndividual3">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Presupuesto Disponible</Value>
-                    <Style>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value xml:space="preserve"> </Value>
-                    <Style>
-                      <Format>'$' #,0.00;('$' #,0.00)</Format>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value>=First(Fields!ValorPresupuestoSucursal.Value, "PlanCapacitacion") -Sum(Fields!ValorReal.Value, "PlanCapacitacion")</Value>
-                    <Style>
-                      <Format>'$' #,0.00;('$' #,0.00)</Format>
-                      <rd:FormatSymbolCulture>es-EC</rd:FormatSymbolCulture>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value xml:space="preserve"> </Value>
-                    <Style />
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>PresupuestoIndividual1</rd:DefaultName>
-            <Top>5.87802cm</Top>
-            <Left>30.05292cm</Left>
-            <Height>0.6cm</Height>
-            <Width>6.99791cm</Width>
-            <ZIndex>3</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
         </ReportItems>
-        <Height>2.69792in</Height>
+        <Height>2in</Height>
         <Style />
       </Body>
-      <Width>14.59227in</Width>
+      <Width>18.37402in</Width>
       <Page>
         <PageHeader>
-          <Height>2.76679cm</Height>
+          <Height>2.54cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -1409,8 +1185,8 @@ order by Ubicaciones</CommandText>
               <Source>Embedded</Source>
               <Value>logobde</Value>
               <Sizing>FitProportional</Sizing>
-              <Top>0.65333cm</Top>
-              <Left>8.89cm</Left>
+              <Top>0.33583cm</Top>
+              <Left>1.905cm</Left>
               <Height>0.73556in</Height>
               <Width>2.0625in</Width>
               <Style>
@@ -1426,7 +1202,7 @@ order by Ubicaciones</CommandText>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Reporte de capacitaciones </Value>
+                      <Value>Reporte de viaticos</Value>
                       <Style>
                         <FontFamily>Segoe UI Light</FontFamily>
                         <FontSize>24pt</FontSize>
@@ -1440,8 +1216,8 @@ order by Ubicaciones</CommandText>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>textbox1</rd:DefaultName>
-              <Top>0.65334cm</Top>
-              <Left>14.44752cm</Left>
+              <Top>0.33584cm</Top>
+              <Left>14.76502cm</Left>
               <Height>0.73556in</Height>
               <Width>5.18826in</Width>
               <ZIndex>1</ZIndex>
@@ -1475,85 +1251,51 @@ order by Ubicaciones</CommandText>
     </ReportSection>
   </ReportSections>
   <ReportParameters>
-    <ReportParameter Name="UnidadAdministrativa">
-      <DataType>String</DataType>
+    <ReportParameter Name="IdPais">
+      <DataType>Integer</DataType>
       <Nullable>true</Nullable>
-      <Prompt>Unidad Administrativa</Prompt>
+      <Prompt>Pais</Prompt>
       <ValidValues>
         <DataSetReference>
-          <DataSetName>UnidadAdministrativa</DataSetName>
-          <ValueField>UnidadAdministrativa</ValueField>
-          <LabelField>Unidad</LabelField>
+          <DataSetName>Pais</DataSetName>
+          <ValueField>IdPais</ValueField>
+          <LabelField>Nombre</LabelField>
         </DataSetReference>
       </ValidValues>
     </ReportParameter>
-    <ReportParameter Name="Cedula">
-      <DataType>String</DataType>
-      <Nullable>true</Nullable>
-      <Prompt>Funcionario</Prompt>
-      <ValidValues>
-        <DataSetReference>
-          <DataSetName>Empleado</DataSetName>
-          <ValueField>Cedula</ValueField>
-          <LabelField>NombresApellidos</LabelField>
-        </DataSetReference>
-      </ValidValues>
-    </ReportParameter>
-    <ReportParameter Name="FechaInicio">
-      <DataType>DateTime</DataType>
-      <Nullable>true</Nullable>
-      <Prompt>Fecha Inicio</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="FechaFin">
-      <DataType>DateTime</DataType>
-      <Nullable>true</Nullable>
-      <Prompt>Fecha Fin</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="NombreEvento">
-      <DataType>String</DataType>
-      <Nullable>true</Nullable>
-      <Prompt>Nombre Evento</Prompt>
-      <ValidValues>
-        <DataSetReference>
-          <DataSetName>Evento</DataSetName>
-          <ValueField>NombreEvento</ValueField>
-          <LabelField>Evento</LabelField>
-        </DataSetReference>
-      </ValidValues>
-    </ReportParameter>
-    <ReportParameter Name="NombreCiudad">
-      <DataType>String</DataType>
+    <ReportParameter Name="IdCiudad">
+      <DataType>Integer</DataType>
       <Nullable>true</Nullable>
       <Prompt>Ciudad</Prompt>
       <ValidValues>
         <DataSetReference>
           <DataSetName>Ciudad</DataSetName>
-          <ValueField>NombreCiudad</ValueField>
-          <LabelField>Ciudad</LabelField>
+          <ValueField>IdCiudad</ValueField>
+          <LabelField>Nombre</LabelField>
         </DataSetReference>
       </ValidValues>
     </ReportParameter>
-    <ReportParameter Name="TipoCapacitacion">
+    <ReportParameter Name="Identificacion">
       <DataType>String</DataType>
       <Nullable>true</Nullable>
-      <Prompt>Tipo Capacitacion</Prompt>
+      <Prompt>Empleado</Prompt>
       <ValidValues>
         <DataSetReference>
-          <DataSetName>TipoCapacitacion</DataSetName>
-          <ValueField>TipoCapacitacion</ValueField>
-          <LabelField>TipoCapacitaciones</LabelField>
+          <DataSetName>Empleado</DataSetName>
+          <ValueField>Identificacion</ValueField>
+          <LabelField>datos</LabelField>
         </DataSetReference>
       </ValidValues>
     </ReportParameter>
-    <ReportParameter Name="Ubicacion">
+    <ReportParameter Name="Dependencia">
       <DataType>String</DataType>
       <Nullable>true</Nullable>
-      <Prompt>Ubicacion</Prompt>
+      <Prompt>Area Administrativa</Prompt>
       <ValidValues>
         <DataSetReference>
-          <DataSetName>Ubicacion</DataSetName>
-          <ValueField>Ubicacion</ValueField>
-          <LabelField>Ubicaciones</LabelField>
+          <DataSetName>AreaAdministrativa</DataSetName>
+          <ValueField>Nombre</ValueField>
+          <LabelField>AreaAdministrativa</LabelField>
         </DataSetReference>
       </ValidValues>
     </ReportParameter>
@@ -1561,47 +1303,27 @@ order by Ubicaciones</CommandText>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>2</NumberOfColumns>
-      <NumberOfRows>4</NumberOfRows>
+      <NumberOfRows>3</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
-          <RowIndex>2</RowIndex>
-          <ParameterName>UnidadAdministrativa</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>1</ColumnIndex>
-          <RowIndex>2</RowIndex>
-          <ParameterName>Cedula</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
           <RowIndex>1</RowIndex>
-          <ParameterName>FechaInicio</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>1</ColumnIndex>
-          <RowIndex>1</RowIndex>
-          <ParameterName>FechaFin</ParameterName>
+          <ParameterName>IdPais</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>NombreEvento</ParameterName>
+          <ParameterName>IdCiudad</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>NombreCiudad</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>3</RowIndex>
-          <ParameterName>TipoCapacitacion</ParameterName>
+          <ParameterName>Identificacion</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>1</ColumnIndex>
-          <RowIndex>3</RowIndex>
-          <ParameterName>Ubicacion</ParameterName>
+          <RowIndex>1</RowIndex>
+          <ParameterName>Dependencia</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>
@@ -1628,5 +1350,5 @@ Nri21OWmpaKsVLU7DbxEruPQYsYnefpW3ijvuGCmKS8BSp+gWZQgmevcrg9sSRL0QgM2TL1MO9cuZp5j
     </EmbeddedImage>
   </EmbeddedImages>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>9049d7b0-1517-443c-89aa-feb60e424dcd</rd:ReportID>
+  <rd:ReportID>78a1cb35-f16c-4382-a13f-98f1b4440ea4</rd:ReportID>
 </Report>
