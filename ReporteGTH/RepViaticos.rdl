@@ -1202,7 +1202,7 @@ order by Nombre</CommandText>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Reporte de viaticos</Value>
+                      <Value>Reporte de viáticos</Value>
                       <Style>
                         <FontFamily>Segoe UI Light</FontFamily>
                         <FontSize>24pt</FontSize>
