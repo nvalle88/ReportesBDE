@@ -300,10 +300,10 @@ order by NombreEvento</CommandText>
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>22.52607cm</Width>
+                  <Width>12.47192cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.86018cm</Width>
+                  <Width>1.90225cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -393,7 +393,7 @@ order by NombreEvento</CommandText>
             <Top>3.64808cm</Top>
             <Left>1.00224cm</Left>
             <Height>0.6cm</Height>
-            <Width>26.38625cm</Width>
+            <Width>14.37418cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -404,10 +404,10 @@ order by NombreEvento</CommandText>
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>22.52607cm</Width>
+                  <Width>12.4719cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.86018cm</Width>
+                  <Width>1.90226cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -494,10 +494,10 @@ order by NombreEvento</CommandText>
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>Conocimiento</DataSetName>
-            <Top>6.05578cm</Top>
+            <Top>5.42078cm</Top>
             <Left>1.00225cm</Left>
             <Height>0.6cm</Height>
-            <Width>26.38625cm</Width>
+            <Width>14.37417cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -598,7 +598,7 @@ order by NombreEvento</CommandText>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox123</rd:DefaultName>
-            <Top>5.17116cm</Top>
+            <Top>4.53616cm</Top>
             <Left>1.00225cm</Left>
             <Height>0.6cm</Height>
             <Width>6.26307cm</Width>
@@ -631,9 +631,9 @@ order by NombreEvento</CommandText>
             </Paragraphs>
             <rd:DefaultName>FechaInicio</rd:DefaultName>
             <Top>0.44662cm</Top>
-            <Left>7.30456cm</Left>
+            <Left>7.26531cm</Left>
             <Height>0.6cm</Height>
-            <Width>3.95521cm</Width>
+            <Width>8.11111cm</Width>
             <ZIndex>5</ZIndex>
             <Style>
               <Border>
@@ -665,7 +665,7 @@ order by NombreEvento</CommandText>
             <Top>2.76345cm</Top>
             <Left>7.30456cm</Left>
             <Height>0.6cm</Height>
-            <Width>16.5913cm</Width>
+            <Width>8.07186cm</Width>
             <ZIndex>6</ZIndex>
             <Style>
               <Border>
@@ -698,7 +698,7 @@ order by NombreEvento</CommandText>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox123</rd:DefaultName>
-            <Top>7.16876cm</Top>
+            <Top>6.21626cm</Top>
             <Left>1.00225cm</Left>
             <Height>0.6cm</Height>
             <Width>6.26307cm</Width>
@@ -730,10 +730,10 @@ order by NombreEvento</CommandText>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Institucion1</rd:DefaultName>
-            <Top>8.38584cm</Top>
+            <Top>7.11584cm</Top>
             <Left>1.00224cm</Left>
-            <Height>1.31438cm</Height>
-            <Width>26.38624cm</Width>
+            <Height>0.78521cm</Height>
+            <Width>14.37418cm</Width>
             <ZIndex>8</ZIndex>
             <Style>
               <Border>
@@ -749,10 +749,10 @@ order by NombreEvento</CommandText>
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>22.52607cm</Width>
+                  <Width>12.47191cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.86017cm</Width>
+                  <Width>1.90225cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -842,7 +842,7 @@ order by NombreEvento</CommandText>
             <Top>1.45761cm</Top>
             <Left>1.00225cm</Left>
             <Height>0.6cm</Height>
-            <Width>26.38624cm</Width>
+            <Width>14.37417cm</Width>
             <ZIndex>9</ZIndex>
             <Style>
               <Border>
@@ -851,10 +851,10 @@ order by NombreEvento</CommandText>
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>4.11008in</Height>
+        <Height>3.28716in</Height>
         <Style />
       </Body>
-      <Width>11.76712in</Width>
+      <Width>6.97545in</Width>
       <Page>
         <PageHeader>
           <Height>4.28625cm</Height>
@@ -871,7 +871,7 @@ order by NombreEvento</CommandText>
                       <Value>Reporte de evaluación evento</Value>
                       <Style>
                         <FontFamily>Segoe UI Light</FontFamily>
-                        <FontSize>24pt</FontSize>
+                        <FontSize>18pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -883,9 +883,9 @@ order by NombreEvento</CommandText>
               </Paragraphs>
               <rd:DefaultName>textbox1</rd:DefaultName>
               <Top>0.33584cm</Top>
-              <Left>6.55976cm</Left>
+              <Left>3.70226cm</Left>
               <Height>0.73556in</Height>
-              <Width>6.53201in</Width>
+              <Width>2.75076in</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -904,7 +904,7 @@ order by NombreEvento</CommandText>
               <Top>0.33583cm</Top>
               <Left>1.00224cm</Left>
               <Height>0.73556in</Height>
-              <Width>2.0625in</Width>
+              <Width>1.07292in</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -928,7 +928,7 @@ order by NombreEvento</CommandText>
               </Paragraphs>
               <rd:DefaultName>Textbox61</rd:DefaultName>
               <Top>0.33584cm</Top>
-              <Left>23.52832cm</Left>
+              <Left>11.46332cm</Left>
               <Height>0.6cm</Height>
               <Width>2.54882cm</Width>
               <ZIndex>2</ZIndex>
@@ -958,9 +958,9 @@ order by NombreEvento</CommandText>
               </Paragraphs>
               <rd:DefaultName>FechaInicio</rd:DefaultName>
               <Top>1.11223cm</Top>
-              <Left>23.43328cm</Left>
+              <Left>11.36828cm</Left>
               <Height>0.6cm</Height>
-              <Width>3.95521cm</Width>
+              <Width>3.63772cm</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <Border>
@@ -990,9 +990,9 @@ order by NombreEvento</CommandText>
               </Paragraphs>
               <rd:DefaultName>Institucion1</rd:DefaultName>
               <Top>2.38056cm</Top>
-              <Left>6.55976cm</Left>
+              <Left>2.43226cm</Left>
               <Height>0.6cm</Height>
-              <Width>16.5913cm</Width>
+              <Width>12.94416cm</Width>
               <ZIndex>4</ZIndex>
               <Style>
                 <Border>
@@ -1022,9 +1022,9 @@ order by NombreEvento</CommandText>
               </Paragraphs>
               <rd:DefaultName>Institucion1</rd:DefaultName>
               <Top>3.15694cm</Top>
-              <Left>6.55976cm</Left>
+              <Left>2.43226cm</Left>
               <Height>0.6cm</Height>
-              <Width>16.5913cm</Width>
+              <Width>12.94416cm</Width>
               <ZIndex>5</ZIndex>
               <Style>
                 <Border>
@@ -1044,7 +1044,7 @@ order by NombreEvento</CommandText>
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>1.08479cm</Height>
+          <Height>0.87312cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -1074,7 +1074,7 @@ order by NombreEvento</CommandText>
               </Paragraphs>
               <rd:DefaultName>Textbox86</rd:DefaultName>
               <Top>0.17639cm</Top>
-              <Left>21.80776cm</Left>
+              <Left>10.69526cm</Left>
               <Height>0.6cm</Height>
               <Width>5.58073cm</Width>
               <Style>
