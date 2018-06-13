@@ -14,8 +14,8 @@
       <Query>
         <DataSourceName>ZeusBDE</DataSourceName>
         <QueryParameters>
-          <QueryParameter Name="@IdPeriodo">
-            <Value>=Parameters!IdPeriodo.Value</Value>
+          <QueryParameter Name="@IdCalculoNomina">
+            <Value>=Parameters!IdCalculoNomina.Value</Value>
           </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
@@ -65,31 +65,6 @@
         <Field Name="Prioridad">
           <DataField>Prioridad</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-      </Fields>
-    </DataSet>
-    <DataSet Name="Todos_Periodos">
-      <Query>
-        <DataSourceName>ZeusBDE</DataSourceName>
-        <CommandType>StoredProcedure</CommandType>
-        <CommandText>sp_Todos_Periodos</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="FechaInicio">
-          <DataField>FechaInicio</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="FechaFin">
-          <DataField>FechaFin</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="IdPeriodo">
-          <DataField>IdPeriodo</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Descripcion">
-          <DataField>Descripcion</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
     </DataSet>
@@ -770,7 +745,7 @@
             <Image Name="logobde">
               <Source>Embedded</Source>
               <Value>logobde</Value>
-              <Sizing>FitProportional</Sizing>
+              <Sizing>Fit</Sizing>
               <Top>0.65828cm</Top>
               <Left>0.73766cm</Left>
               <Height>0.73556in</Height>
@@ -989,17 +964,11 @@
     </ReportSection>
   </ReportSections>
   <ReportParameters>
-    <ReportParameter Name="IdPeriodo">
+    <ReportParameter Name="IdCalculoNomina">
       <DataType>Integer</DataType>
-      <Prompt>Periodo:</Prompt>
-      <ValidValues>
-        <DataSetReference>
-          <DataSetName>Todos_Periodos</DataSetName>
-          <ValueField>IdPeriodo</ValueField>
-          <LabelField>Descripcion</LabelField>
-        </DataSetReference>
-      </ValidValues>
-      <UsedInQuery>True</UsedInQuery>
+      <Nullable>true</Nullable>
+      <Prompt>Id Calculo Nomina</Prompt>
+      <Hidden>true</Hidden>
     </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
@@ -1008,9 +977,9 @@
       <NumberOfRows>2</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
-          <ColumnIndex>2</ColumnIndex>
+          <ColumnIndex>3</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>IdPeriodo</ParameterName>
+          <ParameterName>IdCalculoNomina</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>
