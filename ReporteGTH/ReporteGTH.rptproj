@@ -73,8 +73,8 @@
     <Report Include="RepSolicitudPermiso.rdl" />
     <Report Include="RepSolicitudPermisoEmpleado.rdl" />
     <Report Include="RepSolicitudPermisoTotalHoras.rdl" />
+    <Report Include="RepSolicitudVacacion.rdl" />
     <Report Include="RepViaticos.rdl" />
-    <Report Include="repSolicitudVacacion.rdl" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />
 </Project>

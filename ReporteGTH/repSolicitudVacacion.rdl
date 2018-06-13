@@ -82,56 +82,12 @@
           <DataField>NombreReemplazo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Id">
-          <DataField>Id</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
         <Field Name="NombreJefeEmpleado">
           <DataField>NombreJefeEmpleado</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="CargoJefeEmpleado">
           <DataField>CargoJefeEmpleado</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="IdEmpleadoAprobador">
-          <DataField>IdEmpleadoAprobador</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="NombreAprobador">
-          <DataField>NombreAprobador</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="CargoAprobador">
-          <DataField>CargoAprobador</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="IdDependenciaAprobador">
-          <DataField>IdDependenciaAprobador</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="DependenciaAprobador">
-          <DataField>DependenciaAprobador</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="IdEmpleadoJefeAprobador">
-          <DataField>IdEmpleadoJefeAprobador</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="NombreJefeAprobador">
-          <DataField>NombreJefeAprobador</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="CargoJefeAprobador">
-          <DataField>CargoJefeAprobador</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="IdDependenciaJefeAprobador">
-          <DataField>IdDependenciaJefeAprobador</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="DependenciaJefeAprobador">
-          <DataField>DependenciaJefeAprobador</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
@@ -801,162 +757,6 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Textbox Name="Textbox23">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>F.</Value>
-                    <Style>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox21</rd:DefaultName>
-            <Top>19.76039cm</Top>
-            <Left>0.8425cm</Left>
-            <Height>0.6cm</Height>
-            <Width>0.62048cm</Width>
-            <ZIndex>21</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Line Name="Line2">
-            <Top>20.39567cm</Top>
-            <Left>1.31875cm</Left>
-            <Height>0cm</Height>
-            <Width>5.92196cm</Width>
-            <ZIndex>22</ZIndex>
-            <Style>
-              <Border>
-                <Style>Solid</Style>
-              </Border>
-            </Style>
-          </Line>
-          <Textbox Name="Textbox24">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>F.</Value>
-                    <Style>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox21</rd:DefaultName>
-            <Top>19.72511cm</Top>
-            <Left>8.61812cm</Left>
-            <Height>0.6cm</Height>
-            <Width>0.62048cm</Width>
-            <ZIndex>23</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Line Name="Line3">
-            <Top>20.36039cm</Top>
-            <Left>9.09437cm</Left>
-            <Height>0cm</Height>
-            <Width>5.66208cm</Width>
-            <ZIndex>24</ZIndex>
-            <Style>
-              <Border>
-                <Style>Solid</Style>
-              </Border>
-            </Style>
-          </Line>
-          <Textbox Name="CargoJefeAprobador">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=First(Fields!CargoJefeAprobador.Value, "solicitudVacacion")</Value>
-                    <Style>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>CargoJefeAprobador</rd:DefaultName>
-            <Top>20.36039cm</Top>
-            <Left>1.40283cm</Left>
-            <Height>1.31438cm</Height>
-            <Width>5.83788cm</Width>
-            <ZIndex>25</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="CargoAprobador">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=First(Fields!CargoAprobador.Value, "solicitudVacacion")</Value>
-                    <Style>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>CargoAprobador</rd:DefaultName>
-            <Top>20.36039cm</Top>
-            <Left>9.09437cm</Left>
-            <Height>1.31438cm</Height>
-            <Width>5.66208cm</Width>
-            <ZIndex>26</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
           <Textbox Name="Textbox25">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -978,7 +778,7 @@
             <Left>4.152cm</Left>
             <Height>0.6cm</Height>
             <Width>0.62048cm</Width>
-            <ZIndex>27</ZIndex>
+            <ZIndex>21</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -994,7 +794,7 @@
             <Left>4.62825cm</Left>
             <Height>0cm</Height>
             <Width>6.69683cm</Width>
-            <ZIndex>28</ZIndex>
+            <ZIndex>22</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -1024,7 +824,7 @@
             <Left>4.152cm</Left>
             <Height>0.6cm</Height>
             <Width>7.84335cm</Width>
-            <ZIndex>29</ZIndex>
+            <ZIndex>23</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1056,7 +856,7 @@
             <Left>4.152cm</Left>
             <Height>0.6cm</Height>
             <Width>7.84335cm</Width>
-            <ZIndex>30</ZIndex>
+            <ZIndex>24</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1089,7 +889,7 @@
             <Left>0.84251cm</Left>
             <Height>0.6cm</Height>
             <Width>8.57818cm</Width>
-            <ZIndex>31</ZIndex>
+            <ZIndex>25</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1121,7 +921,7 @@
             <Left>12.6927cm</Left>
             <Height>0.6cm</Height>
             <Width>1.23cm</Width>
-            <ZIndex>32</ZIndex>
+            <ZIndex>26</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1151,7 +951,7 @@
             <Left>0.8425cm</Left>
             <Height>0.6cm</Height>
             <Width>4.51083cm</Width>
-            <ZIndex>33</ZIndex>
+            <ZIndex>27</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1183,7 +983,7 @@
             <Left>5.35333cm</Left>
             <Height>0.6cm</Height>
             <Width>8.56937cm</Width>
-            <ZIndex>34</ZIndex>
+            <ZIndex>28</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1216,7 +1016,7 @@
             <Left>0.84251cm</Left>
             <Height>0.6cm</Height>
             <Width>8.57818cm</Width>
-            <ZIndex>35</ZIndex>
+            <ZIndex>29</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
