@@ -1209,9 +1209,13 @@ group by
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!CargoFirma1.Value, "solicitudVacacion") 
+                    <Value>=IIf(First(Fields!CargoFirma1.Value, "solicitudVacacion")="",
+""
+,
+First(Fields!CargoFirma1.Value, "solicitudVacacion")
 + " de "
-+ First(Fields!NombreDependenciaFirma1.Value, "solicitudVacacion")</Value>
++ First(Fields!NombreDependenciaFirma1.Value, "solicitudVacacion")
+)</Value>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                     </Style>
@@ -1312,7 +1316,13 @@ group by
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!CargoFirma2.Value, "solicitudVacacion")</Value>
+                    <Value>=IIf(First(Fields!CargoFirma2.Value, "solicitudVacacion")="",
+""
+,
+First(Fields!CargoFirma2.Value, "solicitudVacacion")
++ " de "
++ First(Fields!NombreDependenciaFirma2.Value, "solicitudVacacion")
+)</Value>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                     </Style>
@@ -1413,7 +1423,13 @@ group by
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!CargoFirma3.Value, "solicitudVacacion")</Value>
+                    <Value>=IIf(First(Fields!CargoFirma3.Value, "solicitudVacacion")="",
+""
+,
+First(Fields!CargoFirma3.Value, "solicitudVacacion")
++ " de "
++ First(Fields!NombreDependenciaFirma3.Value, "solicitudVacacion")
+)</Value>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                     </Style>
@@ -1514,7 +1530,13 @@ group by
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!CargoFirma4.Value, "solicitudVacacion")</Value>
+                    <Value>=IIf(First(Fields!CargoFirma4.Value, "solicitudVacacion")="",
+""
+,
+First(Fields!CargoFirma4.Value, "solicitudVacacion")
++ " de "
++ First(Fields!NombreDependenciaFirma4.Value, "solicitudVacacion")
+)</Value>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                     </Style>
@@ -1615,7 +1637,13 @@ group by
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!CargoFirma5.Value, "solicitudVacacion")</Value>
+                    <Value>=IIf(First(Fields!CargoFirma5.Value, "solicitudVacacion")="",
+""
+,
+First(Fields!CargoFirma5.Value, "solicitudVacacion")
++ " de "
++ First(Fields!NombreDependenciaFirma5.Value, "solicitudVacacion")
+)</Value>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                     </Style>
@@ -1972,11 +2000,6 @@ group by
     <ReportParameter Name="IdEF1">
       <DataType>Integer</DataType>
       <Nullable>true</Nullable>
-      <DefaultValue>
-        <Values>
-          <Value>2101</Value>
-        </Values>
-      </DefaultValue>
       <Prompt>Id EF1</Prompt>
       <Hidden>true</Hidden>
     </ReportParameter>
