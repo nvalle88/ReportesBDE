@@ -167,6 +167,69 @@
         </Field>
       </Fields>
     </DataSet>
+    <DataSet Name="SolicitudesPorEmpleado">
+      <Query>
+        <DataSourceName>ZeusBDE</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@Empleado">
+            <Value>=Parameters!Empleado.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>/* El valor 6 en la columna 'Estado' es 'Aprobado' */
+
+
+
+select 
+	s.IdSolicitudVacaciones,
+	s.FechaDesde as fecha
+from
+	SolicitudVacaciones s
+where 
+	s.Estado = 6
+and
+	s.IdEmpleado = @Empleado
+;</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="IdSolicitudVacaciones">
+          <DataField>IdSolicitudVacaciones</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="fecha">
+          <DataField>fecha</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="EmpleadosConSolicitud">
+      <Query>
+        <DataSourceName>ZeusBDE</DataSourceName>
+        <CommandText>Select
+	e.IdEmpleado,
+	CONCAT( Max(p.Nombres),' ',Max(p.Apellidos)) as Empleado
+from 
+
+	SolicitudVacaciones s inner join 
+	Empleado e on e.IdEmpleado = s.IdEmpleado inner join
+	Persona p on p.IdPersona = e.IdPersona
+where
+                   s.Estado = 6
+
+group by
+	E.IdEmpleado
+;</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="IdEmpleado">
+          <DataField>IdEmpleado</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Empleado">
+          <DataField>Empleado</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
   </DataSets>
   <ReportSections>
     <ReportSection>
@@ -808,7 +871,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>REGISTRO Y CONTROL :</Value>
+                    <Value>REGISTRO Y CONTROL:</Value>
                     <Style>
                       <FontFamily>SEGOE UI</FontFamily>
                       <FontWeight>Bold</FontWeight>
@@ -1127,7 +1190,7 @@
             <Width>5.05452cm</Width>
             <ZIndex>30</ZIndex>
             <Visibility>
-              <Hidden>=IIF(Fields!NombreFirma1.Value="", true, false)</Hidden>
+              <Hidden>=IIF(First(Fields!NombreFirma1.Value, "solicitudVacacion") = "", True, False)</Hidden>
             </Visibility>
             <Style>
               <Border>
@@ -1228,7 +1291,7 @@
             <Width>5.05452cm</Width>
             <ZIndex>33</ZIndex>
             <Visibility>
-              <Hidden>=IIF(Fields!NombreFirma2.Value = "", True, False)</Hidden>
+              <Hidden>=IIF(First(Fields!NombreFirma2.Value, "solicitudVacacion") = "", True, False)</Hidden>
             </Visibility>
             <Style>
               <Border>
@@ -1313,7 +1376,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>F.________________________________</Value>
+                    <Value EvaluationMode="Constant">F.________________________________</Value>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                     </Style>
@@ -1329,7 +1392,7 @@
             <Width>5.05452cm</Width>
             <ZIndex>36</ZIndex>
             <Visibility>
-              <Hidden>=IIF(Fields!NombreFirma3.Value = "", True, False)</Hidden>
+              <Hidden>=IIF(First(Fields!NombreFirma3.Value, "solicitudVacacion") = "", True, False)</Hidden>
             </Visibility>
             <Style>
               <Border>
@@ -1430,7 +1493,7 @@
             <Width>5.05452cm</Width>
             <ZIndex>39</ZIndex>
             <Visibility>
-              <Hidden>=IIF(Fields!NombreFirma4.Value = "", True, False)</Hidden>
+              <Hidden>=IIF(First(Fields!NombreFirma4.Value, "solicitudVacacion") = "", True, False)</Hidden>
             </Visibility>
             <Style>
               <Border>
@@ -1531,7 +1594,7 @@
             <Width>5.05452cm</Width>
             <ZIndex>42</ZIndex>
             <Visibility>
-              <Hidden>=IIF(Fields!NombreFirma5.Value = "", True, False)</Hidden>
+              <Hidden>=IIF(First(Fields!NombreFirma5.Value, "solicitudVacacion") = "", True, False)</Hidden>
             </Visibility>
             <Style>
               <Border>
@@ -1882,29 +1945,57 @@
     </ReportSection>
   </ReportSections>
   <ReportParameters>
+    <ReportParameter Name="Empleado">
+      <DataType>String</DataType>
+      <Prompt>Empleado</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>EmpleadosConSolicitud</DataSetName>
+          <ValueField>IdEmpleado</ValueField>
+          <LabelField>Empleado</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
     <ReportParameter Name="IdSolicitudVacaciones">
       <DataType>Integer</DataType>
-      <Prompt>Id Solicitud Vacaciones</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="IdEF1">
-      <DataType>Integer</DataType>
-      <Prompt>Id EF1</Prompt>
+      <Prompt>Fecha</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>SolicitudesPorEmpleado</DataSetName>
+          <ValueField>IdSolicitudVacaciones</ValueField>
+          <LabelField>fecha</LabelField>
+        </DataSetReference>
+      </ValidValues>
     </ReportParameter>
     <ReportParameter Name="IdEF2">
       <DataType>Integer</DataType>
+      <Nullable>true</Nullable>
       <Prompt>Id EF2</Prompt>
+      <Hidden>true</Hidden>
     </ReportParameter>
     <ReportParameter Name="IdEF3">
       <DataType>Integer</DataType>
+      <Nullable>true</Nullable>
       <Prompt>Id EF3</Prompt>
+      <Hidden>true</Hidden>
     </ReportParameter>
     <ReportParameter Name="IdEF4">
       <DataType>Integer</DataType>
+      <Nullable>true</Nullable>
       <Prompt>Id EF4</Prompt>
+      <Hidden>true</Hidden>
     </ReportParameter>
     <ReportParameter Name="IdEF5">
       <DataType>Integer</DataType>
+      <Nullable>true</Nullable>
       <Prompt>Id EF5</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="IdEF1">
+      <DataType>Integer</DataType>
+      <Nullable>true</Nullable>
+      <Prompt>Id EF1</Prompt>
+      <Hidden>true</Hidden>
     </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
@@ -1913,13 +2004,13 @@
       <NumberOfRows>2</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
+          <ColumnIndex>1</ColumnIndex>
           <RowIndex>0</RowIndex>
           <ParameterName>IdSolicitudVacaciones</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>1</ColumnIndex>
-          <RowIndex>0</RowIndex>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>1</RowIndex>
           <ParameterName>IdEF1</ParameterName>
         </CellDefinition>
         <CellDefinition>
@@ -1941,6 +2032,11 @@
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>1</RowIndex>
           <ParameterName>IdEF5</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>Empleado</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>
