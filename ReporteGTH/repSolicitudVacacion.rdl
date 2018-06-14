@@ -1209,7 +1209,9 @@ group by
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!CargoFirma1.Value, "solicitudVacacion")</Value>
+                    <Value>=First(Fields!CargoFirma1.Value, "solicitudVacacion") 
++ " de "
++ First(Fields!NombreDependenciaFirma1.Value, "solicitudVacacion")</Value>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                     </Style>
@@ -1253,7 +1255,7 @@ group by
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>NombreJefeEmpleado</rd:DefaultName>
-            <Top>17.66604cm</Top>
+            <Top>17.70132cm</Top>
             <Left>0.84251cm</Left>
             <Height>0.6cm</Height>
             <Width>5.05452cm</Width>
@@ -1354,7 +1356,7 @@ group by
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>NombreJefeEmpleado</rd:DefaultName>
-            <Top>17.66604cm</Top>
+            <Top>17.70132cm</Top>
             <Left>5.89703cm</Left>
             <Height>0.6cm</Height>
             <Width>5.05452cm</Width>
@@ -1455,7 +1457,7 @@ group by
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>NombreJefeEmpleado</rd:DefaultName>
-            <Top>17.66605cm</Top>
+            <Top>17.70132cm</Top>
             <Left>10.98683cm</Left>
             <Height>0.6cm</Height>
             <Width>5.05452cm</Width>
@@ -1477,7 +1479,7 @@ group by
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Constant">F.________________________________</Value>
+                    <Value>F._______________________________</Value>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                     </Style>
@@ -1578,7 +1580,7 @@ group by
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>F.________________________________</Value>
+                    <Value>F._______________________________</Value>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                     </Style>
@@ -1970,6 +1972,11 @@ group by
     <ReportParameter Name="IdEF1">
       <DataType>Integer</DataType>
       <Nullable>true</Nullable>
+      <DefaultValue>
+        <Values>
+          <Value>2101</Value>
+        </Values>
+      </DefaultValue>
       <Prompt>Id EF1</Prompt>
       <Hidden>true</Hidden>
     </ReportParameter>
