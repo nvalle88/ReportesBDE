@@ -17,6 +17,21 @@
           <QueryParameter Name="@IdSolicitudVacaciones">
             <Value>=Parameters!IdSolicitudVacaciones.Value</Value>
           </QueryParameter>
+          <QueryParameter Name="@IdEF1">
+            <Value>=Parameters!IdEF1.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@IdEF2">
+            <Value>=Parameters!IdEF2.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@IdEF3">
+            <Value>=Parameters!IdEF3.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@IdEF4">
+            <Value>=Parameters!IdEF4.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@IdEF5">
+            <Value>=Parameters!IdEF5.Value</Value>
+          </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
         <CommandText>sp_reporte_solicitud_vacaciones</CommandText>
@@ -82,10 +97,6 @@
           <DataField>NombreReemplazo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Id">
-          <DataField>Id</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
         <Field Name="NombreJefeEmpleado">
           <DataField>NombreJefeEmpleado</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -94,44 +105,127 @@
           <DataField>CargoJefeEmpleado</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="IdEmpleadoAprobador">
-          <DataField>IdEmpleadoAprobador</DataField>
+        <Field Name="NombreFirma1">
+          <DataField>NombreFirma1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NombreDependenciaFirma1">
+          <DataField>NombreDependenciaFirma1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CargoFirma1">
+          <DataField>CargoFirma1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NombreFirma2">
+          <DataField>NombreFirma2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NombreDependenciaFirma2">
+          <DataField>NombreDependenciaFirma2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CargoFirma2">
+          <DataField>CargoFirma2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NombreFirma3">
+          <DataField>NombreFirma3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NombreDependenciaFirma3">
+          <DataField>NombreDependenciaFirma3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CargoFirma3">
+          <DataField>CargoFirma3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NombreFirma4">
+          <DataField>NombreFirma4</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NombreDependenciaFirma4">
+          <DataField>NombreDependenciaFirma4</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CargoFirma4">
+          <DataField>CargoFirma4</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NombreFirma5">
+          <DataField>NombreFirma5</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NombreDependenciaFirma5">
+          <DataField>NombreDependenciaFirma5</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CargoFirma5">
+          <DataField>CargoFirma5</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="SolicitudesPorEmpleado">
+      <Query>
+        <DataSourceName>ZeusBDE</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@Empleado">
+            <Value>=Parameters!Empleado.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>/* El valor 6 en la columna 'Estado' es 'Aprobado' */
+
+
+
+select 
+	s.IdSolicitudVacaciones,
+	s.FechaDesde as fecha
+from
+	SolicitudVacaciones s
+where 
+	s.Estado = 6
+and
+	s.IdEmpleado = @Empleado
+;</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="IdSolicitudVacaciones">
+          <DataField>IdSolicitudVacaciones</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="NombreAprobador">
-          <DataField>NombreAprobador</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+        <Field Name="fecha">
+          <DataField>fecha</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="CargoAprobador">
-          <DataField>CargoAprobador</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="IdDependenciaAprobador">
-          <DataField>IdDependenciaAprobador</DataField>
+      </Fields>
+    </DataSet>
+    <DataSet Name="EmpleadosConSolicitud">
+      <Query>
+        <DataSourceName>ZeusBDE</DataSourceName>
+        <CommandText>Select
+	e.IdEmpleado,
+	CONCAT( Max(p.Nombres),' ',Max(p.Apellidos)) as Empleado
+from 
+
+	SolicitudVacaciones s inner join 
+	Empleado e on e.IdEmpleado = s.IdEmpleado inner join
+	Persona p on p.IdPersona = e.IdPersona
+where
+                   s.Estado = 6
+
+group by
+	E.IdEmpleado
+;</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="IdEmpleado">
+          <DataField>IdEmpleado</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="DependenciaAprobador">
-          <DataField>DependenciaAprobador</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="IdEmpleadoJefeAprobador">
-          <DataField>IdEmpleadoJefeAprobador</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="NombreJefeAprobador">
-          <DataField>NombreJefeAprobador</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="CargoJefeAprobador">
-          <DataField>CargoJefeAprobador</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="IdDependenciaJefeAprobador">
-          <DataField>IdDependenciaJefeAprobador</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="DependenciaJefeAprobador">
-          <DataField>DependenciaJefeAprobador</DataField>
+        <Field Name="Empleado">
+          <DataField>Empleado</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
@@ -319,14 +413,16 @@
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox8</rd:DefaultName>
-            <Top>0.75801cm</Top>
-            <Left>10.52723cm</Left>
+            <Top>0.81065cm</Top>
+            <Left>12.46537cm</Left>
             <Height>0.6cm</Height>
-            <Width>4.99591cm</Width>
+            <Width>3.3114cm</Width>
             <ZIndex>5</ZIndex>
             <Style>
               <Border>
@@ -355,8 +451,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox14</rd:DefaultName>
-            <Top>1.5344cm</Top>
-            <Left>10.52723cm</Left>
+            <Top>1.58704cm</Top>
+            <Left>12.46537cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
             <ZIndex>6</ZIndex>
@@ -387,8 +483,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox14</rd:DefaultName>
-            <Top>2.24023cm</Top>
-            <Left>10.52723cm</Left>
+            <Top>2.29287cm</Top>
+            <Left>12.46537cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
             <ZIndex>7</ZIndex>
@@ -419,8 +515,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox14</rd:DefaultName>
-            <Top>2.91079cm</Top>
-            <Left>10.52723cm</Left>
+            <Top>2.96343cm</Top>
+            <Left>12.46537cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
             <ZIndex>8</ZIndex>
@@ -451,8 +547,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox17</rd:DefaultName>
-            <Top>1.55176cm</Top>
-            <Left>13.06724cm</Left>
+            <Top>1.6044cm</Top>
+            <Left>15.00538cm</Left>
             <Height>0.58264cm</Height>
             <Width>0.77139cm</Width>
             <ZIndex>9</ZIndex>
@@ -483,8 +579,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox17</rd:DefaultName>
-            <Top>2.24023cm</Top>
-            <Left>13.06724cm</Left>
+            <Top>2.29287cm</Top>
+            <Left>15.00538cm</Left>
             <Height>0.58264cm</Height>
             <Width>0.77139cm</Width>
             <ZIndex>10</ZIndex>
@@ -515,8 +611,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox17</rd:DefaultName>
-            <Top>2.92871cm</Top>
-            <Left>13.06724cm</Left>
+            <Top>2.98135cm</Top>
+            <Left>15.00538cm</Left>
             <Height>0.58264cm</Height>
             <Width>0.77139cm</Width>
             <ZIndex>11</ZIndex>
@@ -565,7 +661,7 @@
           </Textbox>
           <Line Name="Line1">
             <Top>5.42679cm</Top>
-            <Left>3.67453cm</Left>
+            <Left>5.82958cm</Left>
             <Height>0cm</Height>
             <Width>5.66208cm</Width>
             <ZIndex>13</ZIndex>
@@ -593,7 +689,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox21</rd:DefaultName>
             <Top>4.79151cm</Top>
-            <Left>3.19828cm</Left>
+            <Left>5.35333cm</Left>
             <Height>0.6cm</Height>
             <Width>0.62048cm</Width>
             <ZIndex>14</ZIndex>
@@ -689,8 +785,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Planificado</rd:DefaultName>
-            <Top>6.87931cm</Top>
-            <Left>12.60863cm</Left>
+            <Top>7.42059cm</Top>
+            <Left>14.54677cm</Left>
             <Height>0.6cm</Height>
             <Width>1.23cm</Width>
             <ZIndex>17</ZIndex>
@@ -724,7 +820,7 @@
             <Top>8.16171cm</Top>
             <Left>0.75843cm</Left>
             <Height>1.12917cm</Height>
-            <Width>13.0802cm</Width>
+            <Width>15.01834cm</Width>
             <ZIndex>18</ZIndex>
             <Style>
               <Border>
@@ -756,7 +852,7 @@
             <Top>9.43198cm</Top>
             <Left>0.75843cm</Left>
             <Height>1.28792cm</Height>
-            <Width>13.0802cm</Width>
+            <Width>15.01834cm</Width>
             <ZIndex>19</ZIndex>
             <Style>
               <Border>
@@ -775,7 +871,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>REGISTRO Y CONTROL :</Value>
+                    <Value>REGISTRO Y CONTROL:</Value>
                     <Style>
                       <FontFamily>SEGOE UI</FontFamily>
                       <FontWeight>Bold</FontWeight>
@@ -786,167 +882,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox8</rd:DefaultName>
-            <Top>18.50803cm</Top>
+            <Top>18.63646cm</Top>
             <Left>0.8425cm</Left>
             <Height>0.6cm</Height>
-            <Width>8.57818cm</Width>
+            <Width>6.80547cm</Width>
             <ZIndex>20</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox23">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>F.</Value>
-                    <Style>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox21</rd:DefaultName>
-            <Top>19.76039cm</Top>
-            <Left>0.8425cm</Left>
-            <Height>0.6cm</Height>
-            <Width>0.62048cm</Width>
-            <ZIndex>21</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Line Name="Line2">
-            <Top>20.39567cm</Top>
-            <Left>1.31875cm</Left>
-            <Height>0cm</Height>
-            <Width>5.92196cm</Width>
-            <ZIndex>22</ZIndex>
-            <Style>
-              <Border>
-                <Style>Solid</Style>
-              </Border>
-            </Style>
-          </Line>
-          <Textbox Name="Textbox24">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>F.</Value>
-                    <Style>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox21</rd:DefaultName>
-            <Top>19.72511cm</Top>
-            <Left>8.61812cm</Left>
-            <Height>0.6cm</Height>
-            <Width>0.62048cm</Width>
-            <ZIndex>23</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Line Name="Line3">
-            <Top>20.36039cm</Top>
-            <Left>9.09437cm</Left>
-            <Height>0cm</Height>
-            <Width>5.66208cm</Width>
-            <ZIndex>24</ZIndex>
-            <Style>
-              <Border>
-                <Style>Solid</Style>
-              </Border>
-            </Style>
-          </Line>
-          <Textbox Name="CargoJefeAprobador">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=First(Fields!CargoJefeAprobador.Value, "solicitudVacacion")</Value>
-                    <Style>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>CargoJefeAprobador</rd:DefaultName>
-            <Top>20.36039cm</Top>
-            <Left>1.40283cm</Left>
-            <Height>1.31438cm</Height>
-            <Width>5.83788cm</Width>
-            <ZIndex>25</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="CargoAprobador">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=First(Fields!CargoAprobador.Value, "solicitudVacacion")</Value>
-                    <Style>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>CargoAprobador</rd:DefaultName>
-            <Top>20.36039cm</Top>
-            <Left>9.09437cm</Left>
-            <Height>1.31438cm</Height>
-            <Width>5.66208cm</Width>
-            <ZIndex>26</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -978,7 +918,7 @@
             <Left>4.152cm</Left>
             <Height>0.6cm</Height>
             <Width>0.62048cm</Width>
-            <ZIndex>27</ZIndex>
+            <ZIndex>21</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -994,7 +934,7 @@
             <Left>4.62825cm</Left>
             <Height>0cm</Height>
             <Width>6.69683cm</Width>
-            <ZIndex>28</ZIndex>
+            <ZIndex>22</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -1024,7 +964,7 @@
             <Left>4.152cm</Left>
             <Height>0.6cm</Height>
             <Width>7.84335cm</Width>
-            <ZIndex>29</ZIndex>
+            <ZIndex>23</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1056,7 +996,7 @@
             <Left>4.152cm</Left>
             <Height>0.6cm</Height>
             <Width>7.84335cm</Width>
-            <ZIndex>30</ZIndex>
+            <ZIndex>24</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1085,11 +1025,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox8</rd:DefaultName>
-            <Top>13.71382cm</Top>
+            <Top>13.44924cm</Top>
             <Left>0.84251cm</Left>
             <Height>0.6cm</Height>
             <Width>8.57818cm</Width>
-            <ZIndex>31</ZIndex>
+            <ZIndex>25</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1117,11 +1057,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>RequiereReemplazo</rd:DefaultName>
-            <Top>13.71382cm</Top>
-            <Left>12.6927cm</Left>
+            <Top>13.44924cm</Top>
+            <Left>14.81135cm</Left>
             <Height>0.6cm</Height>
             <Width>1.23cm</Width>
-            <ZIndex>32</ZIndex>
+            <ZIndex>26</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1147,11 +1087,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox35</rd:DefaultName>
-            <Top>14.31382cm</Top>
+            <Top>14.04924cm</Top>
             <Left>0.8425cm</Left>
             <Height>0.6cm</Height>
             <Width>4.51083cm</Width>
-            <ZIndex>33</ZIndex>
+            <ZIndex>27</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1179,11 +1119,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>NombreReemplazo</rd:DefaultName>
-            <Top>14.31382cm</Top>
+            <Top>14.04924cm</Top>
             <Left>5.35333cm</Left>
             <Height>0.6cm</Height>
             <Width>8.56937cm</Width>
-            <ZIndex>34</ZIndex>
+            <ZIndex>28</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1216,7 +1156,542 @@
             <Left>0.84251cm</Left>
             <Height>0.6cm</Height>
             <Width>8.57818cm</Width>
+            <ZIndex>29</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox28">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>F._______________________________</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox21</rd:DefaultName>
+            <Top>16.43077cm</Top>
+            <Left>0.84251cm</Left>
+            <Height>0.6cm</Height>
+            <Width>5.05452cm</Width>
+            <ZIndex>30</ZIndex>
+            <Visibility>
+              <Hidden>=IIF(First(Fields!NombreFirma1.Value, "solicitudVacacion") = "", True, False)</Hidden>
+            </Visibility>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="CargoJefeEmpleado2">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=IIf(First(Fields!CargoFirma1.Value, "solicitudVacacion")="",
+""
+,
+First(Fields!CargoFirma1.Value, "solicitudVacacion")
++ " de "
++ First(Fields!NombreDependenciaFirma1.Value, "solicitudVacacion")
+)</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>CargoJefeEmpleado</rd:DefaultName>
+            <Top>17.06604cm</Top>
+            <Left>0.84251cm</Left>
+            <Height>0.6cm</Height>
+            <Width>5.05452cm</Width>
+            <ZIndex>31</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="NombreJefeEmpleado2">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!NombreFirma1.Value, "solicitudVacacion")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>NombreJefeEmpleado</rd:DefaultName>
+            <Top>17.70132cm</Top>
+            <Left>0.84251cm</Left>
+            <Height>0.6cm</Height>
+            <Width>5.05452cm</Width>
+            <ZIndex>32</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox29">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>F._______________________________</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox21</rd:DefaultName>
+            <Top>16.43076cm</Top>
+            <Left>5.89703cm</Left>
+            <Height>0.6cm</Height>
+            <Width>5.05452cm</Width>
+            <ZIndex>33</ZIndex>
+            <Visibility>
+              <Hidden>=IIF(First(Fields!NombreFirma2.Value, "solicitudVacacion") = "", True, False)</Hidden>
+            </Visibility>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="CargoJefeEmpleado3">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=IIf(First(Fields!CargoFirma2.Value, "solicitudVacacion")="",
+""
+,
+First(Fields!CargoFirma2.Value, "solicitudVacacion")
++ " de "
++ First(Fields!NombreDependenciaFirma2.Value, "solicitudVacacion")
+)</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>CargoJefeEmpleado</rd:DefaultName>
+            <Top>17.06604cm</Top>
+            <Left>6.07342cm</Left>
+            <Height>0.6cm</Height>
+            <Width>4.87812cm</Width>
+            <ZIndex>34</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="NombreJefeEmpleado3">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!NombreFirma2.Value, "solicitudVacacion")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>NombreJefeEmpleado</rd:DefaultName>
+            <Top>17.70132cm</Top>
+            <Left>5.89703cm</Left>
+            <Height>0.6cm</Height>
+            <Width>5.05452cm</Width>
             <ZIndex>35</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox30">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>F._______________________________</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox21</rd:DefaultName>
+            <Top>16.43077cm</Top>
+            <Left>10.98683cm</Left>
+            <Height>0.6cm</Height>
+            <Width>5.05452cm</Width>
+            <ZIndex>36</ZIndex>
+            <Visibility>
+              <Hidden>=IIF(First(Fields!NombreFirma3.Value, "solicitudVacacion") = "", True, False)</Hidden>
+            </Visibility>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="CargoJefeEmpleado4">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=IIf(First(Fields!CargoFirma3.Value, "solicitudVacacion")="",
+""
+,
+First(Fields!CargoFirma3.Value, "solicitudVacacion")
++ " de "
++ First(Fields!NombreDependenciaFirma3.Value, "solicitudVacacion")
+)</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>CargoJefeEmpleado</rd:DefaultName>
+            <Top>17.06605cm</Top>
+            <Left>11.12794cm</Left>
+            <Height>0.6cm</Height>
+            <Width>4.91341cm</Width>
+            <ZIndex>37</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="NombreJefeEmpleado4">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!NombreFirma3.Value, "solicitudVacacion")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>NombreJefeEmpleado</rd:DefaultName>
+            <Top>17.70132cm</Top>
+            <Left>10.98683cm</Left>
+            <Height>0.6cm</Height>
+            <Width>5.05452cm</Width>
+            <ZIndex>38</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox31">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>F._______________________________</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox21</rd:DefaultName>
+            <Top>19.41284cm</Top>
+            <Left>0.84251cm</Left>
+            <Height>0.6cm</Height>
+            <Width>5.05452cm</Width>
+            <ZIndex>39</ZIndex>
+            <Visibility>
+              <Hidden>=IIF(First(Fields!NombreFirma4.Value, "solicitudVacacion") = "", True, False)</Hidden>
+            </Visibility>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="CargoJefeEmpleado5">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=IIf(First(Fields!CargoFirma4.Value, "solicitudVacacion")="",
+""
+,
+First(Fields!CargoFirma4.Value, "solicitudVacacion")
++ " de "
++ First(Fields!NombreDependenciaFirma4.Value, "solicitudVacacion")
+)</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>CargoJefeEmpleado</rd:DefaultName>
+            <Top>20.04811cm</Top>
+            <Left>0.84251cm</Left>
+            <Height>0.6cm</Height>
+            <Width>5.05452cm</Width>
+            <ZIndex>40</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="NombreJefeEmpleado5">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!NombreFirma4.Value, "solicitudVacacion")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>NombreJefeEmpleado</rd:DefaultName>
+            <Top>20.64811cm</Top>
+            <Left>0.84251cm</Left>
+            <Height>0.6cm</Height>
+            <Width>5.05452cm</Width>
+            <ZIndex>41</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox32">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>F._______________________________</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox21</rd:DefaultName>
+            <Top>19.41284cm</Top>
+            <Left>10.98683cm</Left>
+            <Height>0.6cm</Height>
+            <Width>5.05452cm</Width>
+            <ZIndex>42</ZIndex>
+            <Visibility>
+              <Hidden>=IIF(First(Fields!NombreFirma5.Value, "solicitudVacacion") = "", True, False)</Hidden>
+            </Visibility>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="CargoJefeEmpleado6">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=IIf(First(Fields!CargoFirma5.Value, "solicitudVacacion")="",
+""
+,
+First(Fields!CargoFirma5.Value, "solicitudVacacion")
++ " de "
++ First(Fields!NombreDependenciaFirma5.Value, "solicitudVacacion")
+)</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>CargoJefeEmpleado</rd:DefaultName>
+            <Top>20.04812cm</Top>
+            <Left>11.16322cm</Left>
+            <Height>0.6cm</Height>
+            <Width>4.87812cm</Width>
+            <ZIndex>43</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="NombreJefeEmpleado6">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!NombreFirma5.Value, "solicitudVacacion")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>NombreJefeEmpleado</rd:DefaultName>
+            <Top>20.64812cm</Top>
+            <Left>10.98683cm</Left>
+            <Height>0.6cm</Height>
+            <Width>5.05452cm</Width>
+            <ZIndex>44</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1231,7 +1706,7 @@
         <Height>9.41667in</Height>
         <Style />
       </Body>
-      <Width>7.16468in</Width>
+      <Width>7.67126in</Width>
       <Page>
         <PageHeader>
           <Height>2.65194cm</Height>
@@ -1500,9 +1975,57 @@
     </ReportSection>
   </ReportSections>
   <ReportParameters>
+    <ReportParameter Name="Empleado">
+      <DataType>String</DataType>
+      <Prompt>Empleado</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>EmpleadosConSolicitud</DataSetName>
+          <ValueField>IdEmpleado</ValueField>
+          <LabelField>Empleado</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
     <ReportParameter Name="IdSolicitudVacaciones">
       <DataType>Integer</DataType>
-      <Prompt>Id Solicitud Vacaciones</Prompt>
+      <Prompt>Fecha</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>SolicitudesPorEmpleado</DataSetName>
+          <ValueField>IdSolicitudVacaciones</ValueField>
+          <LabelField>fecha</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="IdEF1">
+      <DataType>Integer</DataType>
+      <Nullable>true</Nullable>
+      <Prompt>Id EF1</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="IdEF2">
+      <DataType>Integer</DataType>
+      <Nullable>true</Nullable>
+      <Prompt>Id EF2</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="IdEF3">
+      <DataType>Integer</DataType>
+      <Nullable>true</Nullable>
+      <Prompt>Id EF3</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="IdEF4">
+      <DataType>Integer</DataType>
+      <Nullable>true</Nullable>
+      <Prompt>Id EF4</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="IdEF5">
+      <DataType>Integer</DataType>
+      <Nullable>true</Nullable>
+      <Prompt>Id EF5</Prompt>
+      <Hidden>true</Hidden>
     </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
@@ -1511,9 +2034,39 @@
       <NumberOfRows>2</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
+          <ColumnIndex>1</ColumnIndex>
           <RowIndex>0</RowIndex>
           <ParameterName>IdSolicitudVacaciones</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>IdEF1</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>3</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>IdEF2</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>IdEF3</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>IdEF4</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>IdEF5</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>Empleado</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>
