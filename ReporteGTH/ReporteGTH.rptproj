@@ -68,6 +68,7 @@
     <Report Include="Report2.rdl" />
     <Report Include="ReporteTest.rdl" />
     <Report Include="RepParticipacionEventoInduccion.rdl" />
+    <Report Include="RepPermisos.rdl" />
     <Report Include="RepPermisosDetalle.rdl" />
     <Report Include="RepPlanCapacitaciones.rdl" />
     <Report Include="RepPlanificacionVacaciones.rdl" />
@@ -75,7 +76,7 @@
     <Report Include="RepSolicitudPermiso.rdl" />
     <Report Include="RepSolicitudPermisoEmpleado.rdl" />
     <Report Include="RepSolicitudPermisoTotalHoras.rdl" />
-    <Report Include="repSolicitudVacacion.rdl" />
+    <Report Include="RepSolicitudVacacion.rdl" />
     <Report Include="RepSolicitudViaticoFormatoMDT.rdl" />
     <Report Include="RepViaticos.rdl" />
   </ItemGroup>
