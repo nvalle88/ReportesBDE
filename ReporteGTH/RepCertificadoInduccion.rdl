@@ -423,6 +423,7 @@
     <ReportParameter Name="IdEmpleado">
       <DataType>Integer</DataType>
       <Prompt>Id Empleado</Prompt>
+      <Hidden>true</Hidden>
     </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
