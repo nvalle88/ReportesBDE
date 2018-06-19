@@ -754,11 +754,11 @@ order by Nombre</CommandText>
   <ReportParameters>
     <ReportParameter Name="FechaDesde">
       <DataType>DateTime</DataType>
-      <Prompt>Fecha Desde</Prompt>
+      <Prompt>Fecha desde</Prompt>
     </ReportParameter>
     <ReportParameter Name="FechaHasta">
       <DataType>DateTime</DataType>
-      <Prompt>Fecha Hasta</Prompt>
+      <Prompt>Fecha hasta</Prompt>
     </ReportParameter>
     <ReportParameter Name="IdSucursal">
       <DataType>Integer</DataType>
