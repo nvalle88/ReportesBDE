@@ -409,7 +409,6 @@ order by Nombre</CommandText>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -661,7 +660,6 @@ order by Nombre</CommandText>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -754,11 +752,6 @@ order by Nombre</CommandText>
     </ReportSection>
   </ReportSections>
   <ReportParameters>
-    <ReportParameter Name="IdSucursal">
-      <DataType>Integer</DataType>
-      <Prompt>Id Sucursal</Prompt>
-      <Hidden>true</Hidden>
-    </ReportParameter>
     <ReportParameter Name="IdDependencia">
       <DataType>Integer</DataType>
       <Nullable>true</Nullable>
@@ -770,6 +763,11 @@ order by Nombre</CommandText>
           <LabelField>Nombre</LabelField>
         </DataSetReference>
       </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="IdSucursal">
+      <DataType>Integer</DataType>
+      <Prompt>Id Sucursal</Prompt>
+      <Hidden>true</Hidden>
     </ReportParameter>
     <ReportParameter Name="FechaDesde">
       <DataType>DateTime</DataType>
@@ -796,12 +794,12 @@ order by Nombre</CommandText>
           <ParameterName>FechaHasta</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>1</ColumnIndex>
+          <ColumnIndex>0</ColumnIndex>
           <RowIndex>0</RowIndex>
           <ParameterName>IdDependencia</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
+          <ColumnIndex>1</ColumnIndex>
           <RowIndex>0</RowIndex>
           <ParameterName>IdSucursal</ParameterName>
         </CellDefinition>
