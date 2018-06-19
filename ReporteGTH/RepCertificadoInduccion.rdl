@@ -202,9 +202,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
             <Top>16.05786cm</Top>
-            <Left>12.22527cm</Left>
+            <Left>10.52905cm</Left>
             <Height>0.6cm</Height>
-            <Width>5.83375cm</Width>
+            <Width>10.01417cm</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -359,6 +359,41 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+          <Textbox Name="Fecha">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!FechaLetras.Value, "CertificadoInduccion")</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                      <Color>DimGray</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Fecha</rd:DefaultName>
+            <Top>14.44308cm</Top>
+            <Left>10.52905cm</Left>
+            <Height>0.6cm</Height>
+            <Width>10.01417cm</Width>
+            <ZIndex>8</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
         <Height>7.09375in</Height>
         <Style>
@@ -387,7 +422,13 @@
   <ReportParameters>
     <ReportParameter Name="IdEmpleado">
       <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>2101</Value>
+        </Values>
+      </DefaultValue>
       <Prompt>Id Empleado</Prompt>
+      <Hidden>true</Hidden>
     </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
