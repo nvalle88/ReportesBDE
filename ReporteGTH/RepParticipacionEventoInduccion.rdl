@@ -31,16 +31,16 @@
         <CommandText>sp_participacion_evento_induccion</CommandText>
       </Query>
       <Fields>
+        <Field Name="IdIndiceOcupacionalModalidadPartida">
+          <DataField>IdIndiceOcupacionalModalidadPartida</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
         <Field Name="Fecha">
           <DataField>Fecha</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
         <Field Name="IdEmpleado">
           <DataField>IdEmpleado</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="IdInduccion">
-          <DataField>IdInduccion</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="Identificacion">
