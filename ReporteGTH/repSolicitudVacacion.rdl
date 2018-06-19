@@ -181,7 +181,7 @@
 
 select 
 	s.IdSolicitudVacaciones,
-	s.FechaDesde as fecha
+	convert(varchar(10),s.FechaDesde, 103) as fecha
 from
 	SolicitudVacaciones s
 where 
@@ -197,7 +197,7 @@ and
         </Field>
         <Field Name="fecha">
           <DataField>fecha</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
     </DataSet>
