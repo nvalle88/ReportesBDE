@@ -157,6 +157,92 @@
         </Field>
       </Fields>
     </DataSet>
+    <DataSet Name="FIRMAS">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@IdEF1">
+            <Value>=Parameters!IdEF1.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@IdEF2">
+            <Value>=Parameters!IdEF2.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@IdEF3">
+            <Value>=Parameters!IdEF3.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@IdEF4">
+            <Value>=Parameters!IdEF4.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@IdEF5">
+            <Value>=Parameters!IdEF5.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>sp_obtener_pie_firma</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="NombreFirma1">
+          <DataField>NombreFirma1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NombreDependenciaFirma1">
+          <DataField>NombreDependenciaFirma1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CargoFirma1">
+          <DataField>CargoFirma1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NombreFirma2">
+          <DataField>NombreFirma2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NombreDependenciaFirma2">
+          <DataField>NombreDependenciaFirma2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CargoFirma2">
+          <DataField>CargoFirma2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NombreFirma3">
+          <DataField>NombreFirma3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NombreDependenciaFirma3">
+          <DataField>NombreDependenciaFirma3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CargoFirma3">
+          <DataField>CargoFirma3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NombreFirma4">
+          <DataField>NombreFirma4</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NombreDependenciaFirma4">
+          <DataField>NombreDependenciaFirma4</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CargoFirma4">
+          <DataField>CargoFirma4</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NombreFirma5">
+          <DataField>NombreFirma5</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NombreDependenciaFirma5">
+          <DataField>NombreDependenciaFirma5</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CargoFirma5">
+          <DataField>CargoFirma5</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
   </DataSets>
   <ReportSections>
     <ReportSection>
@@ -168,7 +254,7 @@
                 <Top>0.79375cm</Top>
                 <Left>0.02646cm</Left>
                 <Height>0cm</Height>
-                <Width>15.88605cm</Width>
+                <Width>15.96878cm</Width>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -299,7 +385,7 @@
                 <Top>1.54368cm</Top>
                 <Left>0.02646cm</Left>
                 <Height>0cm</Height>
-                <Width>15.85959cm</Width>
+                <Width>15.96878cm</Width>
                 <ZIndex>4</ZIndex>
                 <Style>
                   <Border>
@@ -389,9 +475,8 @@
               </Line>
               <Line Name="Line4">
                 <Top>1.87854cm</Top>
-                <Left>0.05292cm</Left>
                 <Height>0cm</Height>
-                <Width>15.85959cm</Width>
+                <Width>15.99524cm</Width>
                 <ZIndex>8</ZIndex>
                 <Style>
                   <Border>
@@ -503,7 +588,7 @@
                 <Top>2.37843cm</Top>
                 <Left>0.02646cm</Left>
                 <Height>0cm</Height>
-                <Width>15.85959cm</Width>
+                <Width>15.96878cm</Width>
                 <ZIndex>12</ZIndex>
                 <Style>
                   <Border>
@@ -1708,7 +1793,7 @@
                 <Top>7.3466cm</Top>
                 <Left>0.16521cm</Left>
                 <Height>1.2cm</Height>
-                <Width>15.49104cm</Width>
+                <Width>15.49107cm</Width>
                 <ZIndex>27</ZIndex>
                 <Style>
                   <Border>
@@ -1844,9 +1929,9 @@
             <ReportItems>
               <Line Name="Line5">
                 <Top>0.79375cm</Top>
-                <Left>0.02646cm</Left>
+                <Left>0.02881cm</Left>
                 <Height>0cm</Height>
-                <Width>15.88605cm</Width>
+                <Width>15.91016cm</Width>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1878,7 +1963,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox4</rd:DefaultName>
                 <Top>0.18521cm</Top>
-                <Left>0.58208cm</Left>
+                <Left>0.54172cm</Left>
                 <Height>0.43215cm</Height>
                 <Width>14.85604cm</Width>
                 <ZIndex>1</ZIndex>
@@ -1918,7 +2003,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox4</rd:DefaultName>
                 <Top>0.89958cm</Top>
-                <Left>0.42388cm</Left>
+                <Left>0.38352cm</Left>
                 <Height>0.14111cm</Height>
                 <Width>5.23875cm</Width>
                 <ZIndex>2</ZIndex>
@@ -1958,7 +2043,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox4</rd:DefaultName>
                 <Top>0.89958cm</Top>
-                <Left>9.10136cm</Left>
+                <Left>9.061cm</Left>
                 <Height>0.14111cm</Height>
                 <Width>4.07458cm</Width>
                 <ZIndex>3</ZIndex>
@@ -1975,9 +2060,9 @@
               </Textbox>
               <Line Name="Line6">
                 <Top>1.54368cm</Top>
-                <Left>0.02646cm</Left>
+                <Left>0.02881cm</Left>
                 <Height>0cm</Height>
-                <Width>15.85959cm</Width>
+                <Width>15.91016cm</Width>
                 <ZIndex>4</ZIndex>
                 <Style>
                   <Border>
@@ -2003,7 +2088,7 @@
                 </Paragraphs>
                 <rd:DefaultName>IdSolicitudViatico</rd:DefaultName>
                 <Top>1.1818cm</Top>
-                <Left>1.45521cm</Left>
+                <Left>1.41485cm</Left>
                 <Height>0.15021cm</Height>
                 <Width>2.5cm</Width>
                 <ZIndex>5</ZIndex>
@@ -2038,7 +2123,7 @@
                 </Paragraphs>
                 <rd:DefaultName>FechaSolicitud</rd:DefaultName>
                 <Top>1.21708cm</Top>
-                <Left>10.00125cm</Left>
+                <Left>9.96089cm</Left>
                 <Height>0.15021cm</Height>
                 <Width>2.5cm</Width>
                 <ZIndex>6</ZIndex>
@@ -2055,7 +2140,7 @@
               </Textbox>
               <Line Name="Line7">
                 <Top>0.79375cm</Top>
-                <Left>7.62cm</Left>
+                <Left>7.57964cm</Left>
                 <Height>0.74993cm</Height>
                 <Width>0cm</Width>
                 <ZIndex>7</ZIndex>
@@ -2067,9 +2152,9 @@
               </Line>
               <Line Name="Line8">
                 <Top>1.87854cm</Top>
-                <Left>0.05292cm</Left>
+                <Left>0.02881cm</Left>
                 <Height>0cm</Height>
-                <Width>15.85959cm</Width>
+                <Width>15.93997cm</Width>
                 <ZIndex>8</ZIndex>
                 <Style>
                   <Border>
@@ -2093,7 +2178,7 @@
                 </Paragraphs>
                 <rd:DefaultName>NombreFondoFinanciamiento</rd:DefaultName>
                 <Top>1.65806cm</Top>
-                <Left>5.70208cm</Left>
+                <Left>5.66172cm</Left>
                 <Height>0.0441cm</Height>
                 <Width>4.29917cm</Width>
                 <ZIndex>9</ZIndex>
@@ -2132,7 +2217,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox4</rd:DefaultName>
                 <Top>2.06093cm</Top>
-                <Left>0.16521cm</Left>
+                <Left>0.12485cm</Left>
                 <Height>0.14111cm</Height>
                 <Width>1.34292cm</Width>
                 <ZIndex>10</ZIndex>
@@ -2163,7 +2248,7 @@
                 </Paragraphs>
                 <rd:DefaultName>NombreServidor</rd:DefaultName>
                 <Top>2.06093cm</Top>
-                <Left>1.79917cm</Left>
+                <Left>1.75881cm</Left>
                 <Height>0.14111cm</Height>
                 <Width>5.59562cm</Width>
                 <ZIndex>11</ZIndex>
@@ -2179,9 +2264,9 @@
               </Textbox>
               <Line Name="Line13">
                 <Top>2.37843cm</Top>
-                <Left>0.02646cm</Left>
+                <Left>0.02881cm</Left>
                 <Height>0cm</Height>
-                <Width>15.85959cm</Width>
+                <Width>15.91016cm</Width>
                 <ZIndex>12</ZIndex>
                 <Style>
                   <Border>
@@ -2214,7 +2299,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox4</rd:DefaultName>
                 <Top>2.11667cm</Top>
-                <Left>7.82285cm</Left>
+                <Left>7.78249cm</Left>
                 <Height>0.08537cm</Height>
                 <Width>1.31267cm</Width>
                 <ZIndex>13</ZIndex>
@@ -2245,7 +2330,7 @@
                 </Paragraphs>
                 <rd:DefaultName>PuestoFuncionario</rd:DefaultName>
                 <Top>2.08739cm</Top>
-                <Left>9.62941cm</Left>
+                <Left>9.58905cm</Left>
                 <Height>0.11465cm</Height>
                 <Width>6.02684cm</Width>
                 <ZIndex>14</ZIndex>
@@ -2284,7 +2369,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox4</rd:DefaultName>
                 <Top>2.61056cm</Top>
-                <Left>0.16521cm</Left>
+                <Left>0.12485cm</Left>
                 <Height>0.08819cm</Height>
                 <Width>4.1475cm</Width>
                 <ZIndex>15</ZIndex>
@@ -2324,7 +2409,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox4</rd:DefaultName>
                 <Top>2.61056cm</Top>
-                <Left>7.82285cm</Left>
+                <Left>7.78249cm</Left>
                 <Height>0.08819cm</Height>
                 <Width>2.66757cm</Width>
                 <ZIndex>16</ZIndex>
@@ -2355,7 +2440,7 @@
                 </Paragraphs>
                 <rd:DefaultName>UnidadAdministrativa</rd:DefaultName>
                 <Top>2.5841cm</Top>
-                <Left>10.99344cm</Left>
+                <Left>10.95308cm</Left>
                 <Height>0.11465cm</Height>
                 <Width>4.66281cm</Width>
                 <ZIndex>17</ZIndex>
@@ -2371,7 +2456,6 @@
               </Textbox>
               <Line Name="Line25">
                 <Top>2.88078cm</Top>
-                <Left>0.02646cm</Left>
                 <Height>0cm</Height>
                 <Width>15.93897cm</Width>
                 <ZIndex>18</ZIndex>
@@ -2383,7 +2467,7 @@
               </Line>
               <Line Name="Line34">
                 <Top>1.87854cm</Top>
-                <Left>7.64881cm</Left>
+                <Left>7.60845cm</Left>
                 <Height>1.00224cm</Height>
                 <Width>0cm</Width>
                 <ZIndex>19</ZIndex>
@@ -2409,7 +2493,7 @@
                 </Paragraphs>
                 <rd:DefaultName>UnidadAdministrativa</rd:DefaultName>
                 <Top>2.65907cm</Top>
-                <Left>4.70777cm</Left>
+                <Left>4.66741cm</Left>
                 <Height>0.11465cm</Height>
                 <Width>2.68702cm</Width>
                 <ZIndex>20</ZIndex>
@@ -2448,7 +2532,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox4</rd:DefaultName>
                 <Top>3.23012cm</Top>
-                <Left>0.19502cm</Left>
+                <Left>0.15466cm</Left>
                 <Height>0.08819cm</Height>
                 <Width>4.1475cm</Width>
                 <ZIndex>21</ZIndex>
@@ -2479,7 +2563,7 @@
                 </Paragraphs>
                 <rd:DefaultName>UnidadAdministrativa</rd:DefaultName>
                 <Top>3.20366cm</Top>
-                <Left>4.79789cm</Left>
+                <Left>4.75753cm</Left>
                 <Height>0.11465cm</Height>
                 <Width>5.72234cm</Width>
                 <ZIndex>22</ZIndex>
@@ -2495,10 +2579,10 @@
               </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Top>16.10127cm</Top>
-            <Left>0.24515cm</Left>
+            <Top>11.02127cm</Top>
+            <Left>0.28551cm</Left>
             <Height>3.63361cm</Height>
-            <Width>15.99524cm</Width>
+            <Width>15.96878cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -2533,7 +2617,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox4</rd:DefaultName>
                 <Top>0.3175cm</Top>
-                <Left>5.14917cm</Left>
+                <Left>5.19167cm</Left>
                 <Height>0.08819cm</Height>
                 <Width>5.27596cm</Width>
                 <Style>
@@ -2549,8 +2633,9 @@
               </Textbox>
               <Line Name="Line68">
                 <Top>1.89618cm</Top>
+                <Left>0.0425cm</Left>
                 <Height>0cm</Height>
-                <Width>16.12244cm</Width>
+                <Width>15.92293cm</Width>
                 <ZIndex>1</ZIndex>
                 <Style>
                   <Border>
@@ -2576,7 +2661,7 @@
                 </Paragraphs>
                 <rd:DefaultName>NombreServidor1</rd:DefaultName>
                 <Top>2.07257cm</Top>
-                <Left>5.17911cm</Left>
+                <Left>5.22161cm</Left>
                 <Height>0.17667cm</Height>
                 <Width>5.27596cm</Width>
                 <ZIndex>2</ZIndex>
@@ -2593,10 +2678,10 @@
               </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Top>20.10516cm</Top>
-            <Left>0.24515cm</Left>
-            <Height>2.505cm</Height>
-            <Width>16.12244cm</Width>
+            <Top>14.83127cm</Top>
+            <Left>0.25905cm</Left>
+            <Height>2.41764cm</Height>
+            <Width>15.96543cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -2605,11 +2690,512 @@
             </Style>
           </Rectangle>
           <Rectangle Name="Rectangle6">
+            <ReportItems>
+              <Textbox Name="Textbox28">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>F._______________________________</Value>
+                        <Style>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox21</rd:DefaultName>
+                <Top>0.21168cm</Top>
+                <Height>0.6cm</Height>
+                <Width>5.05452cm</Width>
+                <Visibility>
+                  <Hidden>=IIF(First(Fields!NombreFirma1.Value, "FIRMAS") = "", True, False)</Hidden>
+                </Visibility>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="CargoJefeEmpleado2">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>=IIf(First(Fields!CargoFirma1.Value, "FIRMAS") = "", "", First(Fields!CargoFirma1.Value, "FIRMAS") + " de " + First(Fields!NombreDependenciaFirma1.Value, "FIRMAS"))</Value>
+                        <Style>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>CargoJefeEmpleado</rd:DefaultName>
+                <Top>0.84695cm</Top>
+                <Height>0.6cm</Height>
+                <Width>5.05452cm</Width>
+                <ZIndex>1</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="NombreJefeEmpleado2">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>=First(Fields!NombreFirma1.Value, "FIRMAS")</Value>
+                        <Style />
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>NombreJefeEmpleado</rd:DefaultName>
+                <Top>1.5175cm</Top>
+                <Left>0.02711cm</Left>
+                <Height>0.6cm</Height>
+                <Width>5.05452cm</Width>
+                <ZIndex>2</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox29">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>F._______________________________</Value>
+                        <Style>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox21</rd:DefaultName>
+                <Top>0.18521cm</Top>
+                <Left>5.05452cm</Left>
+                <Height>0.6cm</Height>
+                <Width>5.05452cm</Width>
+                <ZIndex>3</ZIndex>
+                <Visibility>
+                  <Hidden>=IIF(First(Fields!NombreFirma2.Value, "FIRMAS") = "", True, False)</Hidden>
+                </Visibility>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="CargoJefeEmpleado3">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>=IIf(First(Fields!CargoFirma2.Value, "FIRMAS") = "", "", First(Fields!CargoFirma2.Value, "FIRMAS") + " de " + First(Fields!NombreDependenciaFirma2.Value, "FIRMAS"))</Value>
+                        <Style>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>CargoJefeEmpleado</rd:DefaultName>
+                <Top>0.82049cm</Top>
+                <Left>5.23091cm</Left>
+                <Height>0.6cm</Height>
+                <Width>4.87812cm</Width>
+                <ZIndex>4</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="NombreJefeEmpleado3">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>=First(Fields!NombreFirma2.Value, "FIRMAS")</Value>
+                        <Style />
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>NombreJefeEmpleado</rd:DefaultName>
+                <Top>1.45577cm</Top>
+                <Left>5.05452cm</Left>
+                <Height>0.6cm</Height>
+                <Width>5.05452cm</Width>
+                <ZIndex>5</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox30">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>F._______________________________</Value>
+                        <Style>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox21</rd:DefaultName>
+                <Top>0.18522cm</Top>
+                <Left>10.14432cm</Left>
+                <Height>0.6cm</Height>
+                <Width>5.05452cm</Width>
+                <ZIndex>6</ZIndex>
+                <Visibility>
+                  <Hidden>=IIF(First(Fields!NombreFirma3.Value, "FIRMAS") = "", True, False)</Hidden>
+                </Visibility>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="CargoJefeEmpleado4">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>=IIf(First(Fields!CargoFirma3.Value, "FIRMAS") = "", "", First(Fields!CargoFirma3.Value, "FIRMAS") + " de " + First(Fields!NombreDependenciaFirma3.Value, "FIRMAS"))</Value>
+                        <Style>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>CargoJefeEmpleado</rd:DefaultName>
+                <Top>0.8205cm</Top>
+                <Left>10.28543cm</Left>
+                <Height>0.6cm</Height>
+                <Width>4.91341cm</Width>
+                <ZIndex>7</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="NombreJefeEmpleado4">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>=First(Fields!NombreFirma3.Value, "FIRMAS")</Value>
+                        <Style />
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>NombreJefeEmpleado</rd:DefaultName>
+                <Top>1.45577cm</Top>
+                <Left>10.14432cm</Left>
+                <Height>0.6cm</Height>
+                <Width>5.05452cm</Width>
+                <ZIndex>8</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox31">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>F._______________________________</Value>
+                        <Style>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox21</rd:DefaultName>
+                <Top>2.53229cm</Top>
+                <Height>0.6cm</Height>
+                <Width>5.05452cm</Width>
+                <ZIndex>9</ZIndex>
+                <Visibility>
+                  <Hidden>=IIF(First(Fields!NombreFirma4.Value, "FIRMAS") = "", True, False)</Hidden>
+                </Visibility>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="CargoJefeEmpleado5">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>=IIf(First(Fields!CargoFirma4.Value, "FIRMAS") = "", "", First(Fields!CargoFirma4.Value, "FIRMAS") + " de " + First(Fields!NombreDependenciaFirma4.Value, "FIRMAS"))</Value>
+                        <Style>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>CargoJefeEmpleado</rd:DefaultName>
+                <Top>3.16756cm</Top>
+                <Height>0.6cm</Height>
+                <Width>5.05452cm</Width>
+                <ZIndex>10</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="NombreJefeEmpleado5">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>=First(Fields!NombreFirma4.Value, "FIRMAS")</Value>
+                        <Style />
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>NombreJefeEmpleado</rd:DefaultName>
+                <Top>3.76756cm</Top>
+                <Height>0.6cm</Height>
+                <Width>5.05452cm</Width>
+                <ZIndex>11</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox32">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>F._______________________________</Value>
+                        <Style>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox21</rd:DefaultName>
+                <Top>2.53229cm</Top>
+                <Left>10.14432cm</Left>
+                <Height>0.6cm</Height>
+                <Width>5.05452cm</Width>
+                <ZIndex>12</ZIndex>
+                <Visibility>
+                  <Hidden>=IIF(First(Fields!NombreFirma5.Value, "FIRMAS") = "", True, False)</Hidden>
+                </Visibility>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="CargoJefeEmpleado6">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>=IIf(First(Fields!CargoFirma5.Value, "FIRMAS") = "", "", First(Fields!CargoFirma5.Value, "FIRMAS") + " de " + First(Fields!NombreDependenciaFirma5.Value, "FIRMAS"))</Value>
+                        <Style>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>CargoJefeEmpleado</rd:DefaultName>
+                <Top>3.16757cm</Top>
+                <Left>10.32071cm</Left>
+                <Height>0.6cm</Height>
+                <Width>4.87812cm</Width>
+                <ZIndex>13</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="NombreJefeEmpleado6">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>=First(Fields!NombreFirma5.Value, "FIRMAS")</Value>
+                        <Style />
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>NombreJefeEmpleado</rd:DefaultName>
+                <Top>3.76757cm</Top>
+                <Left>10.14432cm</Left>
+                <Height>0.6cm</Height>
+                <Width>5.05452cm</Width>
+                <ZIndex>14</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+            </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Top>22.96266cm</Top>
-            <Left>0.24515cm</Left>
-            <Height>3.01625cm</Height>
-            <Width>16.12244cm</Width>
+            <Top>17.52232cm</Top>
+            <Left>0.2614cm</Left>
+            <Height>5.00257cm</Height>
+            <Width>15.99289cm</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -2617,18 +3203,6 @@
               </Border>
             </Style>
           </Rectangle>
-          <Line Name="Line69">
-            <Top>25.21162cm</Top>
-            <Left>0.20849cm</Left>
-            <Height>0cm</Height>
-            <Width>16.1591cm</Width>
-            <ZIndex>4</ZIndex>
-            <Style>
-              <Border>
-                <Style>Solid</Style>
-              </Border>
-            </Style>
-          </Line>
         </ReportItems>
         <Height>12.87386in</Height>
         <Style />
@@ -2676,6 +3250,32 @@
     <ReportParameter Name="IdSolicitud">
       <DataType>Integer</DataType>
       <Prompt>Id Solicitud</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="IdEF1">
+      <DataType>Integer</DataType>
+      <Prompt>Id EF1</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="IdEF2">
+      <DataType>Integer</DataType>
+      <Prompt>Id EF2</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="IdEF3">
+      <DataType>Integer</DataType>
+      <Prompt>Id EF3</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="IdEF4">
+      <DataType>Integer</DataType>
+      <Prompt>Id EF4</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="IdEF5">
+      <DataType>Integer</DataType>
+      <Prompt>Id EF5</Prompt>
+      <Hidden>true</Hidden>
     </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
@@ -2687,6 +3287,31 @@
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>0</RowIndex>
           <ParameterName>IdSolicitud</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>IdEF1</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>IdEF2</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>3</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>IdEF3</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>IdEF4</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>IdEF5</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>
