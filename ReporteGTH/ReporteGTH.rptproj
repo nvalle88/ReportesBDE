@@ -63,11 +63,13 @@
     <Report Include="RepFormularioDatosPersonalesEmpleado.rdl" />
     <Report Include="RepIndiceOcupacionalDependenciaSuperior.rdl" />
     <Report Include="RepIndividualSolicitudVacaciones.rdl" />
+    <Report Include="RepInformeViaticoFormatoMDT.rdl" />
     <Report Include="RepMatr05PlanificacionTH.rdl" />
     <Report Include="RepNomina.rdl" />
     <Report Include="Report2.rdl" />
     <Report Include="ReporteTest.rdl" />
     <Report Include="RepParticipacionEventoInduccion.rdl" />
+    <Report Include="RepPermisos.rdl" />
     <Report Include="RepPermisosDetalle.rdl" />
     <Report Include="RepPlanCapacitaciones.rdl" />
     <Report Include="RepPlanificacionVacaciones.rdl" />
@@ -75,7 +77,8 @@
     <Report Include="RepSolicitudPermiso.rdl" />
     <Report Include="RepSolicitudPermisoEmpleado.rdl" />
     <Report Include="RepSolicitudPermisoTotalHoras.rdl" />
-    <Report Include="repSolicitudVacacion.rdl" />
+    <Report Include="RepSolicitudVacacion.rdl" />
+    <Report Include="RepSolicitudViaticoFormatoMDT.rdl" />
     <Report Include="RepViaticos.rdl" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />

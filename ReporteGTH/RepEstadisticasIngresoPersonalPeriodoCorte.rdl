@@ -20,6 +20,9 @@
           <QueryParameter Name="@FechaHasta">
             <Value>=Parameters!FechaHasta.Value</Value>
           </QueryParameter>
+          <QueryParameter Name="@IdSucursal">
+            <Value>=Parameters!IdSucursal.Value</Value>
+          </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
         <CommandText>sp_reporte_estadisticas_ingresos_personal_nuevo</CommandText>
@@ -67,6 +70,26 @@
         </Field>
         <Field Name="Empleados_vs_Tiempo">
           <DataField>Empleados vs Tiempo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Sucursales">
+      <Query>
+        <DataSourceName>ZeusBDE</DataSourceName>
+        <CommandText>SELECT        Nombre, IdSucursal
+FROM            Sucursal
+UNION
+SELECT        '&lt;Todos&gt;' AS Expr1, NULL AS Expr2
+ORDER BY Nombre</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="IdSucursal">
+          <DataField>IdSucursal</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Nombre">
+          <DataField>Nombre</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
@@ -1225,6 +1248,18 @@
       <DataType>DateTime</DataType>
       <Prompt>Fecha Hasta</Prompt>
     </ReportParameter>
+    <ReportParameter Name="IdSucursal">
+      <DataType>Integer</DataType>
+      <Nullable>true</Nullable>
+      <Prompt>Sucursal</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Sucursales</DataSetName>
+          <ValueField>IdSucursal</ValueField>
+          <LabelField>Nombre</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
@@ -1232,14 +1267,19 @@
       <NumberOfRows>2</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
-          <ColumnIndex>1</ColumnIndex>
+          <ColumnIndex>0</ColumnIndex>
           <RowIndex>0</RowIndex>
           <ParameterName>FechaDesde</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>2</ColumnIndex>
+          <ColumnIndex>1</ColumnIndex>
           <RowIndex>0</RowIndex>
           <ParameterName>FechaHasta</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>IdSucursal</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

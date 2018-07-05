@@ -181,7 +181,7 @@
 
 select 
 	s.IdSolicitudVacaciones,
-	convert(varchar(10),s.FechaDesde, 103) as fecha
+	s.FechaDesde as fecha
 from
 	SolicitudVacaciones s
 where 
@@ -197,7 +197,7 @@ and
         </Field>
         <Field Name="fecha">
           <DataField>fecha</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+          <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
       </Fields>
     </DataSet>
@@ -659,6 +659,18 @@ group by
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+          <Line Name="Line1">
+            <Top>5.42679cm</Top>
+            <Left>5.82958cm</Left>
+            <Height>0cm</Height>
+            <Width>5.66208cm</Width>
+            <ZIndex>13</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
           <Textbox Name="Textbox21">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -666,23 +678,21 @@ group by
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>F._______________________________</Value>
+                    <Value>F.</Value>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
+                <Style />
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox21</rd:DefaultName>
             <Top>4.79151cm</Top>
-            <Left>4.152cm</Left>
+            <Left>5.35333cm</Left>
             <Height>0.6cm</Height>
-            <Width>7.84335cm</Width>
-            <ZIndex>13</ZIndex>
+            <Width>0.62048cm</Width>
+            <ZIndex>14</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -715,7 +725,7 @@ group by
             <Left>0.75844cm</Left>
             <Height>0.6cm</Height>
             <Width>13.08018cm</Width>
-            <ZIndex>14</ZIndex>
+            <ZIndex>15</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -747,7 +757,7 @@ group by
             <Left>0.75844cm</Left>
             <Height>0.6cm</Height>
             <Width>10.56665cm</Width>
-            <ZIndex>15</ZIndex>
+            <ZIndex>16</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -779,7 +789,7 @@ group by
             <Left>14.54677cm</Left>
             <Height>0.6cm</Height>
             <Width>1.23cm</Width>
-            <ZIndex>16</ZIndex>
+            <ZIndex>17</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -811,7 +821,7 @@ group by
             <Left>0.75843cm</Left>
             <Height>1.12917cm</Height>
             <Width>15.01834cm</Width>
-            <ZIndex>17</ZIndex>
+            <ZIndex>18</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -843,7 +853,7 @@ group by
             <Left>0.75843cm</Left>
             <Height>1.28792cm</Height>
             <Width>15.01834cm</Width>
-            <ZIndex>18</ZIndex>
+            <ZIndex>19</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -876,7 +886,85 @@ group by
             <Left>0.8425cm</Left>
             <Height>0.6cm</Height>
             <Width>6.80547cm</Width>
-            <ZIndex>19</ZIndex>
+            <ZIndex>20</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox25">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>F.</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox21</rd:DefaultName>
+            <Top>11.00212cm</Top>
+            <Left>4.152cm</Left>
+            <Height>0.6cm</Height>
+            <Width>0.62048cm</Width>
+            <ZIndex>21</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Line Name="Line4">
+            <Top>11.6374cm</Top>
+            <Left>4.62825cm</Left>
+            <Height>0cm</Height>
+            <Width>6.69683cm</Width>
+            <ZIndex>22</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Textbox Name="CargoJefeEmpleado">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!CargoJefeEmpleado.Value, "solicitudVacacion")</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>CargoJefeEmpleado</rd:DefaultName>
+            <Top>11.77851cm</Top>
+            <Left>4.152cm</Left>
+            <Height>0.6cm</Height>
+            <Width>7.84335cm</Width>
+            <ZIndex>23</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -908,7 +996,7 @@ group by
             <Left>4.152cm</Left>
             <Height>0.6cm</Height>
             <Width>7.84335cm</Width>
-            <ZIndex>20</ZIndex>
+            <ZIndex>24</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -941,7 +1029,7 @@ group by
             <Left>0.84251cm</Left>
             <Height>0.6cm</Height>
             <Width>8.57818cm</Width>
-            <ZIndex>21</ZIndex>
+            <ZIndex>25</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -973,7 +1061,7 @@ group by
             <Left>14.81135cm</Left>
             <Height>0.6cm</Height>
             <Width>1.23cm</Width>
-            <ZIndex>22</ZIndex>
+            <ZIndex>26</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1003,7 +1091,7 @@ group by
             <Left>0.8425cm</Left>
             <Height>0.6cm</Height>
             <Width>4.51083cm</Width>
-            <ZIndex>23</ZIndex>
+            <ZIndex>27</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1035,7 +1123,7 @@ group by
             <Left>5.35333cm</Left>
             <Height>0.6cm</Height>
             <Width>8.56937cm</Width>
-            <ZIndex>24</ZIndex>
+            <ZIndex>28</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1068,7 +1156,7 @@ group by
             <Left>0.84251cm</Left>
             <Height>0.6cm</Height>
             <Width>8.57818cm</Width>
-            <ZIndex>25</ZIndex>
+            <ZIndex>29</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1100,7 +1188,7 @@ group by
             <Left>0.84251cm</Left>
             <Height>0.6cm</Height>
             <Width>5.05452cm</Width>
-            <ZIndex>26</ZIndex>
+            <ZIndex>30</ZIndex>
             <Visibility>
               <Hidden>=IIF(First(Fields!NombreFirma1.Value, "solicitudVacacion") = "", True, False)</Hidden>
             </Visibility>
@@ -1143,7 +1231,7 @@ First(Fields!CargoFirma1.Value, "solicitudVacacion")
             <Left>0.84251cm</Left>
             <Height>0.6cm</Height>
             <Width>5.05452cm</Width>
-            <ZIndex>27</ZIndex>
+            <ZIndex>31</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1175,7 +1263,7 @@ First(Fields!CargoFirma1.Value, "solicitudVacacion")
             <Left>0.84251cm</Left>
             <Height>0.6cm</Height>
             <Width>5.05452cm</Width>
-            <ZIndex>28</ZIndex>
+            <ZIndex>32</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1207,7 +1295,7 @@ First(Fields!CargoFirma1.Value, "solicitudVacacion")
             <Left>5.89703cm</Left>
             <Height>0.6cm</Height>
             <Width>5.05452cm</Width>
-            <ZIndex>29</ZIndex>
+            <ZIndex>33</ZIndex>
             <Visibility>
               <Hidden>=IIF(First(Fields!NombreFirma2.Value, "solicitudVacacion") = "", True, False)</Hidden>
             </Visibility>
@@ -1250,7 +1338,7 @@ First(Fields!CargoFirma2.Value, "solicitudVacacion")
             <Left>6.07342cm</Left>
             <Height>0.6cm</Height>
             <Width>4.87812cm</Width>
-            <ZIndex>30</ZIndex>
+            <ZIndex>34</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1282,7 +1370,7 @@ First(Fields!CargoFirma2.Value, "solicitudVacacion")
             <Left>5.89703cm</Left>
             <Height>0.6cm</Height>
             <Width>5.05452cm</Width>
-            <ZIndex>31</ZIndex>
+            <ZIndex>35</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1314,7 +1402,7 @@ First(Fields!CargoFirma2.Value, "solicitudVacacion")
             <Left>10.98683cm</Left>
             <Height>0.6cm</Height>
             <Width>5.05452cm</Width>
-            <ZIndex>32</ZIndex>
+            <ZIndex>36</ZIndex>
             <Visibility>
               <Hidden>=IIF(First(Fields!NombreFirma3.Value, "solicitudVacacion") = "", True, False)</Hidden>
             </Visibility>
@@ -1357,7 +1445,7 @@ First(Fields!CargoFirma3.Value, "solicitudVacacion")
             <Left>11.12794cm</Left>
             <Height>0.6cm</Height>
             <Width>4.91341cm</Width>
-            <ZIndex>33</ZIndex>
+            <ZIndex>37</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1389,7 +1477,7 @@ First(Fields!CargoFirma3.Value, "solicitudVacacion")
             <Left>10.98683cm</Left>
             <Height>0.6cm</Height>
             <Width>5.05452cm</Width>
-            <ZIndex>34</ZIndex>
+            <ZIndex>38</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1421,7 +1509,7 @@ First(Fields!CargoFirma3.Value, "solicitudVacacion")
             <Left>0.84251cm</Left>
             <Height>0.6cm</Height>
             <Width>5.05452cm</Width>
-            <ZIndex>35</ZIndex>
+            <ZIndex>39</ZIndex>
             <Visibility>
               <Hidden>=IIF(First(Fields!NombreFirma4.Value, "solicitudVacacion") = "", True, False)</Hidden>
             </Visibility>
@@ -1464,7 +1552,7 @@ First(Fields!CargoFirma4.Value, "solicitudVacacion")
             <Left>0.84251cm</Left>
             <Height>0.6cm</Height>
             <Width>5.05452cm</Width>
-            <ZIndex>36</ZIndex>
+            <ZIndex>40</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1496,7 +1584,7 @@ First(Fields!CargoFirma4.Value, "solicitudVacacion")
             <Left>0.84251cm</Left>
             <Height>0.6cm</Height>
             <Width>5.05452cm</Width>
-            <ZIndex>37</ZIndex>
+            <ZIndex>41</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1528,7 +1616,7 @@ First(Fields!CargoFirma4.Value, "solicitudVacacion")
             <Left>10.98683cm</Left>
             <Height>0.6cm</Height>
             <Width>5.05452cm</Width>
-            <ZIndex>38</ZIndex>
+            <ZIndex>42</ZIndex>
             <Visibility>
               <Hidden>=IIF(First(Fields!NombreFirma5.Value, "solicitudVacacion") = "", True, False)</Hidden>
             </Visibility>
@@ -1571,7 +1659,7 @@ First(Fields!CargoFirma5.Value, "solicitudVacacion")
             <Left>11.16322cm</Left>
             <Height>0.6cm</Height>
             <Width>4.87812cm</Width>
-            <ZIndex>39</ZIndex>
+            <ZIndex>43</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1603,75 +1691,7 @@ First(Fields!CargoFirma5.Value, "solicitudVacacion")
             <Left>10.98683cm</Left>
             <Height>0.6cm</Height>
             <Width>5.05452cm</Width>
-            <ZIndex>40</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox23">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>F._______________________________</Value>
-                    <Style>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox21</rd:DefaultName>
-            <Top>11.07268cm</Top>
-            <Left>4.152cm</Left>
-            <Height>0.6cm</Height>
-            <Width>7.84335cm</Width>
-            <ZIndex>41</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="CargoJefeEmpleado">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=First(Fields!CargoJefeEmpleado.Value, "solicitudVacacion")</Value>
-                    <Style>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>CargoJefeEmpleado</rd:DefaultName>
-            <Top>11.81379cm</Top>
-            <Left>4.152cm</Left>
-            <Height>0.6cm</Height>
-            <Width>7.84335cm</Width>
-            <ZIndex>42</ZIndex>
+            <ZIndex>44</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
