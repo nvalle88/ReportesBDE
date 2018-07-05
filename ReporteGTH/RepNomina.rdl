@@ -6,7 +6,7 @@
     <DataSource Name="ZeusBDE">
       <DataSourceReference>ZeusBDE</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
-      <rd:DataSourceID>e3efa500-a540-4b4c-8f0f-a8d42fc4e9a3</rd:DataSourceID>
+      <rd:DataSourceID>2e7c8b4a-7256-4729-baa2-d115ea6d24e8</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -38,13 +38,13 @@
           <DataField>FechaInicio</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="FechaFin">
-          <DataField>FechaFin</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
         <Field Name="Nombres">
           <DataField>Nombres</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FechaFin">
+          <DataField>FechaFin</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
         <Field Name="Apellidos">
           <DataField>Apellidos</DataField>
@@ -967,7 +967,7 @@
     <ReportParameter Name="IdCalculoNomina">
       <DataType>Integer</DataType>
       <Nullable>true</Nullable>
-      <Prompt>Id Calculo Nomina</Prompt>
+      <Prompt>IdCalculoNomina</Prompt>
       <Hidden>true</Hidden>
     </ReportParameter>
   </ReportParameters>
