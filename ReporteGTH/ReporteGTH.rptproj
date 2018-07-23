@@ -12,7 +12,7 @@
     <TargetDatasetFolder>Conjuntos de datos</TargetDatasetFolder>
     <TargetDatasourceFolder>Orígenes de datos</TargetDatasourceFolder>
     <TargetReportPartFolder>Elementos de informe</TargetReportPartFolder>
-    <TargetServerURL>http://52.224.8.198/ReportServer</TargetServerURL>
+    <TargetServerURL>http://uiowtfundation3/ReportServer</TargetServerURL>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'DebugLocal' ">
     <FullPath>DebugLocal</FullPath>
@@ -68,6 +68,7 @@
     <Report Include="RepNomina.rdl" />
     <Report Include="Report2.rdl" />
     <Report Include="ReporteTest.rdl" />
+    <Report Include="RepPagoNominaEmpleado.rdl" />
     <Report Include="RepParticipacionEventoInduccion.rdl" />
     <Report Include="RepPermisos.rdl" />
     <Report Include="RepPermisosDetalle.rdl" />
