@@ -34,12 +34,8 @@
           <DataField>Descripcion</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="FechaInicio">
-          <DataField>FechaInicio</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="FechaFin">
-          <DataField>FechaFin</DataField>
+        <Field Name="FechaNomina">
+          <DataField>FechaNomina</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
         <Field Name="Nombres">
@@ -991,39 +987,6 @@
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
-            <Textbox Name="FechaInicio">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value />
-                      <Style>
-                        <Format>d</Format>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>FechaInicio</rd:DefaultName>
-              <Top>0.65828cm</Top>
-              <Left>19.95813cm</Left>
-              <Height>0.6cm</Height>
-              <Width>1.91792cm</Width>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
             <Textbox Name="FechaFin">
               <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
@@ -1031,9 +994,10 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Label>FechaNomina</Label>
+                      <Value>=First(Fields!FechaNomina.Value, "ReporteNominaEmpleado")</Value>
                       <Style>
-                        <Format>d</Format>
+                        <Format>d/M/yyyy</Format>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -1044,10 +1008,9 @@
               </Paragraphs>
               <rd:DefaultName>FechaFin</rd:DefaultName>
               <Top>0.65828cm</Top>
-              <Left>24.51016cm</Left>
+              <Left>23.88927cm</Left>
               <Height>0.6cm</Height>
-              <Width>1.91792cm</Width>
-              <ZIndex>1</ZIndex>
+              <Width>1.98319cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1066,7 +1029,7 @@
               <Left>0.73766cm</Left>
               <Height>0.73556in</Height>
               <Width>1.25694in</Width>
-              <ZIndex>2</ZIndex>
+              <ZIndex>1</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1098,44 +1061,12 @@
               <Left>5.40205cm</Left>
               <Height>0.28417in</Height>
               <Width>4.07292in</Width>
-              <ZIndex>3</ZIndex>
+              <ZIndex>2</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox22">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>Fecha de inicio:</Value>
-                      <Style />
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox22</rd:DefaultName>
-              <Top>0.65828cm</Top>
-              <Left>17.21119cm</Left>
-              <Height>0.6cm</Height>
-              <Width>2.76458cm</Width>
-              <ZIndex>4</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
                 <PaddingTop>2pt</PaddingTop>
@@ -1149,7 +1080,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Fecha fin:</Value>
+                      <Value>Fecha:</Value>
                       <Style />
                     </TextRun>
                   </TextRuns>
@@ -1160,10 +1091,10 @@
               </Paragraphs>
               <rd:DefaultName>Textbox22</rd:DefaultName>
               <Top>0.65828cm</Top>
-              <Left>22.56049cm</Left>
+              <Left>21.98899cm</Left>
               <Height>0.6cm</Height>
               <Width>1.90028cm</Width>
-              <ZIndex>5</ZIndex>
+              <ZIndex>3</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1197,7 +1128,7 @@
               <Left>5.40205cm</Left>
               <Height>0.6cm</Height>
               <Width>10.34522cm</Width>
-              <ZIndex>6</ZIndex>
+              <ZIndex>4</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1246,7 +1177,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox34</rd:DefaultName>
-              <Top>0.29696cm</Top>
+              <Top>0.29694cm</Top>
               <Left>18.3683cm</Left>
               <Height>0.6cm</Height>
               <Width>8.09505cm</Width>
@@ -1283,21 +1214,8 @@
     <ReportParameter Name="IdCalculoNomina">
       <DataType>Integer</DataType>
       <Nullable>true</Nullable>
-      <DefaultValue>
-        <Values>
-          <Value>1</Value>
-        </Values>
-      </DefaultValue>
       <Prompt>IdCalculoNomina</Prompt>
       <Hidden>true</Hidden>
-      <ValidValues>
-        <ParameterValues>
-          <ParameterValue>
-            <Value>1</Value>
-            <Label>IdCalculoNomina</Label>
-          </ParameterValue>
-        </ParameterValues>
-      </ValidValues>
     </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
