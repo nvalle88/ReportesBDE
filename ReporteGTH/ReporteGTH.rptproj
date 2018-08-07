@@ -70,6 +70,8 @@
     <Report Include="ReporteTest.rdl" />
     <Report Include="RepPagoNominaEmpleado.rdl" />
     <Report Include="RepParticipacionEventoInduccion.rdl" />
+    <Report Include="RepPartidasVacantesMotivo.rdl" />
+    <Report Include="RepPartidasVacantesUbicacionGeografica.rdl" />
     <Report Include="RepPermisos.rdl" />
     <Report Include="RepPermisosDetalle.rdl" />
     <Report Include="RepPlanCapacitaciones.rdl" />
