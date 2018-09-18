@@ -50,6 +50,7 @@
   </PropertyGroup>
   <ItemGroup>
     <DataSource Include="ZeusBDE.rds" />
+    <DataSource Include="ZeusNuevoSistema.rds" />
   </ItemGroup>
   <ItemGroup>
     <Report Include="RepAreaServidorCausaCesacionFunciones.rdl" />

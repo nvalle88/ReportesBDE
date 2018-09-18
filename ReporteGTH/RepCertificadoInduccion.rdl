@@ -4,7 +4,7 @@
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="ZeusBDE">
-      <DataSourceReference>ZeusBDE</DataSourceReference>
+      <DataSourceReference>ZeusNuevoSistema</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
       <rd:DataSourceID>8d2ae516-6c48-4cbb-a43d-51332cdf88aa</rd:DataSourceID>
     </DataSource>
@@ -422,11 +422,6 @@
   <ReportParameters>
     <ReportParameter Name="IdEmpleado">
       <DataType>Integer</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>2101</Value>
-        </Values>
-      </DefaultValue>
       <Prompt>Id Empleado</Prompt>
       <Hidden>true</Hidden>
     </ReportParameter>

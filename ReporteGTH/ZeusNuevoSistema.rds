@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="ZeusNuevoSistema">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=52.224.8.198;Initial Catalog=zeusUnirNuevoSistema</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>3f289fc7-7115-40a5-9414-69cba9a7f389</DataSourceID>
+</RptDataSource>
