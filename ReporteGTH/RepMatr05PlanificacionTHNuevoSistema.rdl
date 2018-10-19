@@ -3,8 +3,8 @@
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="BD">
-      <DataSourceReference>ZeusBDE</DataSourceReference>
+    <DataSource Name="ZeusNuevoSistema">
+      <DataSourceReference>ZeusNuevoSistema</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
       <rd:DataSourceID>0c8c7bf6-fe2a-4ee0-9008-944379b52175</rd:DataSourceID>
     </DataSource>
@@ -12,7 +12,7 @@
   <DataSets>
     <DataSet Name="DatosMtr05">
       <Query>
-        <DataSourceName>BD</DataSourceName>
+        <DataSourceName>ZeusNuevoSistema</DataSourceName>
         <QueryParameters>
           <QueryParameter Name="@IdSucursal">
             <Value>=Parameters!IdSucursal.Value</Value>
@@ -62,7 +62,7 @@
     </DataSet>
     <DataSet Name="Sucursal">
       <Query>
-        <DataSourceName>BD</DataSourceName>
+        <DataSourceName>ZeusNuevoSistema</DataSourceName>
         <CommandText>Select idSucursal, Nombre from Sucursal
 
 union

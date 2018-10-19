@@ -3,7 +3,7 @@
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="ZeusBDE">
+    <DataSource Name="ZeusNuevoSistema">
       <DataSourceReference>ZeusBDE</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
       <rd:DataSourceID>466e7749-0a64-48ee-a1f7-30506e651f10</rd:DataSourceID>
@@ -12,7 +12,7 @@
   <DataSets>
     <DataSet Name="ParticipacionEventoInduccion">
       <Query>
-        <DataSourceName>ZeusBDE</DataSourceName>
+        <DataSourceName>ZeusNuevoSistema</DataSourceName>
         <QueryParameters>
           <QueryParameter Name="@FechaDesde">
             <Value>=Parameters!FechaDesde.Value</Value>
@@ -31,12 +31,12 @@
         <CommandText>sp_participacion_evento_induccion</CommandText>
       </Query>
       <Fields>
-        <Field Name="IdIndiceOcupacionalModalidadPartida">
-          <DataField>IdIndiceOcupacionalModalidadPartida</DataField>
+        <Field Name="IdDistributivoHistorico">
+          <DataField>IdDistributivoHistorico</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="Fecha">
-          <DataField>Fecha</DataField>
+        <Field Name="FechaInicio">
+          <DataField>FechaInicio</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
         <Field Name="IdEmpleado">
@@ -73,21 +73,21 @@
         </Field>
         <Field Name="FechaIngreso">
           <DataField>FechaIngreso</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+          <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
         <Field Name="FechaInduccion">
           <DataField>FechaInduccion</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+          <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="FechaLetras">
-          <DataField>FechaLetras</DataField>
+        <Field Name="ID">
+          <DataField />
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
     </DataSet>
     <DataSet Name="dependencias">
       <Query>
-        <DataSourceName>ZeusBDE</DataSourceName>
+        <DataSourceName>ZeusNuevoSistema</DataSourceName>
         <QueryParameters>
           <QueryParameter Name="@IdSucursal">
             <Value>=Parameters!IdSucursal.Value</Value>
@@ -112,6 +112,30 @@ order by Nombre</CommandText>
         </Field>
         <Field Name="IdDependencia">
           <DataField>IdDependencia</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="sucursal">
+      <Query>
+        <DataSourceName>ZeusNuevoSistema</DataSourceName>
+        <CommandText>select 
+	suc.Nombre,
+                   suc.IdSucursal
+from 
+	sucursal suc
+union
+select '&lt;Todos&gt;',null
+
+order by Nombre</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Nombre">
+          <DataField>Nombre</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="IdSucursal">
+          <DataField>IdSucursal</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
@@ -735,7 +759,7 @@ order by Nombre</CommandText>
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>1.73958in</Height>
+        <Height>2.44792in</Height>
         <Style />
       </Body>
       <Width>8.51934in</Width>
@@ -762,8 +786,15 @@ order by Nombre</CommandText>
     </ReportParameter>
     <ReportParameter Name="IdSucursal">
       <DataType>Integer</DataType>
-      <Prompt>Id Sucursal</Prompt>
-      <Hidden>true</Hidden>
+      <Nullable>true</Nullable>
+      <Prompt>sucursal</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>sucursal</DataSetName>
+          <ValueField>IdSucursal</ValueField>
+          <LabelField>Nombre</LabelField>
+        </DataSetReference>
+      </ValidValues>
     </ReportParameter>
     <ReportParameter Name="IdDependencia">
       <DataType>Integer</DataType>

@@ -3,16 +3,16 @@
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="ZeusBDE">
-      <DataSourceReference>ZeusNuevoSistema</DataSourceReference>
+    <DataSource Name="BD">
+      <DataSourceReference>ZeusBDE</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
-      <rd:DataSourceID>8d2ae516-6c48-4cbb-a43d-51332cdf88aa</rd:DataSourceID>
+      <rd:DataSourceID>77933621-ad00-43ae-887e-092c6d0018d5</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="CertificadoInduccion">
       <Query>
-        <DataSourceName>ZeusBDE</DataSourceName>
+        <DataSourceName>BD</DataSourceName>
         <QueryParameters>
           <QueryParameter Name="@IdEmpleado">
             <Value>=Parameters!IdEmpleado.Value</Value>

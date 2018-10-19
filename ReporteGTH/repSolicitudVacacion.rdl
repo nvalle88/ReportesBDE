@@ -63,11 +63,11 @@
         </Field>
         <Field Name="FechaSolicitud">
           <DataField>FechaSolicitud</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="FechaDesde">
           <DataField>FechaDesde</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="FechaHasta">
           <DataField>FechaHasta</DataField>
@@ -177,16 +177,14 @@
         </QueryParameters>
         <CommandText>/* El valor 6 en la columna 'Estado' es 'Aprobado' */
 
-
-
 select 
 	s.IdSolicitudVacaciones,
 	convert(varchar(10),s.FechaDesde, 103) as fecha
 from
 	SolicitudVacaciones s
 where 
-	s.Estado = 6
-and
+	--s.Estado = 6
+--and
 	s.IdEmpleado = @Empleado
 ;</CommandText>
       </Query>
@@ -212,8 +210,8 @@ from
 	SolicitudVacaciones s inner join 
 	Empleado e on e.IdEmpleado = s.IdEmpleado inner join
 	Persona p on p.IdPersona = e.IdPersona
-where
-                   s.Estado = 6
+--where
+ --                 s.Estado = 6
 
 group by
 	E.IdEmpleado
@@ -1956,7 +1954,7 @@ First(Fields!CargoFirma5.Value, "solicitudVacacion")
   </ReportSections>
   <ReportParameters>
     <ReportParameter Name="Empleado">
-      <DataType>String</DataType>
+      <DataType>Integer</DataType>
       <Prompt>Empleado</Prompt>
       <ValidValues>
         <DataSetReference>
