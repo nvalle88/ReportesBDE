@@ -691,7 +691,7 @@ Order by
     <ReportParameter Name="IdEmpleado">
       <DataType>Integer</DataType>
       <Nullable>true</Nullable>
-      <Prompt>Id Empleado</Prompt>
+      <Prompt>Empleado</Prompt>
       <ValidValues>
         <DataSetReference>
           <DataSetName>Empleados</DataSetName>
