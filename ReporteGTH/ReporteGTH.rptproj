@@ -56,8 +56,11 @@
     <Report Include="RepAreaServidorCausaCesacionFunciones.rdl" />
     <Report Include="RepCertificadoInduccion.rdl" />
     <Report Include="RepDatosPersonalesCandidato.rdl" />
+    <Report Include="RepDescripcionYPerfilDelPuesto.rdl" />
     <Report Include="RepDesv14.rdl" />
     <Report Include="RepDirectorioTelefonico.rdl" />
+    <Report Include="RepDistributivoFuncionariosConsolidado.rdl" />
+    <Report Include="RepDistributivoPersonalInstitucion.rdl" />
     <Report Include="RepEstadisticasIngresoPersonalPeriodoCorte.rdl" />
     <Report Include="RepEstadisticoGrupoFuncional.rdl" />
     <Report Include="RepEvaluacionEvento.rdl" />
