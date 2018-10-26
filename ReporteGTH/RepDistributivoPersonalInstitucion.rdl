@@ -859,6 +859,7 @@ Order by
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -933,6 +934,7 @@ Order by
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -1006,6 +1008,7 @@ Order by
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -1155,11 +1158,6 @@ Order by
         </DataSetReference>
       </ValidValues>
     </ReportParameter>
-    <ReportParameter Name="ResponsableUnidadPoseedoraInformacion">
-      <DataType>String</DataType>
-      <AllowBlank>true</AllowBlank>
-      <Prompt>Responsable de la unidad poseedora de la información</Prompt>
-    </ReportParameter>
     <ReportParameter Name="IdProceso">
       <DataType>Integer</DataType>
       <Nullable>true</Nullable>
@@ -1184,9 +1182,12 @@ Order by
         </DataSetReference>
       </ValidValues>
     </ReportParameter>
+    <ReportParameter Name="ResponsableUnidadPoseedoraInformacion">
+      <DataType>String</DataType>
+      <Prompt>Responsable de la unidad poseedora de la información</Prompt>
+    </ReportParameter>
     <ReportParameter Name="CorreoRespponsable">
       <DataType>String</DataType>
-      <AllowBlank>true</AllowBlank>
       <Prompt>Correo del responsable de la unidad poseedora de la información</Prompt>
     </ReportParameter>
     <ReportParameter Name="TelefonoResponsable">
@@ -1197,7 +1198,7 @@ Order by
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
+      <NumberOfRows>4</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
           <ColumnIndex>1</ColumnIndex>
@@ -1220,18 +1221,18 @@ Order by
           <ParameterName>IdSucursal</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>2</ColumnIndex>
-          <RowIndex>0</RowIndex>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>2</RowIndex>
           <ParameterName>ResponsableUnidadPoseedoraInformacion</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>2</ColumnIndex>
-          <RowIndex>1</RowIndex>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>2</RowIndex>
           <ParameterName>CorreoRespponsable</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>3</ColumnIndex>
-          <RowIndex>1</RowIndex>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>3</RowIndex>
           <ParameterName>TelefonoResponsable</ParameterName>
         </CellDefinition>
       </CellDefinitions>
