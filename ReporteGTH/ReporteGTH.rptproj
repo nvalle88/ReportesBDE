@@ -49,6 +49,7 @@
     <Reports>@(Report)</Reports>
   </PropertyGroup>
   <ItemGroup>
+    <DataSource Include="local.rds" />
     <DataSource Include="ZeusBDE.rds" />
     <DataSource Include="ZeusNuevoSistema.rds" />
   </ItemGroup>
@@ -61,10 +62,12 @@
     <Report Include="RepDirectorioTelefonico.rdl" />
     <Report Include="RepDistributivoFuncionariosConsolidado.rdl" />
     <Report Include="RepDistributivoPersonalInstitucion.rdl" />
+    <Report Include="RepDocumentosIngresoEmpleadoEntregados.rdl" />
     <Report Include="RepEstadisticasIngresoPersonalPeriodoCorte.rdl" />
     <Report Include="RepEstadisticoGrupoFuncional.rdl" />
     <Report Include="RepEvaluacionEvento.rdl" />
     <Report Include="RepFormularioDatosPersonalesEmpleado.rdl" />
+    <Report Include="RepFormularioRegistroDatosPersonalesEmpleado.rdl" />
     <Report Include="RepIndiceOcupacionalDependenciaSuperior.rdl" />
     <Report Include="RepIndividualSolicitudVacaciones.rdl" />
     <Report Include="RepInformeViaticoFormatoMDT.rdl" />

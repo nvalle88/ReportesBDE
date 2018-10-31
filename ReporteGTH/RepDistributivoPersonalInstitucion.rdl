@@ -126,7 +126,7 @@ Order by
 From 
 	Dependencia
 Where
-	IdSucursal = @IdSucursal
+	@IdSucursal is null or IdSucursal = @IdSucursal
 Union 
 	(select NULL,'&lt;Todos&gt;')
 Order by
@@ -859,7 +859,6 @@ Order by
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -934,7 +933,6 @@ Order by
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -1008,7 +1006,6 @@ Order by
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -1146,6 +1143,10 @@ Order by
         </DataSetReference>
       </ValidValues>
     </ReportParameter>
+    <ReportParameter Name="ResponsableUnidadPoseedoraInformacion">
+      <DataType>String</DataType>
+      <Prompt>Responsable de la unidad poseedora de la información</Prompt>
+    </ReportParameter>
     <ReportParameter Name="IdDependencia">
       <DataType>Integer</DataType>
       <Nullable>true</Nullable>
@@ -1157,6 +1158,10 @@ Order by
           <LabelField>Nombre</LabelField>
         </DataSetReference>
       </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="CorreoRespponsable">
+      <DataType>String</DataType>
+      <Prompt>Correo del responsable de la unidad poseedora de la información</Prompt>
     </ReportParameter>
     <ReportParameter Name="IdProceso">
       <DataType>Integer</DataType>
@@ -1170,6 +1175,10 @@ Order by
         </DataSetReference>
       </ValidValues>
     </ReportParameter>
+    <ReportParameter Name="TelefonoResponsable">
+      <DataType>String</DataType>
+      <Prompt>Teléfono responsable de la unidad</Prompt>
+    </ReportParameter>
     <ReportParameter Name="IdEmpleado">
       <DataType>Integer</DataType>
       <Nullable>true</Nullable>
@@ -1182,18 +1191,6 @@ Order by
         </DataSetReference>
       </ValidValues>
     </ReportParameter>
-    <ReportParameter Name="ResponsableUnidadPoseedoraInformacion">
-      <DataType>String</DataType>
-      <Prompt>Responsable de la unidad poseedora de la información</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="CorreoRespponsable">
-      <DataType>String</DataType>
-      <Prompt>Correo del responsable de la unidad poseedora de la información</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="TelefonoResponsable">
-      <DataType>String</DataType>
-      <Prompt>Teléfono responsable de la unidad</Prompt>
-    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
@@ -1201,18 +1198,18 @@ Order by
       <NumberOfRows>4</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
-          <ColumnIndex>1</ColumnIndex>
-          <RowIndex>0</RowIndex>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>1</RowIndex>
           <ParameterName>IdDependencia</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
-          <RowIndex>1</RowIndex>
+          <RowIndex>2</RowIndex>
           <ParameterName>IdProceso</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>1</ColumnIndex>
-          <RowIndex>1</RowIndex>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>3</RowIndex>
           <ParameterName>IdEmpleado</ParameterName>
         </CellDefinition>
         <CellDefinition>
@@ -1221,18 +1218,18 @@ Order by
           <ParameterName>IdSucursal</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>2</RowIndex>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>0</RowIndex>
           <ParameterName>ResponsableUnidadPoseedoraInformacion</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>1</ColumnIndex>
-          <RowIndex>2</RowIndex>
+          <RowIndex>1</RowIndex>
           <ParameterName>CorreoRespponsable</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>3</RowIndex>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>2</RowIndex>
           <ParameterName>TelefonoResponsable</ParameterName>
         </CellDefinition>
       </CellDefinitions>
