@@ -49,7 +49,6 @@
     <Reports>@(Report)</Reports>
   </PropertyGroup>
   <ItemGroup>
-    <DataSource Include="local.rds" />
     <DataSource Include="ZeusBDE.rds" />
     <DataSource Include="ZeusNuevoSistema.rds" />
   </ItemGroup>
