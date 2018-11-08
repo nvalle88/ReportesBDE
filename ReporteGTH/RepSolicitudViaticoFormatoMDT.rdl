@@ -1911,7 +1911,7 @@
                 <Top>6.68232cm</Top>
                 <Left>0.33402cm</Left>
                 <Height>0.75902cm</Height>
-                <Width>14.92297cm</Width>
+                <Width>14.92295cm</Width>
                 <ZIndex>42</ZIndex>
                 <Style>
                   <Border>
@@ -3542,32 +3542,26 @@
     <ReportParameter Name="IdSolicitud">
       <DataType>Integer</DataType>
       <Prompt>Id Solicitud</Prompt>
-      <Hidden>true</Hidden>
     </ReportParameter>
     <ReportParameter Name="IdEF1">
       <DataType>Integer</DataType>
       <Prompt>Id EF1</Prompt>
-      <Hidden>true</Hidden>
     </ReportParameter>
     <ReportParameter Name="IdEF2">
       <DataType>Integer</DataType>
       <Prompt>Id EF2</Prompt>
-      <Hidden>true</Hidden>
     </ReportParameter>
     <ReportParameter Name="IdEF3">
       <DataType>Integer</DataType>
       <Prompt>Id EF3</Prompt>
-      <Hidden>true</Hidden>
     </ReportParameter>
     <ReportParameter Name="IdEF4">
       <DataType>Integer</DataType>
       <Prompt>Id EF4</Prompt>
-      <Hidden>true</Hidden>
     </ReportParameter>
     <ReportParameter Name="IdEF5">
       <DataType>Integer</DataType>
       <Prompt>Id EF5</Prompt>
-      <Hidden>true</Hidden>
     </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
