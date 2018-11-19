@@ -82,26 +82,30 @@
         </QueryParameters>
         <CommandText>-- TRANSPORTE UTILIZADO --
 
-	select
-		tt.Descripcion as TipoTransporte,
-		concat(co.Nombre,' - ',cd.Nombre) as Ruta,
-		convert(date, iv.FechaDesde) as FechaSalida,
-		iv.HoraSalida as HoraSalida,
-		convert(date, iv.FechaHasta) as FechaLlegada,
-		iv.HoraLlegada as HoraLlegada
-	from
-		ItinerarioViatico iv 
-		inner join TipoTransporte tt
-		on iv.IdTipoTransporte = tt.IdTipoTransporte inner join ciudad co
-		on co.IdCiudad = iv.IdCiudadOrigen inner join ciudad cd
-		on cd.IdCiudad = iv.IdCiudadDestino
-	where
-		iv.IdSolicitudViatico = @IdSolicitudViatico
-	;</CommandText>
+select
+	tt.Descripcion as TipoTransporte,
+	iv.NombreTransporte,
+	concat(co.Nombre,' - ',cd.Nombre) as Ruta,
+	convert(date, iv.FechaSalida) as FechaSalida,
+	Convert(varchar(5), cast(iv.HoraSalida as datetime), 108)  as HoraSalida,
+	convert(date, iv.FechaLlegada) as FechaLlegada,
+	Convert(varchar(5), cast(iv.HoraLlegada as datetime), 108)  as HoraLlegada
+from
+	InformeViatico iv inner join ciudad co
+	on co.IdCiudad = iv.IdCiudadOrigen inner join ciudad cd
+	on cd.IdCiudad = iv.IdCiudadDestino inner join TipoTransporte tt
+	on tt.IdTipoTransporte = iv.IdTipoTransporte
+where
+	iv.IdSolicitudViatico = @IdSolicitudViatico
+;</CommandText>
       </Query>
       <Fields>
         <Field Name="TipoTransporte">
           <DataField>TipoTransporte</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NombreTransporte">
+          <DataField>NombreTransporte</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Ruta">
@@ -114,7 +118,7 @@
         </Field>
         <Field Name="HoraSalida">
           <DataField>HoraSalida</DataField>
-          <rd:TypeName>System.TimeSpan</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="FechaLlegada">
           <DataField>FechaLlegada</DataField>
@@ -122,7 +126,7 @@
         </Field>
         <Field Name="HoraLlegada">
           <DataField>HoraLlegada</DataField>
-          <rd:TypeName>System.TimeSpan</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
     </DataSet>
@@ -138,7 +142,7 @@
                   <Width>7.19465cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>7.19465cm</Width>
+                  <Width>7.16073cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -689,7 +693,7 @@
             <Top>1.86175cm</Top>
             <Left>1.06681cm</Left>
             <Height>3.80313cm</Height>
-            <Width>14.3893cm</Width>
+            <Width>14.35538cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -700,10 +704,10 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>7.19465cm</Width>
+                  <Width>7.27746cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>7.19465cm</Width>
+                  <Width>7.06641cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -754,6 +758,50 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
+                  <Height>0.6cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Descripcion">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Descripcion.Value</Value>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>SEGOE UI</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <TextDecoration>None</TextDecoration>
+                                    <Color>#000000</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Descripcion</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <ColSpan>2</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell />
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
                   <Height>1.81708cm</Height>
                   <TablixCells>
                     <TablixCell>
@@ -762,13 +810,13 @@
                           <TablixBody>
                             <TablixColumns>
                               <TablixColumn>
-                                <Width>3.64176cm</Width>
+                                <Width>3.63545cm</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>1.78967cm</Width>
+                                <Width>1.8512cm</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>1.76321cm</Width>
+                                <Width>1.79082cm</Width>
                               </TablixColumn>
                             </TablixColumns>
                             <TablixRows>
@@ -823,7 +871,9 @@
                                                 </Style>
                                               </TextRun>
                                             </TextRuns>
-                                            <Style />
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
                                           </Paragraph>
                                         </Paragraphs>
                                         <rd:DefaultName>Textbox47</rd:DefaultName>
@@ -855,7 +905,9 @@
                                                 </Style>
                                               </TextRun>
                                             </TextRuns>
-                                            <Style />
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
                                           </Paragraph>
                                         </Paragraphs>
                                         <rd:DefaultName>Textbox49</rd:DefaultName>
@@ -1280,13 +1332,14 @@
               <TablixMembers>
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>SolicitudViaticos</DataSetName>
             <Top>5.66487cm</Top>
-            <Left>1.06681cm</Left>
-            <Height>2.41708cm</Height>
-            <Width>14.3893cm</Width>
+            <Left>1.07833cm</Left>
+            <Height>3.01708cm</Height>
+            <Width>14.34386cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -1298,22 +1351,25 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.39822cm</Width>
+                  <Width>2.2625cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.68866cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.39822cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.39822cm</Width>
+                  <Width>1.8426cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.39822cm</Width>
+                  <Width>1.73332cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.39822cm</Width>
+                  <Width>1.8745cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.39822cm</Width>
+                  <Width>1.58951cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -1354,9 +1410,10 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <ColSpan>2</ColSpan>
+                        <ColSpan>3</ColSpan>
                       </CellContents>
                     </TablixCell>
+                    <TablixCell />
                     <TablixCell />
                     <TablixCell>
                       <CellContents>
@@ -1462,6 +1519,41 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox57</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox58">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Nombre del transporte</Value>
+                                  <Style>
+                                    <FontFamily>SEGOE UI</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox58</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -1690,6 +1782,40 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <Textbox Name="NombreTransporte">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!NombreTransporte.Value</Value>
+                                  <Style>
+                                    <FontFamily>SEGOE UI</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>NombreTransporte</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
                         <Textbox Name="Ruta">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -1731,7 +1857,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!FechaSalida.Value</Value>
+                                  <Value>=Format(Fields!FechaSalida.Value,"dd-MM-yyyy")</Value>
                                   <Style>
                                     <FontFamily>SEGOE UI</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -1799,7 +1925,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!FechaLlegada.Value</Value>
+                                  <Value>=Format(Fields!FechaLlegada.Value,"dd-MM-yyyy")</Value>
                                   <Style>
                                     <FontFamily>SEGOE UI</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -1897,9 +2023,10 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <ColSpan>6</ColSpan>
+                        <ColSpan>7</ColSpan>
                       </CellContents>
                     </TablixCell>
+                    <TablixCell />
                     <TablixCell />
                     <TablixCell />
                     <TablixCell />
@@ -1911,6 +2038,7 @@
             </TablixBody>
             <TablixColumnHierarchy>
               <TablixMembers>
+                <TablixMember />
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
@@ -1936,10 +2064,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>Itinerario</DataSetName>
-            <Top>8.18779cm</Top>
-            <Left>1.06681cm</Left>
+            <Top>8.71146cm</Top>
+            <Left>1.0668cm</Left>
             <Height>3.08792cm</Height>
-            <Width>14.38932cm</Width>
+            <Width>14.38931cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -1951,7 +2079,7 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>14.38931cm</Width>
+                  <Width>14.38933cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -2052,10 +2180,10 @@
             <PageBreak>
               <BreakLocation>End</BreakLocation>
             </PageBreak>
-            <Top>11.2757cm</Top>
+            <Top>11.79938cm</Top>
             <Left>1.0668cm</Left>
             <Height>1.2cm</Height>
-            <Width>14.38931cm</Width>
+            <Width>14.38933cm</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -2070,7 +2198,7 @@
                   <Width>7.16073cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>7.22858cm</Width>
+                  <Width>7.20619cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -2313,7 +2441,7 @@
             <Top>0.07056cm</Top>
             <Left>1.0668cm</Left>
             <Height>1.61479cm</Height>
-            <Width>14.38931cm</Width>
+            <Width>14.36692cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -2328,7 +2456,7 @@
                   <Width>7.16073cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>7.22858cm</Width>
+                  <Width>7.21707cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -2568,10 +2696,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>SolicitudViaticos</DataSetName>
-            <Top>12.76011cm</Top>
-            <Left>1.0668cm</Left>
+            <Top>13.35324cm</Top>
+            <Left>1.07833cm</Left>
             <Height>1.61479cm</Height>
-            <Width>14.38931cm</Width>
+            <Width>14.3778cm</Width>
             <ZIndex>5</ZIndex>
             <Style>
               <Border>
@@ -2586,7 +2714,7 @@
                   <Width>7.19465cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>7.19465cm</Width>
+                  <Width>7.18315cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -3134,10 +3262,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>SolicitudViaticos</DataSetName>
-            <Top>14.3749cm</Top>
-            <Left>1.0668cm</Left>
+            <Top>14.96803cm</Top>
+            <Left>1.07833cm</Left>
             <Height>3.80313cm</Height>
-            <Width>14.3893cm</Width>
+            <Width>14.3778cm</Width>
             <ZIndex>6</ZIndex>
             <Style>
               <Border>
@@ -3149,10 +3277,10 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>7.19466cm</Width>
+                  <Width>7.17193cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>7.19466cm</Width>
+                  <Width>7.17193cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -3379,14 +3507,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox141">
+                        <Textbox Name="Textbox64">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>NOMBRE:</Value>
+                                  <Value />
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>SEGOE UI</FontFamily>
@@ -3400,11 +3528,17 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox135</rd:DefaultName>
+                          <rd:DefaultName>Textbox64</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
                             </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -3431,10 +3565,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>SolicitudViaticos</DataSetName>
-            <Top>18.35442cm</Top>
-            <Left>1.03287cm</Left>
+            <Top>18.84172cm</Top>
+            <Left>1.07833cm</Left>
             <Height>3.33458cm</Height>
-            <Width>14.38932cm</Width>
+            <Width>14.34386cm</Width>
             <ZIndex>7</ZIndex>
             <Style>
               <Border>
@@ -3754,8 +3888,8 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>SolicitudViaticos</DataSetName>
-            <Top>21.75956cm</Top>
-            <Left>1.03287cm</Left>
+            <Top>22.24686cm</Top>
+            <Left>1.06681cm</Left>
             <Height>2.4cm</Height>
             <Width>14.38932cm</Width>
             <ZIndex>8</ZIndex>
@@ -3769,10 +3903,10 @@
         <Height>13.438in</Height>
         <Style />
       </Body>
-      <Width>11.97045in</Width>
+      <Width>12.41743in</Width>
       <Page>
         <PageHeader>
-          <Height>2.65731cm</Height>
+          <Height>3.21147cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -3783,7 +3917,7 @@
                   <Value>LogoMDT1</Value>
                   <Sizing>FitProportional</Sizing>
                   <Top>0.49672cm</Top>
-                  <Left>0.60854cm</Left>
+                  <Left>0.56307cm</Left>
                   <Height>1.44708cm</Height>
                   <Width>5.80389cm</Width>
                   <Style>
@@ -3797,7 +3931,7 @@
                   <Value>logobde</Value>
                   <Sizing>FitProportional</Sizing>
                   <Top>0.28505cm</Top>
-                  <Left>9.11664cm</Left>
+                  <Left>9.07117cm</Left>
                   <Height>0.71473in</Height>
                   <Width>1.33842in</Width>
                   <ZIndex>1</ZIndex>
@@ -3808,7 +3942,7 @@
                   </Style>
                 </Image>
                 <Line Name="Line1">
-                  <Left>7.19467cm</Left>
+                  <Left>7.1492cm</Left>
                   <Height>2.39416cm</Height>
                   <Width>0cm</Width>
                   <ZIndex>2</ZIndex>
@@ -3838,7 +3972,7 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox118</rd:DefaultName>
-                  <Left>11.82145cm</Left>
+                  <Left>11.77598cm</Left>
                   <Height>0.52062cm</Height>
                   <Width>2.5cm</Width>
                   <ZIndex>3</ZIndex>
@@ -3854,16 +3988,46 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>0.26315cm</Top>
-              <Left>1.03286cm</Left>
+              <Top>0.81731cm</Top>
+              <Left>1.07833cm</Left>
               <Height>2.39416cm</Height>
-              <Width>14.38933cm</Width>
+              <Width>14.34386cm</Width>
               <Style>
                 <Border>
                   <Style>Solid</Style>
                 </Border>
               </Style>
             </Rectangle>
+            <Textbox Name="Textbox95">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value />
+                      <Style />
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox95</rd:DefaultName>
+              <Top>0.18203cm</Top>
+              <Left>1.07833cm</Left>
+              <Height>0.6cm</Height>
+              <Width>14.34386cm</Width>
+              <ZIndex>1</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
           </ReportItems>
           <Style>
             <Border>

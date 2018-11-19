@@ -1521,7 +1521,7 @@ drop Table #ttb_tipoViatico;</CommandText>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>=Format(Fields!FechaSalida.Value, "dd-MM-yyyy")</Value>
+                                                <Value>=Format(Fields!FechaLlegada.Value, "dd-MM-yyyy")</Value>
                                                 <Style>
                                                   <FontFamily>SEGOE UI</FontFamily>
                                                   <FontSize>9pt</FontSize>
@@ -1571,7 +1571,7 @@ drop Table #ttb_tipoViatico;</CommandText>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>=Fields!HoraSalida.Value</Value>
+                                                <Value>=Fields!HoraLlegada.Value</Value>
                                                 <Style>
                                                   <FontFamily>SEGOE UI</FontFamily>
                                                   <FontSize>9pt</FontSize>

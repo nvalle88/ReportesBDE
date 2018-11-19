@@ -84,7 +84,7 @@
     <Report Include="RepPermisosDetalle.rdl" />
     <Report Include="RepPlanCapacitaciones.rdl" />
     <Report Include="RepPlanificacionVacaciones.rdl" />
-    <Report Include="RepReliquicion.rdl" />
+    <Report Include="RepReliquidacionSolicitudAutorizacionCumplimientoServiciosInstitucionales.rdl" />
     <Report Include="RepSolicitudAutorizacionCumplimientoServiciosInstitucionales.rdl" />
     <Report Include="RepSolicitudPagoReliquidacion.rdl" />
     <Report Include="RepSolicitudPermiso.rdl" />
