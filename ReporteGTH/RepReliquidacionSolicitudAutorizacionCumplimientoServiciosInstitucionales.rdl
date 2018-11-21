@@ -4276,6 +4276,7 @@ drop Table #ttb_tipoViatico;
     <ReportParameter Name="IdSolicitudViatico">
       <DataType>Integer</DataType>
       <Prompt>Id Solicitud Viatico</Prompt>
+      <Hidden>true</Hidden>
     </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>

@@ -844,6 +844,7 @@ jubilar, ni pensión de retiro (ISSFA, ISSPOL), ni he iniciado los trámites par
     <ReportParameter Name="IdEmpleado">
       <DataType>Integer</DataType>
       <Prompt>Id Empleado</Prompt>
+      <Hidden>true</Hidden>
     </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>

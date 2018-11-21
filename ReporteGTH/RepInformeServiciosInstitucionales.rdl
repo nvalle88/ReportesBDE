@@ -1339,7 +1339,7 @@ where
             <Top>5.66487cm</Top>
             <Left>1.07833cm</Left>
             <Height>3.01708cm</Height>
-            <Width>14.34386cm</Width>
+            <Width>14.34387cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -4050,6 +4050,7 @@ where
     <ReportParameter Name="IdSolicitudViatico">
       <DataType>Integer</DataType>
       <Prompt>Id Solicitud Viatico</Prompt>
+      <Hidden>true</Hidden>
     </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
