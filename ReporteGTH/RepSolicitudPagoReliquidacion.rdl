@@ -3,68 +3,52 @@
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="DataSource1">
+    <DataSource Name="BD">
       <DataSourceReference>ZeusBDE</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
       <rd:DataSourceID>1b7b2df9-a26b-4396-ad8f-96046e7afe57</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="SolicitudPagoRealiquidacion">
+    <DataSet Name="SolicitudPagoReliquidacion">
       <Query>
-        <DataSourceName>DataSource1</DataSourceName>
+        <DataSourceName>BD</DataSourceName>
         <QueryParameters>
-          <QueryParameter Name="@IdReliquidacionViatico">
-            <Value>=Parameters!IdReliquidacionViatico.Value</Value>
+          <QueryParameter Name="@IdSolicitudViatico">
+            <Value>=Parameters!IdSolicitudViatico.Value</Value>
           </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
-        <CommandText>spReporteSolicitudPagoReliquidacion</CommandText>
+        <CommandText>sp_reporte_solicitud_pago_viaticos</CommandText>
       </Query>
       <Fields>
-        <Field Name="IdReliquidacionViatico">
-          <DataField>IdReliquidacionViatico</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="FechaLlegada">
-          <DataField>FechaLlegada</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="NombreTransporte">
-          <DataField>NombreTransporte</DataField>
+        <Field Name="NumViatico">
+          <DataField>NumViatico</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="IdSolicitudViatico">
-          <DataField>IdSolicitudViatico</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Descripcion">
-          <DataField>Descripcion</DataField>
+        <Field Name="Beneficiarios">
+          <DataField>Beneficiarios</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="TipoTransporte">
-          <DataField>TipoTransporte</DataField>
+        <Field Name="Cedula">
+          <DataField>Cedula</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="ValorReliquidacion">
-          <DataField>ValorReliquidacion</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Identificacion">
-          <DataField>Identificacion</DataField>
+        <Field Name="CertificacionPresupuestaria">
+          <DataField>CertificacionPresupuestaria</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Nombres">
-          <DataField>Nombres</DataField>
+        <Field Name="SolicitudLicenciaRemuneracion">
+          <DataField>SolicitudLicenciaRemuneracion</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Apellidos">
-          <DataField>Apellidos</DataField>
+        <Field Name="Objetivo">
+          <DataField>Objetivo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="ValorTotalFactura">
-          <DataField>ValorTotalFactura</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
+        <Field Name="Observacion">
+          <DataField>Observacion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Fondo">
           <DataField>Fondo</DataField>
@@ -74,13 +58,77 @@
           <DataField>Fecha</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="NumeroPartidaPresupuestaria">
-          <DataField>NumeroPartidaPresupuestaria</DataField>
+        <Field Name="FechaLetras">
+          <DataField>FechaLetras</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="DescripcionSolicitud">
-          <DataField>DescripcionSolicitud</DataField>
+        <Field Name="Total">
+          <DataField>Total</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="TipoViaticos">
+      <Query>
+        <DataSourceName>BD</DataSourceName>
+        <CommandText>Declare @IdSolicitudViatico int;
+Declare @NombresTiposViaticos varchar(max);
+Declare @tt_ScriptSQL varchar(max);
+
+set @IdSolicitudViatico = 63;
+
+select 
+	iv.Descripcion as Viatico, 
+	coalesce((select sum(fv.ValorTotalFactura) from FacturaViatico fv where fv.IdSolicitudViatico = @IdSolicitudViatico and fv.IdItemViatico = iv.IdItemViatico),0.00) as Valor 
+into 
+	#ttb_tipoViatico 
+from 
+	ItemViatico iv
+;
+
+select @NombresTiposViaticos = coalesce( concat(@NombresTiposViaticos,',[',tv.Descripcion,']'),'') from (select iv.Descripcion from ItemViatico iv) as tv;
+
+set @NombresTiposViaticos = left(@NombresTiposViaticos,LEN(@NombresTiposViaticos))
+
+set @tt_ScriptSQL = concat('select ''TIPO VIÁTICOS'' as 
+VALOR ',@NombresTiposViaticos,' 
+from (select Viatico,Valor from #ttb_tipoViatico) as tablaFuente PIVOT ( 
+avg(Valor) FOR Viatico IN (',substring(@NombresTiposViaticos,2,len(@NombresTiposViaticos)),')
+) AS PivotTable;','') ;
+
+--select @tt_ScriptSQL;
+exec sp_sqlexec @tt_ScriptSQL;
+
+drop table #ttb_tipoViatico;</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="VALOR">
+          <DataField>VALOR</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Viático">
+          <DataField>Viático</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Peaje">
+          <DataField>Peaje</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Parqueo">
+          <DataField>Parqueo</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Movilización">
+          <DataField>Movilización</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Combustible">
+          <DataField>Combustible</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Mantenimiento">
+          <DataField>Mantenimiento</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
       </Fields>
     </DataSet>
@@ -89,6 +137,155 @@
     <ReportSection>
       <Body>
         <ReportItems>
+          <Rectangle Name="Rectangle1">
+            <ReportItems>
+              <Textbox Name="NumeroPartidaPresupuestaria">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>=First(Fields!CertificacionPresupuestaria.Value, "SolicitudPagoReliquidacion")</Value>
+                        <Style />
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Left</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>NumeroPartidaPresupuestaria</rd:DefaultName>
+                <Top>0.09467cm</Top>
+                <Left>7.323cm</Left>
+                <Height>0.6cm</Height>
+                <Width>6.73333cm</Width>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox130">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>Certificación Presupuestaria</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Arial</FontFamily>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox123</rd:DefaultName>
+                <Top>0.09467cm</Top>
+                <Left>0.15597cm</Left>
+                <Height>0.6cm</Height>
+                <Width>7.05682cm</Width>
+                <ZIndex>1</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox131">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>Solicitud de Licencia de Remuneración</Value>
+                        <Style>
+                          <FontStyle>Normal</FontStyle>
+                          <FontFamily>Arial</FontFamily>
+                          <TextDecoration>None</TextDecoration>
+                          <Color>#000000</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Left</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox123</rd:DefaultName>
+                <Top>1.05627cm</Top>
+                <Left>0.15597cm</Left>
+                <Height>0.57354cm</Height>
+                <Width>7.05682cm</Width>
+                <ZIndex>2</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="NumeroPartidaPresupuestaria2">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>=First(Fields!SolicitudLicenciaRemuneracion.Value, "SolicitudPagoReliquidacion")</Value>
+                        <Style />
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Left</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>NumeroPartidaPresupuestaria</rd:DefaultName>
+                <Top>1.05627cm</Top>
+                <Left>7.323cm</Left>
+                <Height>0.57354cm</Height>
+                <Width>6.73333cm</Width>
+                <ZIndex>3</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+            </ReportItems>
+            <KeepTogether>true</KeepTogether>
+            <Top>7.54338cm</Top>
+            <Left>0.65828cm</Left>
+            <Height>1.84808cm</Height>
+            <Width>16.92675cm</Width>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Rectangle>
           <Textbox Name="Textbox123">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -114,6 +311,7 @@
             <Left>0.26458cm</Left>
             <Height>0.6cm</Height>
             <Width>6.26307cm</Width>
+            <ZIndex>1</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -131,7 +329,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>N°.VIATICO</Value>
+                    <Value>N°.VIÁTICO</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Arial</FontFamily>
@@ -148,8 +346,8 @@
             <Top>1.41979cm</Top>
             <Left>0.58208cm</Left>
             <Height>0.6cm</Height>
-            <Width>2.18849cm</Width>
-            <ZIndex>1</ZIndex>
+            <Width>2.38283cm</Width>
+            <ZIndex>2</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -181,11 +379,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox123</rd:DefaultName>
-            <Top>1.41979cm</Top>
-            <Left>2.83482cm</Left>
+            <Top>1.44322cm</Top>
+            <Left>3.00018cm</Left>
             <Height>0.6cm</Height>
-            <Width>4.21979cm</Width>
-            <ZIndex>2</ZIndex>
+            <Width>5.82081cm</Width>
+            <ZIndex>3</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -220,10 +418,10 @@
             </Paragraphs>
             <rd:DefaultName>Textbox123</rd:DefaultName>
             <Top>1.41979cm</Top>
-            <Left>7.14752cm</Left>
+            <Left>8.92683cm</Left>
             <Height>0.6cm</Height>
-            <Width>6.6275cm</Width>
-            <ZIndex>3</ZIndex>
+            <Width>5.81424cm</Width>
+            <ZIndex>4</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -242,7 +440,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>N°.CEDULA</Value>
+                    <Value>N°.CÉDULA</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Arial</FontFamily>
@@ -257,10 +455,10 @@
             </Paragraphs>
             <rd:DefaultName>Textbox123</rd:DefaultName>
             <Top>1.41979cm</Top>
-            <Left>14.07961cm</Left>
+            <Left>14.8469cm</Left>
             <Height>0.6cm</Height>
-            <Width>3.53188cm</Width>
-            <ZIndex>4</ZIndex>
+            <Width>2.76459cm</Width>
+            <ZIndex>5</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -278,7 +476,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Sum(Fields!IdSolicitudViatico.Value, "SolicitudPagoRealiquidacion")</Value>
+                    <Value>=First(Fields!NumViatico.Value, "SolicitudPagoReliquidacion")</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -291,8 +489,8 @@
             <Top>2.6162cm</Top>
             <Left>0.58208cm</Left>
             <Height>0.6cm</Height>
-            <Width>2.18849cm</Width>
-            <ZIndex>5</ZIndex>
+            <Width>2.38283cm</Width>
+            <ZIndex>6</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -311,7 +509,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!Fondo.Value, "SolicitudPagoRealiquidacion")</Value>
+                    <Value>=First(Fields!Fondo.Value, "SolicitudPagoReliquidacion")</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -319,11 +517,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Fondo</rd:DefaultName>
-            <Top>2.6162cm</Top>
-            <Left>2.83482cm</Left>
+            <Top>2.63963cm</Top>
+            <Left>3.00018cm</Left>
             <Height>0.6cm</Height>
-            <Width>4.21979cm</Width>
-            <ZIndex>6</ZIndex>
+            <Width>5.82081cm</Width>
+            <ZIndex>7</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -341,7 +539,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!Nombres.Value &amp; " " &amp; Fields!Apellidos.Value, "SolicitudPagoRealiquidacion")</Value>
+                    <Value>=First(Fields!Beneficiarios.Value, "SolicitudPagoReliquidacion")</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -352,10 +550,10 @@
             </Paragraphs>
             <rd:DefaultName>Nombres</rd:DefaultName>
             <Top>2.6162cm</Top>
-            <Left>7.14752cm</Left>
+            <Left>8.92683cm</Left>
             <Height>0.6cm</Height>
-            <Width>6.6275cm</Width>
-            <ZIndex>7</ZIndex>
+            <Width>5.81424cm</Width>
+            <ZIndex>8</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -374,7 +572,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!Identificacion.Value, "SolicitudPagoRealiquidacion")</Value>
+                    <Value>=First(Fields!Cedula.Value, "SolicitudPagoReliquidacion")</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -383,86 +581,14 @@
             </Paragraphs>
             <rd:DefaultName>Identificacion</rd:DefaultName>
             <Top>2.6162cm</Top>
-            <Left>14.07961cm</Left>
+            <Left>14.8469cm</Left>
             <Height>0.6cm</Height>
-            <Width>3.53188cm</Width>
-            <ZIndex>8</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox128">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>VIATICO</Value>
-                    <Style>
-                      <FontStyle>Normal</FontStyle>
-                      <FontFamily>Arial</FontFamily>
-                      <FontWeight>Bold</FontWeight>
-                      <TextDecoration>None</TextDecoration>
-                      <Color>#000000</Color>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox123</rd:DefaultName>
-            <Top>4.19792cm</Top>
-            <Left>5.8586cm</Left>
-            <Height>0.6cm</Height>
-            <Width>2.79703cm</Width>
+            <Width>2.76459cm</Width>
             <ZIndex>9</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
-              <VerticalAlign>Middle</VerticalAlign>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Descripcion">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=First(Fields!Descripcion.Value, "SolicitudPagoRealiquidacion")</Value>
-                    <Style />
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Descripcion</rd:DefaultName>
-            <Top>5.36787cm</Top>
-            <Left>5.8586cm</Left>
-            <Height>0.6cm</Height>
-            <Width>2.79703cm</Width>
-            <ZIndex>10</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <VerticalAlign>Middle</VerticalAlign>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -476,21 +602,23 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Sum(Fields!ValorReliquidacion.Value, "SolicitudPagoRealiquidacion")</Value>
+                    <Value>=Sum(Fields!Total.Value, "SolicitudPagoReliquidacion")</Value>
                     <Style>
                       <Format>'$'#,0.00;('$'#,0.00)</Format>
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>ValorReliquidacion</rd:DefaultName>
-            <Top>5.36787cm</Top>
-            <Left>11.10113cm</Left>
+            <Top>4.7906cm</Top>
+            <Left>14.78799cm</Left>
             <Height>0.6cm</Height>
             <Width>2.79703cm</Width>
-            <ZIndex>11</ZIndex>
+            <ZIndex>10</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -525,152 +653,16 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox123</rd:DefaultName>
-            <Top>4.19792cm</Top>
-            <Left>11.10113cm</Left>
-            <Height>0.6cm</Height>
+            <Top>4.1906cm</Top>
+            <Left>14.78799cm</Left>
+            <Height>0.58112cm</Height>
             <Width>2.79703cm</Width>
-            <ZIndex>12</ZIndex>
+            <ZIndex>11</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
               <VerticalAlign>Middle</VerticalAlign>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox130">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Certificación Presupuestaria</Value>
-                    <Style>
-                      <FontStyle>Normal</FontStyle>
-                      <FontFamily>Arial</FontFamily>
-                      <TextDecoration>None</TextDecoration>
-                      <Color>#000000</Color>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox123</rd:DefaultName>
-            <Top>6.93635cm</Top>
-            <Left>0.95029cm</Left>
-            <Height>0.6cm</Height>
-            <Width>7.05682cm</Width>
-            <ZIndex>13</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="NumeroPartidaPresupuestaria">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=First(Fields!NumeroPartidaPresupuestaria.Value, "SolicitudPagoRealiquidacion")</Value>
-                    <Style />
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>NumeroPartidaPresupuestaria</rd:DefaultName>
-            <Top>6.93635cm</Top>
-            <Left>8.11732cm</Left>
-            <Height>0.6cm</Height>
-            <Width>6.73333cm</Width>
-            <ZIndex>14</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox131">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Solicitud de Licencia de Remuneración</Value>
-                    <Style>
-                      <FontStyle>Normal</FontStyle>
-                      <FontFamily>Arial</FontFamily>
-                      <TextDecoration>None</TextDecoration>
-                      <Color>#000000</Color>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox123</rd:DefaultName>
-            <Top>8.06083cm</Top>
-            <Left>0.95029cm</Left>
-            <Height>0.6cm</Height>
-            <Width>7.05682cm</Width>
-            <ZIndex>15</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="NumeroPartidaPresupuestaria2">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Sum(Fields!IdSolicitudViatico.Value, "SolicitudPagoRealiquidacion")</Value>
-                    <Style />
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>NumeroPartidaPresupuestaria</rd:DefaultName>
-            <Top>8.06083cm</Top>
-            <Left>8.11732cm</Left>
-            <Height>0.6cm</Height>
-            <Width>6.73333cm</Width>
-            <ZIndex>16</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -684,7 +676,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Objetivo:</Value>
+                    <Value>OBJETIVO:</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Arial</FontFamily>
@@ -698,11 +690,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox123</rd:DefaultName>
-            <Top>8.95669cm</Top>
-            <Left>0.68474cm</Left>
+            <Top>9.56785cm</Top>
+            <Left>0.7112cm</Left>
             <Height>0.6cm</Height>
-            <Width>7.05682cm</Width>
-            <ZIndex>17</ZIndex>
+            <Width>7.0039cm</Width>
+            <ZIndex>12</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -720,7 +712,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!DescripcionSolicitud.Value, "SolicitudPagoRealiquidacion")</Value>
+                    <Value>=First(Fields!Objetivo.Value, "SolicitudPagoReliquidacion")</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -728,11 +720,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>DescripcionSolicitud</rd:DefaultName>
-            <Top>9.66252cm</Top>
-            <Left>0.76412cm</Left>
+            <Top>10.27368cm</Top>
+            <Left>0.7112cm</Left>
             <Height>1.29963cm</Height>
-            <Width>16.84737cm</Width>
-            <ZIndex>18</ZIndex>
+            <Width>16.87383cm</Width>
+            <ZIndex>13</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -750,7 +742,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Observación:</Value>
+                    <Value>OBSERVACIÓN:</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Arial</FontFamily>
@@ -764,79 +756,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox123</rd:DefaultName>
-            <Top>11.24424cm</Top>
-            <Left>0.76412cm</Left>
+            <Top>11.71442cm</Top>
+            <Left>0.73766cm</Left>
             <Height>0.6cm</Height>
             <Width>2.79703cm</Width>
-            <ZIndex>19</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox134">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Reliquidacion de la solicitud número:</Value>
-                    <Style>
-                      <FontStyle>Normal</FontStyle>
-                      <FontFamily>Arial</FontFamily>
-                      <FontWeight>Bold</FontWeight>
-                      <TextDecoration>None</TextDecoration>
-                      <Color>#000000</Color>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox123</rd:DefaultName>
-            <Top>11.98535cm</Top>
-            <Left>0.76412cm</Left>
-            <Height>0.6cm</Height>
-            <Width>6.63349cm</Width>
-            <ZIndex>20</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="IdReliquidacionViatico">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Sum(Fields!IdReliquidacionViatico.Value, "SolicitudPagoRealiquidacion")</Value>
-                    <Style />
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>IdReliquidacionViatico</rd:DefaultName>
-            <Top>11.98535cm</Top>
-            <Left>7.3299cm</Left>
-            <Height>0.6cm</Height>
-            <Width>2.5cm</Width>
-            <ZIndex>21</ZIndex>
+            <ZIndex>14</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -854,7 +778,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Fecha:</Value>
+                    <Value>FECHA:</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Arial</FontFamily>
@@ -868,11 +792,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox123</rd:DefaultName>
-            <Top>12.89967cm</Top>
-            <Left>0.76412cm</Left>
+            <Top>14.223cm</Top>
+            <Left>0.81704cm</Left>
             <Height>0.6cm</Height>
             <Width>2.79703cm</Width>
-            <ZIndex>22</ZIndex>
+            <ZIndex>15</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -890,7 +814,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!Fecha.Value, "SolicitudPagoRealiquidacion")</Value>
+                    <Value>=First(Fields!FechaLetras.Value, "SolicitudPagoReliquidacion")</Value>
                     <Style>
                       <Format>d</Format>
                     </Style>
@@ -900,11 +824,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Fecha</rd:DefaultName>
-            <Top>12.89967cm</Top>
-            <Left>3.86669cm</Left>
+            <Top>14.223cm</Top>
+            <Left>3.91961cm</Left>
             <Height>0.6cm</Height>
             <Width>4.45792cm</Width>
-            <ZIndex>23</ZIndex>
+            <ZIndex>16</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -918,9 +842,9 @@
           <Line Name="Line5">
             <Top>1.21391cm</Top>
             <Left>18.03482cm</Left>
-            <Height>20.02896cm</Height>
+            <Height>21.61646cm</Height>
             <Width>0cm</Width>
-            <ZIndex>24</ZIndex>
+            <ZIndex>17</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -934,7 +858,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Documentos Adjuntos</Value>
+                    <Value>DOCUMENTOS ADJUNTOS:</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Arial</FontFamily>
@@ -948,11 +872,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox123</rd:DefaultName>
-            <Top>6.15583cm</Top>
-            <Left>0.68474cm</Left>
+            <Top>6.76699cm</Top>
+            <Left>0.65828cm</Left>
             <Height>0.6cm</Height>
             <Width>7.05682cm</Width>
-            <ZIndex>25</ZIndex>
+            <ZIndex>18</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -963,48 +887,12 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Line Name="Line8">
-            <Top>6.87599cm</Top>
-            <Left>0.7112cm</Left>
-            <Height>1.95792cm</Height>
-            <Width>0cm</Width>
-            <ZIndex>26</ZIndex>
-            <Style>
-              <Border>
-                <Style>Solid</Style>
-              </Border>
-            </Style>
-          </Line>
-          <Line Name="Line9">
-            <Top>8.83391cm</Top>
-            <Left>0.73766cm</Left>
-            <Height>0cm</Height>
-            <Width>16.87382cm</Width>
-            <ZIndex>27</ZIndex>
-            <Style>
-              <Border>
-                <Style>Solid</Style>
-              </Border>
-            </Style>
-          </Line>
-          <Line Name="Line11">
-            <Top>6.87599cm</Top>
-            <Left>17.61148cm</Left>
-            <Height>1.95792cm</Height>
-            <Width>0cm</Width>
-            <ZIndex>28</ZIndex>
-            <Style>
-              <Border>
-                <Style>Solid</Style>
-              </Border>
-            </Style>
-          </Line>
           <Line Name="Line12">
             <Top>3.75391cm</Top>
             <Left>0.28787cm</Left>
             <Height>0cm</Height>
             <Width>17.74695cm</Width>
-            <ZIndex>29</ZIndex>
+            <ZIndex>19</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -1012,11 +900,11 @@
             </Style>
           </Line>
           <Line Name="Line14">
-            <Top>12.72328cm</Top>
+            <Top>14.04661cm</Top>
             <Left>0.28787cm</Left>
             <Height>0cm</Height>
             <Width>17.74695cm</Width>
-            <ZIndex>30</ZIndex>
+            <ZIndex>20</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -1024,11 +912,11 @@
             </Style>
           </Line>
           <Line Name="Line15">
-            <Top>13.78162cm</Top>
+            <Top>15.10495cm</Top>
             <Left>0.28787cm</Left>
             <Height>0cm</Height>
             <Width>17.74695cm</Width>
-            <ZIndex>31</ZIndex>
+            <ZIndex>21</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -1042,7 +930,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>El servidor responsable y (el) la Director (a) de Administracion Talento HUmano, certifica que el proceso de pago asi como los docuemntos de sustento que se adjuntan a esta solicitud de apgo, cumple disposiciones del ordenamiento juridico vifgente. En consecuencia solicitamos la respectiva autorización a fin de proceder con el pago correspondiente.</Value>
+                    <Value>El servidor responsable y (el) la Director (a) de Administracion Talento Humano, certifica que el proceso de pago asi como los docuemntos de sustento que se adjuntan a esta solicitud de apgo, cumple disposiciones del ordenamiento juridico vifgente. En consecuencia solicitamos la respectiva autorización a fin de proceder con el pago correspondiente.</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Arial</FontFamily>
@@ -1069,11 +957,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox123</rd:DefaultName>
-            <Top>13.92273cm</Top>
-            <Left>0.68474cm</Left>
+            <Top>15.24606cm</Top>
+            <Left>0.73766cm</Left>
             <Height>2.24469cm</Height>
             <Width>16.92674cm</Width>
-            <ZIndex>32</ZIndex>
+            <ZIndex>22</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1085,23 +973,11 @@
             </Style>
           </Textbox>
           <Line Name="Line17">
-            <Top>17.43287cm</Top>
+            <Top>18.7562cm</Top>
             <Left>0.28787cm</Left>
             <Height>0cm</Height>
             <Width>17.74695cm</Width>
-            <ZIndex>33</ZIndex>
-            <Style>
-              <Border>
-                <Style>Solid</Style>
-              </Border>
-            </Style>
-          </Line>
-          <Line Name="Line18">
-            <Top>19.41724cm</Top>
-            <Left>0.28787cm</Left>
-            <Height>0cm</Height>
-            <Width>17.74695cm</Width>
-            <ZIndex>34</ZIndex>
+            <ZIndex>23</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -1109,11 +985,11 @@
             </Style>
           </Line>
           <Line Name="Line19">
-            <Top>21.24287cm</Top>
+            <Top>22.83037cm</Top>
             <Left>0.26141cm</Left>
             <Height>0cm</Height>
-            <Width>17.72049cm</Width>
-            <ZIndex>35</ZIndex>
+            <Width>17.77341cm</Width>
+            <ZIndex>24</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -1135,11 +1011,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox55</rd:DefaultName>
-            <Top>17.50342cm</Top>
-            <Left>7.96078cm</Left>
+            <Top>18.82675cm</Top>
+            <Left>8.0137cm</Left>
             <Height>0.65292cm</Height>
             <Width>1.49458cm</Width>
-            <ZIndex>36</ZIndex>
+            <ZIndex>25</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1165,11 +1041,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox55</rd:DefaultName>
-            <Top>19.65537cm</Top>
-            <Left>7.45808cm</Left>
+            <Top>20.69822cm</Top>
+            <Left>7.511cm</Left>
             <Height>0.65292cm</Height>
             <Width>2.92333cm</Width>
-            <ZIndex>37</ZIndex>
+            <ZIndex>26</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1180,24 +1056,12 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Line Name="Line20">
-            <Top>6.90245cm</Top>
-            <Left>0.73766cm</Left>
-            <Height>0cm</Height>
-            <Width>16.87382cm</Width>
-            <ZIndex>38</ZIndex>
-            <Style>
-              <Border>
-                <Style>Solid</Style>
-              </Border>
-            </Style>
-          </Line>
           <Line Name="Line23">
             <Top>1.26683cm</Top>
             <Left>0.26141cm</Left>
             <Height>0cm</Height>
             <Width>17.77341cm</Width>
-            <ZIndex>39</ZIndex>
+            <ZIndex>27</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -1207,17 +1071,617 @@
           <Line Name="Line26">
             <Top>1.26683cm</Top>
             <Left>0.28787cm</Left>
-            <Height>19.97604cm</Height>
+            <Height>21.56354cm</Height>
             <Width>0cm</Width>
-            <ZIndex>40</ZIndex>
+            <ZIndex>28</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
               </Border>
             </Style>
           </Line>
+          <Textbox Name="DescripcionSolicitud2">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!Observacion.Value, "SolicitudPagoReliquidacion")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>DescripcionSolicitud</rd:DefaultName>
+            <Top>12.49081cm</Top>
+            <Left>0.73766cm</Left>
+            <Height>1.35847cm</Height>
+            <Width>16.84736cm</Width>
+            <ZIndex>29</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox141">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>CONCEPTO: </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Arial</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>VIÁTICOS FUNCIONARIOS DEL BANCO</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Arial</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox123</rd:DefaultName>
+            <Top>6.13171cm</Top>
+            <Left>0.65828cm</Left>
+            <Height>0.6cm</Height>
+            <Width>16.92674cm</Width>
+            <ZIndex>30</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Line Name="Line18">
+            <Top>20.62767cm</Top>
+            <Left>0.28787cm</Left>
+            <Height>0cm</Height>
+            <Width>17.74695cm</Width>
+            <ZIndex>31</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Tablix Name="Tablix2">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>2.05682cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.99951cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.5cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.5cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.5cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.5cm</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>0.6cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox25">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>VIÁTICO</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox25</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <ColSpan>6</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell />
+                    <TablixCell />
+                    <TablixCell />
+                    <TablixCell />
+                    <TablixCell />
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.6cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox13">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Viático</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox13</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox15">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Peaje</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox15</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox17">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Parqueo</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox17</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox19">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Movilización</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox19</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox21">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Combustible</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox21</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox23">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Mantenimiento</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox23</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.6cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Viático">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=FormatNumber(Fields!Viático.Value,2)</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Viático</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Peaje">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=FormatNumber(Fields!Peaje.Value,2)</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Peaje</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Parqueo">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=FormatNumber(Fields!Parqueo.Value,2)</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Parqueo</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Movilización">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=FormatNumber(Fields!Movilización.Value,2)</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Movilización</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Combustible">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=FormatNumber(Fields!Combustible.Value,2)</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Combustible</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Mantenimiento">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=FormatNumber(Fields!Mantenimiento.Value,2)</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Mantenimiento</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <KeepWithGroup>After</KeepWithGroup>
+                </TablixMember>
+                <TablixMember>
+                  <KeepWithGroup>After</KeepWithGroup>
+                </TablixMember>
+                <TablixMember>
+                  <Group Name="Detalles" />
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <DataSetName>TipoViaticos</DataSetName>
+            <Top>4.1906cm</Top>
+            <Left>0.65828cm</Left>
+            <Height>1.8cm</Height>
+            <Width>14.05633cm</Width>
+            <ZIndex>32</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Tablix>
         </ReportItems>
-        <Height>8.90625in</Height>
+        <Height>9.16542in</Height>
         <Style />
       </Body>
       <Width>7.76042in</Width>
@@ -1248,11 +1712,21 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>DIRIGIDO A:</Value>
+                      <Value>DIRIGIDO A: </Value>
                       <Style>
                         <FontStyle>Normal</FontStyle>
                         <FontFamily>Arial</FontFamily>
                         <FontWeight>Bold</FontWeight>
+                        <TextDecoration>None</TextDecoration>
+                        <Color>#000000</Color>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Value>GERENCIA DE OPERACIONES</Value>
+                      <Style>
+                        <FontStyle>Normal</FontStyle>
+                        <FontFamily>Arial</FontFamily>
+                        <FontWeight>Normal</FontWeight>
                         <TextDecoration>None</TextDecoration>
                         <Color>#000000</Color>
                       </Style>
@@ -1262,10 +1736,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox123</rd:DefaultName>
-              <Top>0.3175cm</Top>
-              <Left>7.37242cm</Left>
+              <Top>0.29846cm</Top>
+              <Left>6.22138cm</Left>
               <Height>0.6cm</Height>
-              <Width>3.93474cm</Width>
+              <Width>12.22289cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -1284,11 +1758,21 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>DEPENDENCIA:</Value>
+                      <Value>DEPENDENCIA: </Value>
                       <Style>
                         <FontStyle>Normal</FontStyle>
                         <FontFamily>Arial</FontFamily>
                         <FontWeight>Bold</FontWeight>
+                        <TextDecoration>None</TextDecoration>
+                        <Color>#000000</Color>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Value>DIRECCIÓN DE ADMINISTRACIÓN DE TALENTO HUMANO</Value>
+                      <Style>
+                        <FontStyle>Normal</FontStyle>
+                        <FontFamily>Arial</FontFamily>
+                        <FontWeight>Normal</FontWeight>
                         <TextDecoration>None</TextDecoration>
                         <Color>#000000</Color>
                       </Style>
@@ -1298,10 +1782,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox123</rd:DefaultName>
-              <Top>0.97cm</Top>
-              <Left>7.37242cm</Left>
+              <Top>0.95096cm</Top>
+              <Left>6.22138cm</Left>
               <Height>0.6cm</Height>
-              <Width>3.93474cm</Width>
+              <Width>12.22289cm</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border>
@@ -1334,8 +1818,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox123</rd:DefaultName>
-              <Top>1.60486cm</Top>
-              <Left>7.37242cm</Left>
+              <Top>1.58582cm</Top>
+              <Left>6.22138cm</Left>
               <Height>0.6cm</Height>
               <Width>3.93474cm</Width>
               <ZIndex>3</ZIndex>
@@ -1368,21 +1852,20 @@
     </ReportSection>
   </ReportSections>
   <ReportParameters>
-    <ReportParameter Name="IdReliquidacionViatico">
+    <ReportParameter Name="IdSolicitudViatico">
       <DataType>Integer</DataType>
-      <Prompt>Id Reliquidacion Viatico</Prompt>
-      <Hidden>true</Hidden>
+      <Prompt>Id Solicitud Viatico</Prompt>
     </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>2</NumberOfColumns>
-      <NumberOfRows>3</NumberOfRows>
+      <NumberOfRows>1</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>IdReliquidacionViatico</ParameterName>
+          <ParameterName>IdSolicitudViatico</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

@@ -22,6 +22,14 @@
         <CommandText>sp_reporte_reliquidacion_solicitud_autorizacion_cumplimiento_servicios_institucionales</CommandText>
       </Query>
       <Fields>
+        <Field Name="NumReliquidacion">
+          <DataField>NumReliquidacion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NumViatico">
+          <DataField>NumViatico</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="FechaSolicitud">
           <DataField>FechaSolicitud</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
@@ -69,14 +77,6 @@
         <Field Name="Observacion">
           <DataField>Observacion</DataField>
           <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="TotalFacturas">
-          <DataField>TotalFacturas</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="IdRolPuesto">
-          <DataField>IdRolPuesto</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="ValorCalculado">
           <DataField>ValorCalculado</DataField>
@@ -238,7 +238,7 @@ DECLARE cursor_tipoViatico CURSOR FOR
 		end
 
 
-		if (select IdItemViatico from #ttb_tipoViatico where IdItemViatico = @IdItemViatico) is null
+		if (select top 1 IdItemViatico from #ttb_tipoViatico where IdItemViatico = @IdItemViatico) is null
 		begin
 			set @TextoTiposViatico = concat(@TextoTiposViatico,' 0  ');
 		end
@@ -261,8 +261,7 @@ DECLARE cursor_tipoViatico CURSOR FOR
 
 	
 
-drop Table #ttb_tipoViatico;
-</CommandText>
+drop Table #ttb_tipoViatico;</CommandText>
       </Query>
       <Fields>
         <Field Name="TiposViaticos">
@@ -342,22 +341,22 @@ drop Table #ttb_tipoViatico;
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.6cm</Height>
+                  <Height>1.06771cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox36">
+                        <Textbox Name="NumReliquidacion">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>RELIQUIDACIÓN DE LA SOLICITUD DE AUTORIZACIÓN PARA CUMPLIMIENTO DE SERVICIOS INSTITUCIONALES NÚMERO:</Value>
+                                  <Value>="RELIQUIDACIÓN DE LA SOLICITUD DE AUTORIZACIÓN PARA CUMPLIMIENTO DE SERVICIOS INSTITUCIONALES NÚMERO: " &amp; Fields!NumReliquidacion.Value</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>SEGOE UI</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <TextDecoration>None</TextDecoration>
                                     <Color>#000000</Color>
@@ -369,7 +368,7 @@ drop Table #ttb_tipoViatico;
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox36</rd:DefaultName>
+                          <rd:DefaultName>NumReliquidacion</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -436,7 +435,7 @@ drop Table #ttb_tipoViatico;
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value EvaluationMode="Constant" />
+                                      <Value>=First(Fields!NumViatico.Value)</Value>
                                       <Style>
                                         <FontFamily>SEGOE UI</FontFamily>
                                         <FontSize>9pt</FontSize>
@@ -672,7 +671,7 @@ drop Table #ttb_tipoViatico;
             <DataSetName>SolicitudViaticos</DataSetName>
             <Top>3.0789cm</Top>
             <Left>1.0668cm</Left>
-            <Height>2.62958cm</Height>
+            <Height>3.09729cm</Height>
             <Width>14.38931cm</Width>
             <ZIndex>1</ZIndex>
             <Style>

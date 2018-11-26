@@ -70,6 +70,7 @@
     <Report Include="RepFormularioRegistroDatosPersonalesEmpleado.rdl" />
     <Report Include="RepIndiceOcupacionalDependenciaSuperior.rdl" />
     <Report Include="RepIndividualSolicitudVacaciones.rdl" />
+    <Report Include="RepInformeCompromisoViatico.rdl" />
     <Report Include="RepInformeServiciosInstitucionales.rdl" />
     <Report Include="RepInformeViaticoFormatoMDT.rdl" />
     <Report Include="RepMatr05PlanificacionTH.rdl" />

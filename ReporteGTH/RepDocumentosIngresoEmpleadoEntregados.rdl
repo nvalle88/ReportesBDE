@@ -1397,7 +1397,7 @@ First(Fields!CargoFirma2.Value, "firmas")
     <ReportParameter Name="IdDependencia">
       <DataType>Integer</DataType>
       <Nullable>true</Nullable>
-      <Prompt>Unidad administrativa</Prompt>
+      <Prompt>Unidad administrativa Empleado</Prompt>
       <ValidValues>
         <DataSetReference>
           <DataSetName>UnidadesAdministrativas</DataSetName>

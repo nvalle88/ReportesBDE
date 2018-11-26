@@ -22,6 +22,10 @@
         <CommandText>sp_reporte_informe_servicios_institucionales</CommandText>
       </Query>
       <Fields>
+        <Field Name="NumViatico">
+          <DataField>NumViatico</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="FechaSolicitud">
           <DataField>FechaSolicitud</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
@@ -2297,7 +2301,7 @@ where
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value EvaluationMode="Constant" />
+                                      <Value>=First(Fields!NumViatico.Value)</Value>
                                       <Style>
                                         <FontFamily>SEGOE UI</FontFamily>
                                         <FontSize>9pt</FontSize>
@@ -2555,7 +2559,7 @@ where
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value EvaluationMode="Constant" />
+                                      <Value>=First(Fields!NumViatico.Value)</Value>
                                       <Style>
                                         <FontFamily>SEGOE UI</FontFamily>
                                         <FontSize>9pt</FontSize>
