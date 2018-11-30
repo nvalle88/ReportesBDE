@@ -66,6 +66,7 @@
     <Report Include="RepEstadisticasIngresoPersonalPeriodoCorte.rdl" />
     <Report Include="RepEstadisticoGrupoFuncional.rdl" />
     <Report Include="RepEvaluacionEvento.rdl" />
+    <Report Include="RepFichaMedica.rdl" />
     <Report Include="RepFormularioDatosPersonalesEmpleado.rdl" />
     <Report Include="RepFormularioRegistroDatosPersonalesEmpleado.rdl" />
     <Report Include="RepIndiceOcupacionalDependenciaSuperior.rdl" />
@@ -95,6 +96,7 @@
     <Report Include="RepSolicitudViaticoFormatoMDT.rdl" />
     <Report Include="RepVacacionesNoGozadas.rdl" />
     <Report Include="RepViaticos.rdl" />
+    <Report Include="RepViaticosFiltros.rdl" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />
 </Project>

@@ -71,35 +71,58 @@
     <DataSet Name="TipoViaticos">
       <Query>
         <DataSourceName>BD</DataSourceName>
-        <CommandText>Declare @IdSolicitudViatico int;
-Declare @NombresTiposViaticos varchar(max);
-Declare @tt_ScriptSQL varchar(max);
+        <QueryParameters>
+          <QueryParameter Name="@IdSolicitudViatico">
+            <Value>=Parameters!IdSolicitudViatico.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>-- PIVOT PARA LOS TIPOS DE VIATICOS CON VALORES
+		--Declare @IdSolicitudViatico int;
+		Declare @NombresTiposViaticos varchar(max);
+		Declare @tt_ScriptSQL varchar(max);
+		Declare @ValorReliquidacion decimal(8,2);
 
-set @IdSolicitudViatico = 63;
+		--set @IdSolicitudViatico = 63;
 
-select 
-	iv.Descripcion as Viatico, 
-	coalesce((select sum(fv.ValorTotalFactura) from FacturaViatico fv where fv.IdSolicitudViatico = @IdSolicitudViatico and fv.IdItemViatico = iv.IdItemViatico),0.00) as Valor 
-into 
-	#ttb_tipoViatico 
-from 
-	ItemViatico iv
-;
+		set @ValorReliquidacion = (select sum(fv.ValorTotalFactura) from FacturaViatico fv where fv.IdSolicitudViatico = @IdSolicitudViatico) - (select top 1 ValorEstimado from SolicitudViatico where IdSolicitudViatico = @IdSolicitudViatico );
+		
 
-select @NombresTiposViaticos = coalesce( concat(@NombresTiposViaticos,',[',tv.Descripcion,']'),'') from (select iv.Descripcion from ItemViatico iv) as tv;
+		select 
+			iv.Descripcion as Viatico, 
+			coalesce(
+				(
+					select sum(fv.ValorTotalFactura * 0)+@ValorReliquidacion 
+					from 
+						FacturaViatico fv 
+					where 
+						fv.IdSolicitudViatico = @IdSolicitudViatico 
+						and fv.IdItemViatico = iv.IdItemViatico
+						and fv.IdFacturaViatico =
+						(select max(IdFacturaViatico) from FacturaViatico where IdSolicitudViatico = @IdSolicitudViatico)
+				),
+				0.00
+			) as Valor
+			
+		into 
+			#ttb_tipoViatico 
+		from 
+			ItemViatico iv
+		;
 
-set @NombresTiposViaticos = left(@NombresTiposViaticos,LEN(@NombresTiposViaticos))
+		select @NombresTiposViaticos = coalesce( concat(@NombresTiposViaticos,',[',tv.Descripcion,']'),'') from (select iv.Descripcion from ItemViatico iv) as tv;
 
-set @tt_ScriptSQL = concat('select ''TIPO VIÁTICOS'' as 
-VALOR ',@NombresTiposViaticos,' 
-from (select Viatico,Valor from #ttb_tipoViatico) as tablaFuente PIVOT ( 
-avg(Valor) FOR Viatico IN (',substring(@NombresTiposViaticos,2,len(@NombresTiposViaticos)),')
-) AS PivotTable;','') ;
+		set @NombresTiposViaticos = left(@NombresTiposViaticos,LEN(@NombresTiposViaticos))
 
---select @tt_ScriptSQL;
-exec sp_sqlexec @tt_ScriptSQL;
+		set @tt_ScriptSQL = concat('select ''TIPO VIÁTICOS'' as 
+		VALOR ',@NombresTiposViaticos,' 
+		from (select Viatico,Valor from #ttb_tipoViatico) as tablaFuente PIVOT ( 
+		avg(Valor) FOR Viatico IN (',substring(@NombresTiposViaticos,2,len(@NombresTiposViaticos)),')
+		) AS PivotTable;','') ;
 
-drop table #ttb_tipoViatico;</CommandText>
+		--select @tt_ScriptSQL;
+		exec sp_sqlexec @tt_ScriptSQL;
+
+		drop table #ttb_tipoViatico;</CommandText>
       </Query>
       <Fields>
         <Field Name="VALOR">
@@ -944,7 +967,7 @@ drop table #ttb_tipoViatico;</CommandText>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>                                                                  Atentamente,</Value>
+                    <Value>Atentamente,</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Arial</FontFamily>
@@ -953,7 +976,9 @@ drop table #ttb_tipoViatico;</CommandText>
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox123</rd:DefaultName>
@@ -1007,14 +1032,16 @@ drop table #ttb_tipoViatico;</CommandText>
                     <Style />
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox55</rd:DefaultName>
             <Top>18.82675cm</Top>
-            <Left>8.0137cm</Left>
+            <Left>0.73766cm</Left>
             <Height>0.65292cm</Height>
-            <Width>1.49458cm</Width>
+            <Width>16.92674cm</Width>
             <ZIndex>25</ZIndex>
             <Style>
               <Border>
@@ -1037,14 +1064,16 @@ drop table #ttb_tipoViatico;</CommandText>
                     <Style />
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox55</rd:DefaultName>
             <Top>20.69822cm</Top>
-            <Left>7.511cm</Left>
+            <Left>0.73766cm</Left>
             <Height>0.65292cm</Height>
-            <Width>2.92333cm</Width>
+            <Width>16.92674cm</Width>
             <ZIndex>26</ZIndex>
             <Style>
               <Border>
@@ -1855,6 +1884,7 @@ drop table #ttb_tipoViatico;</CommandText>
     <ReportParameter Name="IdSolicitudViatico">
       <DataType>Integer</DataType>
       <Prompt>Id Solicitud Viatico</Prompt>
+      <Hidden>true</Hidden>
     </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
